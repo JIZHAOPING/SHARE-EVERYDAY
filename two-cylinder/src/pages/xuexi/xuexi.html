@@ -1,0 +1,120 @@
+<!--
+  Generated template for the XuexiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content>
+  <div style="background-image: url('../assets/imgs/xuexi.png');
+  background-repeat: no-repeat; width: 100%; height: 180px; background-size: 100%">
+  <ion-icon name="md-arrow-back" style="font-size:35px; padding:10px;" (click)="returnHome()"></ion-icon>
+  </div>
+  
+
+  <ul class="navList">
+    <li *ngFor="let item of arr;let idx=index;"(click)="isClick(idx)" [class.first]="isActive==idx">{{item}}</li>
+  </ul>
+  <div [ngSwitch]="isActive">
+    <div *ngSwitchCase="0">
+      <div style="overflow: hidden;" >
+        <div class="fabiao" style="width:20%">
+          <img src="assets/imgs/touxiang.png" alt="">
+        </div>
+        <div class="fabiao"  style="width:55%">
+          <h6>小白 <small style="color:grey;">一分钟前</small></h6>
+          <p>学习打卡一天..</p>
+          <img src="assets/imgs/xuexi.jpg" alt="">
+        </div>
+        <div class="fabiao"  style="width:25%">
+          <input type="button" value="+关注" style="color:orange">
+        </div>
+      </div>
+      
+      <hr/>
+      <div style="overflow: hidden;" >
+        <div class="fabiao" style="width:20%">
+          <img src="assets/imgs/touxiang-1.png" alt="">
+        </div>
+        <div class="fabiao"  style="width:55%">
+          <h6>小黑 <small style="color:grey;">一分钟前</small></h6>
+          <p>不想学习..</p>
+        </div>
+        <div class="fabiao"  style="width:25%">
+          <input type="button" value="+关注" style="color:orange">
+        </div>
+      </div>
+
+    </div>
+    <div *ngSwitchCase="1">
+      <div style="overflow: hidden;" >
+        <div class="fabiao" style="width:20%">
+          <img src="assets/imgs/touxiang-xiaoxiao.png" alt="">
+        </div>
+        <div class="fabiao"  style="width:55%">
+          <h6>小小 <small style="color:grey;">一分钟前</small></h6>
+          <p>爱生活爱陶艺</p>
+          <img src="assets/imgs/taoyi.jpg" alt="">
+        </div>
+        <div class="fabiao"  style="width:25%">
+          <input type="button" value="+关注" style="color:orange">
+        </div>
+      </div>
+      <hr/>
+      <div style="overflow: hidden;" >
+        <div class="fabiao" style="width:20%">
+          <img src="assets/imgs/touxiang-dongdong.png" alt="">
+        </div>
+        <div class="fabiao"  style="width:55%">
+          <h6>东东很酷 <small style="color:grey;">一分钟前</small></h6>
+          <p>画画使我快乐</p>
+          <img src="assets/imgs/huahua.jpg" alt="">
+        </div>
+        <div class="fabiao"  style="width:25%">
+          <input type="button" value="+关注" style="color:orange">
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="2">
+      <div style="overflow: hidden;" >
+          <div class="fabiao" style="width:20%">
+            <img src="assets/imgs/touxiang-xiaomei.png" alt="">
+          </div>
+          <div class="fabiao"  style="width:55%">
+            <h6>小美 <small style="color:grey;">一分钟前</small></h6>
+            <p>爱摄影的我^.^</p>
+            <img src="assets/imgs/摄影.jpg" alt="">
+          </div>
+          <div class="fabiao"  style="width:25%">
+            <input type="button" value="+关注" style="color:orange">
+          </div>
+      </div>
+      <hr/>
+    
+      <div style="overflow: hidden;" >
+        <div class="fabiao" style="width:20%">
+          <img src="assets/imgs/touxiang-healar.png" alt="">
+        </div>
+        <div class="fabiao"  style="width:55%">
+          <h6>Healar <small style="color:grey;">一分钟前</small></h6>
+          <p>每日分享：游泳，是人在水的浮力作用下产生向上漂浮，凭借浮力通过肢体有规律的运动，使身体在水中有规律运动的技能。游泳运动可分为竞技游泳和实用游泳，竞技游泳是奥林匹克运动会中的第二大项目，它包括蝶泳、仰 泳（也称背泳）、蛙泳和捷泳（也称爬泳/自由泳）四种泳姿的竞速项目，以及花样游泳等。
+          </p>
+          <img src="assets/imgs/游泳.jpg" alt="">
+        </div>
+        <div class="fabiao"  style="width:25%">
+          <input type="button" value="+关注" style="color:orange">
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</ion-content>
