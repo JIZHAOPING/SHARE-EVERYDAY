@@ -14,7 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'mine.html',
 })
 export class MinePage {
-
+  items = [];
+  isActive=0;
+  isClick(i){
+    this.isActive=i;
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

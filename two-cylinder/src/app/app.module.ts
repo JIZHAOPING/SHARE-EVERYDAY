@@ -11,6 +11,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MinePage } from '../pages/mine/mine';
+import { XuexiPage } from '../pages/xuexi/xuexi';
+import { WorkPage } from '../pages/work/work';
+import { QingganPage } from '../pages/qinggan/qinggan';
+import { EntertainmentPage } from '../pages/entertainment/entertainment';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,12 @@ import { MinePage } from '../pages/mine/mine';
     ContactPage,
     HomePage,
     TabsPage,
-    MinePage
+    MinePage,
+    XuexiPage,
+    WorkPage,
+    QingganPage,
+    EntertainmentPage
+
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,11 @@ import { MinePage } from '../pages/mine/mine';
     ContactPage,
     HomePage,
     TabsPage,
-    MinePage
+    MinePage,
+    XuexiPage,
+    WorkPage,
+    QingganPage,
+    EntertainmentPage
   ],
   providers: [
     StatusBar,
