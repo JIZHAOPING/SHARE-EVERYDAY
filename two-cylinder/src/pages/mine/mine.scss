@@ -1,0 +1,39 @@
+page-mine {
+    ion-icon{
+        font-size:30px;
+        float: right;
+        padding:5%;
+        color:white;
+    }
+    
+    ul li{
+        float: left;
+        padding-top: 4%;
+        padding-left:10%;
+        padding-right:10%; 
+        list-style:none;
+       // border:1px solid red;
+        
+    }
+    h5{
+        padding-left:10%; 
+    }
+    .me{
+        background-color: white;
+        padding: 7%;   
+        margin: 7%;  
+        border-radius:30px;
+    }
+    span{
+        font-size:20px;
+    }
+    .list{
+        background-color: white;
+        padding: 2%;   
+        margin-left: 5%;  
+        margin-right: 5%; 
+        margin-top: 2%; 
+        margin-bottom: 2%; 
+        border-radius:30px;
+    }
+}

@@ -1,0 +1,53 @@
+<!--
+  Generated template for the MinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>mine</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+</ion-content> -->
+<ion-content style="background-color:#F3F4F9;">
+  <div style="background-image: url('../assets/imgs/mine-bg.png');
+  background-repeat: no-repeat; width: 100%; height: 1290px; background-size: 100%" >
+    <ion-icon name="md-notifications"></ion-icon><ion-icon name="md-settings"></ion-icon>
+    <div class="bg-white" style="background-image: url('../assets/imgs/mine-white.png');
+      background-repeat: no-repeat; width: 100%; height: 280px; background-size: 100%" >
+      <img src="assets/imgs/touxiang.png" alt=""style="width:45%; padding-top:70px;padding-left:70px;">
+      码到成功
+      <ul>
+        <li (click)="isClick(0)" [class.first]="isActive==0"><ion-icon name="md-aperture" style="color:blue"></ion-icon><br/>动态</li>
+        <li (click)="isClick(1)" [class.first]="isActive==1"><ion-icon name="md-heart" style="color:red"></ion-icon><br/>收藏</li>
+        <li (click)="isClick(2)" [class.first]="isActive==2"><ion-icon name="md-eye" style="color:yellow"></ion-icon><br/>关注</li>
+      </ul>
+    </div>
+    <div [ngSwitch]="isActive">
+      <div *ngSwitchCase="0">
+        <h5>我的动态</h5>
+        <div class="me">南方宝宝团的雪球。虽然看起来很大，但有如新作的棉花糖一样松软，如天使的怀抱一样温柔，主要成分是冰沙，打到人身上立刻散掉，不疼不痒，打起来常伴着欢声笑语，一片祥和</div>
+        <div class="me">懵逼  一觉起来过年了？！ 周围一圈的都在说新年好 然后还有人说点鞭炮 然后懵逼的我 脑子一抽 拍案而起 特别大声 TMD过年了还不放假？！</div>
+      </div>
+      <div *ngSwitchCase="1">
+        <h5>我的收藏</h5>
+        <div class="me">健康的生活方式是怎样的？<img src="assets/imgs/蔬菜.png" alt=""></div>
+        <div class="me">怎样养成良好的写作姿势？<img src="assets/imgs/坐姿.jpg" alt=""></div>
+        <div class="me">怎样让心情放松？<img src="assets/imgs/放松.png" alt=""></div>
+      </div>
+      <div *ngSwitchCase="2">
+        <h5>我的关注</h5>
+        <div class="list"><img src="assets/imgs/touxiang-dongdong.png" alt="" style="width:15%"><span>东东</span><ion-icon name="md-heart" style="float:right; color: red;"></ion-icon></div>
+        <div class="list"><img src="assets/imgs/touxiang-xiaoxiao.png" alt="" style="width:15%"><span>小小</span><ion-icon name="md-heart" style="float:right; color: red;"></ion-icon></div>
+        <div class="list"><img src="assets/imgs/touxiang-xiaomei.png" alt="" style="width:15%"><span>小美</span><ion-icon name="md-heart" style="float:right; color: red;"></ion-icon></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

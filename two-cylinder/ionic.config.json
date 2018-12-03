@@ -1,0 +1,7 @@
+{
+  "name": "two-cylinder",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
