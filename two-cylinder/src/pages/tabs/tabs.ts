@@ -26,4 +26,8 @@ export class TabsPage {
       AboutModal.present();
     },false);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 892991b49ab1edabb84378ac212585d062afeed2

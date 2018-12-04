@@ -15,20 +15,56 @@
     </ion-item>
   </ion-list>
 </ion-content> -->
-<ion-content>
+<ion-content style="background-color: #f3f4f9;">
     <div style="background-image: url('../assets/imgs/消息-bg.png');
     background-repeat: no-repeat; width: 100%; height: 1000px; background-size: 100%" >
       <div style="background-image: url('../assets/imgs/消息-1.png');
       background-repeat: no-repeat; width: 100%; height: 180px; background-size: 100%" >
         <ul>
-            <li><ion-icon name="md-thumbs-up" style="color:#FF4081"></ion-icon><br/>获赞</li>
-            <li><ion-icon name="md-list-box" style="color:#009688"></ion-icon><br/>评论</li>
-            <li><ion-icon name="md-contacts" style="color:#8BC34A"></ion-icon><br/>粉丝</li>
+            <li><ion-icon name="md-thumbs-up" style="color:#FF4081" (click)="huozanClick()"></ion-icon><br/>获赞</li>
+            <li><ion-icon name="md-list-box" style="color:#009688" (click)="pinglunClick()"></ion-icon><br/>评论</li>
+            <li><ion-icon name="md-contacts" style="color:#8BC34A" (click)="fansClick()"></ion-icon><br/>粉丝</li>
         </ul>
       </div>
-      <div  style="background-image: url('../assets/imgs/消息-2.png');
+      <div id="list" style="background-image: url('../assets/imgs/消息-2.png');
       background-repeat: no-repeat; width: 100%; height: 1190px; background-size: 100%" >
-       
+        <ion-list>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/touxiang-xiaoxiao.png">
+            </ion-avatar>
+            <h2>小小</h2>
+            <p>I've had a pretty messed up day. If we just...</p>
+          </ion-item>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/touxiang-dongdong.png">
+            </ion-avatar>
+            <h2>dongdong</h2>
+            <p>I've had a pretty messed up day. If we just...</p>
+          </ion-item>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/touxiang-xiaomei.png">
+            </ion-avatar>
+            <h2>小美</h2>
+            <p>I've had a pretty messed up day. If we just...</p>
+          </ion-item>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/touxiang-healar.png">
+            </ion-avatar>
+            <h2>小黑</h2>
+            <p>I've had a pretty messed up day. If we just...</p>
+          </ion-item>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/touxiang-xiaoxiao.png">
+            </ion-avatar>
+            <h2>小小</h2>
+            <p>I've had a pretty messed up day. If we just...</p>
+          </ion-item>
+        </ion-list>
       </div>
     </div>
 </ion-content>

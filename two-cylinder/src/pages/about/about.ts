@@ -7,9 +7,17 @@ import{ FabiaoPage } from'../fabiao/fabiao';
   templateUrl: 'about.html'
 })
 export class AboutPage {
+<<<<<<< HEAD
   fabiao(){
     this.navCtrl.push(FabiaoPage);
   }
+=======
+
+ 
+close(){
+  this.navCtrl.pop();
+}
+>>>>>>> 892991b49ab1edabb84378ac212585d062afeed2
   constructor(public navCtrl: NavController) {
 
   }

@@ -4,6 +4,7 @@ import { XuexiPage } from '../xuexi/xuexi';
 import { WorkPage } from '../work/work';
 import { QingganPage } from '../qinggan/qinggan';
 import { EntertainmentPage } from '../entertainment/entertainment';
+import { SearchPage } from '../search/search';
 
 
 @Component({
@@ -22,6 +23,9 @@ export class HomePage {
   }
   yuleClick(){
     this.navCtrl.push(EntertainmentPage);
+  }
+  searchClick(){
+    this.navCtrl.push(SearchPage);
   }
   constructor(public navCtrl: NavController) {
 
