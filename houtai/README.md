@@ -1,2 +1,2 @@
 
-![登陆](./public/image/1.JPG)
+![登陆](./public/images/1.JPG)
