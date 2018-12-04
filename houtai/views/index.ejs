@@ -6,8 +6,8 @@
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
    </head>
   <body>
-  
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container"> 
+    <nav class="navbar navbar-inverse ">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">二筒</a>
@@ -20,22 +20,80 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar" id="myTab">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">用户分析</a></li>
-            <li><a href="#">动态分析</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="#">用户管理</a></li>
-            <li><a href="#">动态管理</a></li>
-            <li><a href="#">评论管理</a></li>
-            <li><a href="#">消息管理</a></li>
+          <div>
+            <span class="glyphicon glyphicon-globe"></span>统计
+          </div>
+            <li class="active"><a href="#home">用户分析</a></li>
+            <li><a href="#ios">动态分析</a></li>
+            
+            <div>
+              <span class="glyphicon glyphicon-folder-close"></span>管理
+            </div>
+            <li><a href="#user">用户管理</a></li>
+            <li><a href="#movement">动态管理</a></li>
+            <li><a href="#comment">评论管理</a></li>
+            <li><a href="#message">消息管理</a></li>
+
+            <div>
+              <span class="glyphicon glyphicon-folder-open"></span>开发
+            </div>
+            <li><a href="#config">基本配置</a></li>
+            <li><a href="#access">接入权限</a></li>
+
+            <div>
+              <span class="glyphicon glyphicon-cog"></span>设置
+            </div>
+            <li><a href="#information">平台信息</a></li>
+            <li><a href="#account">账户权限</a></li>
           </ul>
         </div>
+
+       <div class="tab-content">
+
+          <div class="tab-pane active" id="home">
+            <h1>用户分析</h1>
+          </div>
+          <div class="tab-pane" id="ios">
+            <h1>动态分析</h1>
+          </div>
+          <div class="tab-pane" id="user">
+            <h1>用户管理</h1>
+          </div>
+          <div class="tab-pane" id="movement">
+            <h1>动态管理</h1>
+          </div>
+          <div class="tab-pane" id="comment">
+            <h1>评论管理</h1>
+          </div>
+          <div class="tab-pane" id="message">
+            <h1>消息管理</h1>
+          </div>
+          <div class="tab-pane" id="config">
+            <h1>基本配置</h1>
+          </div>
+          <div class="tab-pane" id="access">
+            <h1>接入权限</h1>
+          </div>
+          <div class="tab-pane" id="information">
+            <h1>平台信息</h1>
+          </div>
+          <div class="tab-pane" id="account">
+            <h1>账户权限</h1>
+          </div>
+       </div>
+
       </div>
     </div>
-
+    </div>
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"> </script>
+    <script>
+    $('#myTab a').click(function(e){
+      e.preventDefault();
+      $(this).tab('show');
+    })
+    </script>
   </body>
 </html>
