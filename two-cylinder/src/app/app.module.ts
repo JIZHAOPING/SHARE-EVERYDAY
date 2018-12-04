@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
+import { FabiaoPage } from '../pages/fabiao/fabiao';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -20,6 +21,7 @@ import { EntertainmentPage } from '../pages/entertainment/entertainment';
   declarations: [
     MyApp,
     AboutPage,
+    FabiaoPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -38,6 +40,7 @@ import { EntertainmentPage } from '../pages/entertainment/entertainment';
   entryComponents: [
     MyApp,
     AboutPage,
+    FabiaoPage,
     ContactPage,
     HomePage,
     TabsPage,

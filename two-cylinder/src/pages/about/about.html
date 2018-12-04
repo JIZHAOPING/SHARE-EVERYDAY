@@ -1,11 +1,25 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
 <ion-content padding>
+  <div class="container">
+    <div class="ballon">
+      <div id="a1" (click)="fabiao()"><span>升学</span></div>
+      <div id="a2" (click)="fabiao()"><span>艺能</span></div>
+      <div id="a3" (click)="fabiao()"><span>技能</span></div>
+      
+      <div id="b1" (click)="fabiao()"><span>工作日常</span></div>
+      <div id="c1" (click)="fabiao()"><span>亲情</span></div>
+      <div id="b3" (click)="fabiao()"><span>工作烦恼</span></div>
 
+      <div id="b2" (click)="fabiao()"><span>职场经验</span></div>
+      <div id="d1" (click)="fabiao()"><span>旅行</span></div>
+      <div id="c3" (click)="fabiao()"><span>爱情</span></div>
+      
+      <div id="c2" (click)="fabiao()"><span>友情</span></div>
+      <div id="d2" (click)="fabiao()"><span>娱乐</span></div>
+      <div id="d3" (click)="fabiao()"><span>健身</span></div>
+    </div>
+  </div>
 </ion-content>
+<ion-footer no-border text-center>
+  <ion-icon (click)="close()" style="font-size:30px;padding-bottom:20px;" color="dark" name="md-close"></ion-icon>
+</ion-footer>

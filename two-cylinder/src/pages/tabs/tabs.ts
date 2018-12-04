@@ -4,6 +4,7 @@ import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 import { MinePage } from '../mine/mine';
+import { ModalController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -11,11 +12,18 @@ import { MinePage } from '../mine/mine';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
+  //tab2Root = AboutPage;
   tab3Root = ContactPage;
   tab4Root = MinePage;
 
-  constructor() {
+  constructor(public modalCtrl:ModalController) {
 
+  }
+  ionViewDidLoad() {
+    
+    document.querySelector('#tab-t0-1').addEventListener('click',()=>{
+      let AboutModal = this.modalCtrl.create(AboutPage);
+      AboutModal.present();
+    },false);
   }
 }
