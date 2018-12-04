@@ -1,0 +1,185 @@
+<div class="grid-container" id="main-container">
+    <div class="grid-x">
+        <div class="cell small-1 meidum-1 large-1">&nbsp;</div>
+        <div class="cell small-10 medium-10 large-10">
+
+            <form onsubmit="return false;">
+                <input type="hidden" id="article-id">
+
+                <label for="">Title</label>
+                <input type="text" id="title" value="" onchange="save_cache('title');" required>
+
+                <label for="">Keywords</label>
+                <input type="text" id="keywords" value="" onchange="save_cache('keywords');">
+
+                <div id="editor-zone">
+                    <div id="editor-menu" class="editor-menu" style="margin-bottom: 0.5rem;border: solid 0.05rem #c5c5c5;"></div>
+                    <div id="editor-block" class="editor-block" style="height:32rem;width:100%;border-left:solid 0.05rem #a3a3a3;">
+                    </div>
+                </div>
+                <div id="editor" style="height:25%;width:100%;">
+                </div>
+                <br>
+
+                <input type="submit" class="button success small" onclick="ajax_rssubmit(1);" value="保存并发布">
+            </form>
+            <div>
+                <p id="api-ret"></p>
+            </div>
+        </div>
+        <div class="cell small-1 meidum-1 large-1">&nbsp;</div>
+    </div>
+</div>
+<script src="http://127.0.0.1:5679/js/sys.js"></script>
+<script src="http://127.0.0.1:5679/js/brutal_1804.js"></script>
+<script src="http://127.0.0.1:5679/js/wangEditor.min.js"></script>
+<script>
+    function _jsonqry(jsd){
+        var data = '';
+        for(var k in jsd){
+            if(typeof jsd[k] == 'object'){
+                jsd[k] = jsd[k].toString();
+            }
+            data += k+'='+encodeURIComponent(jsd[k])+'&';
+        }
+        return data.substring(0,data.length-1);
+    };
+
+    var stkey = 'edit';
+
+    var E = window.wangEditor;
+    var editor = new E('#editor-menu', '#editor-block');
+    editor.customConfig.uploadImgMaxLength = 1;
+    editor.customConfig.zIndex = 0;
+    editor.customConfig.onchangeTimeout  = 800;
+    editor.customConfig.onchange=function(html){
+        wstg_setItem(`${stkey}-rs-cache`, form_rs_data(), true);
+        wstg_setItem(`${stkey}-init-flag`, parseInt(wstg_getItem(`${stkey}-init-flag`))+1);
+    }
+
+    editor.customConfig.customUploadImg = function (files, insert) {
+        // files 是 input 中选中的文件列表
+        // insert 是获取图片 url 后，插入到编辑器的方法
+        for (var i=0; i< files.length; i++) {
+            raj.uploadOne(files[i], {
+                url : `${api_host}/upload/image`,
+                success:function(xr) {
+                    if (xr.status == 0) {
+                        var img_src = `${image_host}/upload/image/${xr.filename}`;
+                        insert(img_src);
+                    } else {
+                        alert(xr.errinfo);
+                        //show_system_info(xr.errinfo, false);
+                    }
+                },
+                upload_name : 'image'
+            });
+        }
+        // 上传代码返回结果之后，将图片插入到编辑器中
+        //insert(imgUrl)
+    }
+    // 或者 var editor = new E( document.getElementById('#editor') )
+    editor.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'quote',  // 引用
+        'image',  // 插入图片
+        'table',  // 表格
+        'code',  // 插入代码
+        'undo',  // 撤销
+        'redo'  // 重复
+    ];
+    editor.create();
+
+    function save_cache() {
+        wstg_setItem(`${stkey}-rs-cache`, form_rs_data(), true);
+        wstg_setItem(`${stkey}-init-flag`, parseInt(wstg_getItem(`${stkey}-init-flag`))+1);
+    }
+
+    function form_rs_data() {
+        var rs_data = {
+            id         : brutal.autod('#article-id'),
+            a_title    : brutal.autod('#title'),
+            a_content  : editor.txt.html(),
+            a_keywords : brutal.autod('#keywords')
+        };
+        return rs_data;
+    }
+
+    function clear_form_data() {
+        brutal.autod('#title', '');
+        brutal.autod('#keywords', '');
+        editor.txt.html('');
+        wstg_setItem(`${stkey}-init-flag`, '0');
+        wstg_setItem(`${stkey}-rs-cache`, '{}');
+    }
+
+    function ajax_rssubmit(sub_type) {
+        var data = form_rs_data();
+
+        raj.post({
+            url : `${api_host}/article/update`,
+            data : _jsonqry(data),
+            success : function(xr) {
+                if (xr.status == 0) {
+                    alert('ok');
+                } else {
+                    alert(xr.errinfo);
+                }
+            }
+        });
+        
+    }
+
+    function set_rs_cache(rs) {
+        brutal.autod('#article-id', rs.id);
+        brutal.autod('#title', rs.a_title);
+        brutal.autod('#keywords', rs.a_keywords);
+        editor.txt.html(rs.a_content);
+    }
+
+    window.onpageshow = function() {
+
+        /*
+            解析路径并获取ID用于AJAX请求接口获取article数据
+        */
+        var pathinfo = location.pathname;
+        var path_split = pathinfo.split('/').filter(p => p.length > 0);
+        var aid = 0;
+        if (path_split.length > 0) {
+            aid = path_split[path_split.length-1];
+        }
+        document.querySelector('#article-id').value = aid;
+        
+        //如果已经缓存则直接加载，否则请求接口获取数据
+        if (wstg_getItem('edit-init-flag' + aid)!==null) {
+            var count = parseInt(wstg_getItem('edit-init-flag' + aid));
+            if (count > 0) {
+                var rs = wstg_getItem('edit-rs-cache',true);
+                set_rs_cache(rs);
+            }
+        } else {
+            raj.get({
+                url : `${api_host}/article/get/${aid}`,
+                success : function(xr) {
+                    if (xr.status == 0) {
+                        wstg_getItem('edit-init-flag' + aid, '1');
+                        set_rs_cache(xr.article);
+                    } else {
+                        alert(xr.errinfo);
+                    }
+                }
+            });
+        }
+    }
+</script>
