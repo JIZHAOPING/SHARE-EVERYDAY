@@ -7,8 +7,16 @@ page-contact {
         padding-top: 20%;
         padding-left:16%; 
         list-style:none;
-        border:1px solid red;
+
         
     }
-   
+    #list{
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top:5%;       
+        ion-item{
+            border-radius:40px;
+
+        }
+    }
 }

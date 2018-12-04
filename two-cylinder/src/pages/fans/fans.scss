@@ -1,0 +1,19 @@
+page-fans {
+    .list{
+        background-color: white;
+        padding: 2%;   
+        margin-left: 5%;  
+        margin-right: 5%; 
+        margin-top: 2%; 
+        margin-bottom: 2%; 
+        border-radius:30px;
+    }
+    span{
+        font-size:20px;
+    }
+    input{
+        float: right; 
+        color: orange; 
+        margin-top:14px;
+    }
+}
