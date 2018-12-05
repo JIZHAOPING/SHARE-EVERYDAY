@@ -19,19 +19,19 @@
       <input class="form-control" name="username" placeholder="账户名" required="" type="text"><br>
       <input class="form-control" name="password" placeholder="账户密码" required="" type="password"><br>
       <input class="form-control" id="submit" value="登陆" type="submit" >
-
     </form>
-    alert('<%=title %>');
   </div>
   </div>
+  
   <script src="/javascripts/jquery.js"></script>
   <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
   <script>
-   // $("#submit").click(function(){
-     //location.href='/index';
-     //   $.post('http://localhost:3000'),
-   // })
-  var title=1;
+  var failure ='<%= locals.flag %>';
+  if(failure==1){
+    console.log('登陆失败');
+  }else{
+    console.log('pankaiya')
+  }
   </script>
 </body>
 </html>
