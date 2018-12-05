@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/',(req,res,next)=>{
-  res.render('login');
+  res.render('login',{title:'潘凯亚'});
 });
 router.get('/index', (req, res,next)=> {  
   res.render('index');
