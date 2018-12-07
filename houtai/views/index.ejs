@@ -95,6 +95,9 @@
       e.preventDefault();
       $(this).tab('show');
     })
+    var today=new Date();
+    var month=today.getMonth()+1;
+    document.getElementById("date").innerHTML=today.getFullYear()+"年"+month+"月"+today.getDate()+"日";
     </script>
   </body>
 </html>
