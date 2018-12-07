@@ -35,7 +35,7 @@
             <li><a href="#user">用户管理</a></li>
             <li><a href="#movement">动态管理</a></li>
             <li><a href="#comment">评论管理</a></li>
-            <li><a href="#message">消息管理</a></li>
+            <li><a href="#message">话题管理</a></li>
 
             <div>
               <span class="glyphicon glyphicon-folder-open"></span>开发
@@ -54,22 +54,22 @@
        <div class="tab-content">
 
           <div class="tab-pane active" id="home">
-            <%- include ./index/home.html %>
+            <%- include ./index/usera.html %>
           </div>
           <div class="tab-pane" id="ios">
-            <%- include ./index/ios.html %>
+            <%- include ./index/dyna.html %>
           </div>
           <div class="tab-pane" id="user">
-            <h1>用户管理</h1>
+            <%- include ./index/userm.html %>
           </div>
           <div class="tab-pane" id="movement">
-            <%- include ./index/movement.html %>
+            <%- include ./index/dynm.html %>
           </div>
           <div class="tab-pane" id="comment">
-            <h1>评论管理</h1>
+            <%- include ./index/comment.html %>
           </div>
           <div class="tab-pane" id="message">
-            <h1>消息管理</h1>
+            <%- include ./index/news.html %>
           </div>
           <div class="tab-pane" id="config">
             <h1>基本配置</h1>
