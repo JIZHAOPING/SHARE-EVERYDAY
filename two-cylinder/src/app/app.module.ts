@@ -4,7 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { FabiaoPage } from '../pages/fabiao/fabiao';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -27,12 +26,17 @@ import { PinglunPage } from '../pages/pinglun/pinglun';
 import { FansPage } from '../pages/fans/fans';
 import { XieyiPage } from '../pages/xieyi/xieyi';
 import { ForgetPage } from '../pages/forget/forget';
+import { FabiaoPage } from '../pages/fabiao/fabiao';
+//import { ChatMessagePage } from '../pages/chat-message/chat-message';
+import { PipesModule } from '../pipes/pipes.module';
+import { XiangqingPage } from '../pages/xiangqing/xiangqing';
+import { Camera } from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    FabiaoPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -51,18 +55,22 @@ import { ForgetPage } from '../pages/forget/forget';
     PinglunPage,
     FansPage,
     XieyiPage,
-    ForgetPage
+    ForgetPage,
+    FabiaoPage ,  
+    //ChatMessagePage
+    XiangqingPage
 
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    PipesModule,
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     AboutPage,
-    FabiaoPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -81,12 +89,17 @@ import { ForgetPage } from '../pages/forget/forget';
     PinglunPage,
     FansPage,
     XieyiPage,
-    ForgetPage
+    ForgetPage,
+    FabiaoPage,
+    XiangqingPage
+    
+    //ChatMessagePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera
   ]
 })
 export class AppModule {}

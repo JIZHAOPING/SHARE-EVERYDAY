@@ -14,7 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fans.html',
 })
 export class FansPage {
-
+  items=[
+    {src:'assets/imgs/touxiang.png',name:'小白'},
+    {src:'assets/imgs/touxiang-1.png',name:'小黑'}
+  ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

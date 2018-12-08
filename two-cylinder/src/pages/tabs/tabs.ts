@@ -6,6 +6,8 @@ import { HomePage } from '../home/home';
 import { MinePage } from '../mine/mine';
 import { ModalController } from 'ionic-angular';
 
+
+
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -15,6 +17,8 @@ export class TabsPage {
   //tab2Root = AboutPage;
   tab3Root = ContactPage;
   tab4Root = MinePage;
+  
+  
 
   constructor(public modalCtrl:ModalController) {
 
@@ -26,8 +30,4 @@ export class TabsPage {
       AboutModal.present();
     },false);
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 892991b49ab1edabb84378ac212585d062afeed2

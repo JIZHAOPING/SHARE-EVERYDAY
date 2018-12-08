@@ -27,97 +27,69 @@
       <li *ngFor="let item of arr;let idx=index;"(click)="isClick(idx)" [class.first]="isActive==idx">{{item}}</li>
     </ul>
     <div [ngSwitch]="isActive">
-      <div *ngSwitchCase="0">
-        <div style="overflow: hidden;" >
-          <div class="fabiao" style="width:20%">
-            <img src="assets/imgs/touxiang.png" alt="">
-          </div>
-          <div class="fabiao"  style="width:55%">
-            <h6>小白 <small style="color:grey;">一分钟前</small></h6>
-            <p>爱妈妈..</p>
-            <img src="assets/imgs/妈妈.jpg" alt="">
-          </div>
-          <div class="fabiao"  style="width:25%">
-            <input type="button" value="+关注" style="color:orange">
-          </div>
+        <div *ngSwitchCase="0">
+            <ul>
+                <li *ngFor="let qinggan1 of qinggan1_li;let id = index">
+                    <div style="overflow: hidden;" >
+                        <div class="fabiao" style="width:20%">
+                          <img src="{{qinggan1.src}}" alt="">
+                        </div>
+                        <div class="fabiao"  style="width:55%">
+                          <h6>{{qinggan1.name}}<small style="color:grey;">{{qinggan1.time}}</small></h6>
+                          <p>{{qinggan1.content}}</p>
+                          <img src="{{qinggan1.img}}" alt="">
+                        </div>
+                        <div class="fabiao"  style="width:25%">
+                            <button type="button" id="guanzhu" (click)="guanzhuChange(id)" value="" style="color:orange; border: 1px solid grey;" >+关注</button>
+                        </div>
+                      </div>
+                      <hr/>
+                </li>
+            </ul>
+    
+          
+    
         </div>
-        
-        <hr/>
-        <div style="overflow: hidden;" >
-          <div class="fabiao" style="width:20%">
-            <img src="assets/imgs/touxiang-1.png" alt="">
-          </div>
-          <div class="fabiao"  style="width:55%">
-            <h6>小黑 <small style="color:grey;">一分钟前</small></h6>
-            <p>想家。。</p>
-          </div>
-          <div class="fabiao"  style="width:25%">
-            <input type="button" value="+关注" style="color:orange">
-          </div>
+        <div *ngSwitchCase="1">
+            <ul>
+                <li *ngFor="let qinggan2 of qinggan2_li;let id = index">
+                    <div style="overflow: hidden;" >
+                        <div class="fabiao" style="width:20%">
+                          <img src="{{qinggan2.src}}" alt="">
+                        </div>
+                        <div class="fabiao"  style="width:55%">
+                          <h6>{{qinggan2.name}}<small style="color:grey;">{{qinggan2.time}}</small></h6>
+                          <p>{{qinggan2.content}}</p>
+                          <img src="{{qinggan2.img}}" alt="">
+                        </div>
+                        <div class="fabiao"  style="width:25%">
+                            <button type="button" id="guanzhu" (click)="guanzhuChange(id)" value="" style="color:orange; border: 1px solid grey;" >+关注</button>
+                        </div>
+                      </div>
+                      <hr/>
+                </li>
+            </ul>
         </div>
-  
-      </div>
-      <div *ngSwitchCase="1">
-        <div style="overflow: hidden;" >
-          <div class="fabiao" style="width:20%">
-            <img src="assets/imgs/touxiang-xiaoxiao.png" alt="">
+        <div *ngSwitchCase="2">
+            <ul>
+                <li *ngFor="let qinggan3 of qinggan3_li;let id = index">
+                    <div style="overflow: hidden;" >
+                        <div class="fabiao" style="width:20%">
+                          <img src="{{qinggan3.src}}" alt="">
+                        </div>
+                        <div class="fabiao"  style="width:55%">
+                          <h6>{{qinggan3.name}}<small style="color:grey;">{{qinggan3.time}}</small></h6>
+                          <p>{{qinggan3.content}}</p>
+                          <img src="{{qinggan3.img}}" alt="">
+                        </div>
+                        <div class="fabiao"  style="width:25%">
+                            <button type="button" id="guanzhu" (click)="guanzhuChange(id)" value="" style="color:orange; border: 1px solid grey;" >+关注</button>
+                        </div>
+                      </div>
+                      <hr/>
+                </li>
+            </ul>
           </div>
-          <div class="fabiao"  style="width:55%">
-            <h6>小小 <small style="color:grey;">一分钟前</small></h6>
-            <p>还好地球是“缘”的，兜兜转转我们总会相见。用区块链永久记录你的爱!</p>
-            <img src="assets/imgs/爱情.jpg" alt="">
-          </div>
-          <div class="fabiao"  style="width:25%">
-            <input type="button" value="+关注" style="color:orange">
-          </div>
-        </div>
-        <hr/>
-        <div style="overflow: hidden;" >
-          <div class="fabiao" style="width:20%">
-            <img src="assets/imgs/touxiang-dongdong.png" alt="">
-          </div>
-          <div class="fabiao"  style="width:55%">
-            <h6>东东很酷 <small style="color:grey;">一分钟前</small></h6>
-            <p>我想寻求帮助。我和我前女友在一起二十多天，上个月分手了，当时分手因为她整天要学习，我又不能陪她学习（嫌我比较爱玩），她每天学习还要想着有我这个男朋友，要跟我分手，我改我陪她学习都没用，就是分手，说什么都没用，我想时间这么短的感情应该不会怎样吧。但分手后的每天我都控制不住的去关注她，晚上会梦见她，睡醒以后心里特难受，最近发现她天天打游戏，貌似又要有对象了，我怕一些谎言被拆穿，我怕爱的越深恨得越深，我不想恨她，（我认为付出过真心是最可怕的，有些事真的能改变一个人）。我想问问有什么方法能让我不这么难受，求大神支招！
-              </p>
-            <img src="assets/imgs/求安慰的猫.jpg" alt="">
-          </div>
-          <div class="fabiao"  style="width:25%">
-            <input type="button" value="+关注" style="color:orange">
-          </div>
-        </div>
-      </div>
-      <div *ngSwitchCase="2">
-        <div style="overflow: hidden;" >
-            <div class="fabiao" style="width:20%">
-              <img src="assets/imgs/touxiang-xiaomei.png" alt="">
-            </div>
-            <div class="fabiao"  style="width:55%">
-              <h6>小美 <small style="color:grey;">一分钟前</small></h6>
-              <p>我胖是有原因的。我有一个损友天天在旁边说我“不胖”</p>
-              <img src="assets/imgs/不胖.jpg" alt="">
-            </div>
-            <div class="fabiao"  style="width:25%">
-              <input type="button" value="+关注" style="color:orange">
-            </div>
-        </div>
-        <hr/>
-      
-        <div style="overflow: hidden;" >
-          <div class="fabiao" style="width:20%">
-            <img src="assets/imgs/touxiang-healar.png" alt="">
-          </div>
-          <div class="fabiao"  style="width:55%">
-            <h6>Healar <small style="color:grey;">一分钟前</small></h6>
-            <p>舍友为什么每次都让我买饭？？
-            </p>
-            <img src="assets/imgs/烦.jpg" alt="">
-          </div>
-          <div class="fabiao"  style="width:25%">
-            <input type="button" value="+关注" style="color:orange">
-          </div>
-        </div>
-      </div>
-      
+
     </div>
   </ion-content>

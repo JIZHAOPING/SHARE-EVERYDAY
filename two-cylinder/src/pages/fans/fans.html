@@ -14,14 +14,9 @@
 
 
 <ion-content style="background-color:#f3f4f9;">
-    <div class="list">
-      <img src="assets/imgs/touxiang-dongdong.png" alt="" style="width:15%"><span>东东</span><input type="button" value="+关注" />
+    <div class="list" *ngFor="let item of items ;let id=index">
+        <img src="{{item.src}}" alt="" style="width:15%"><span>{{item.name}}</span><input type="button" value="+关注" />
     </div>
-    <div class="list">
-      <img src="assets/imgs/touxiang-xiaoxiao.png" alt="" style="width:15%"><span>小小</span><input type="button" value="+关注" />
-    </div>
-    <div class="list">
-      <img src="assets/imgs/touxiang-xiaomei.png" alt="" style="width:15%"><span>小美</span><input type="button" value="+关注" />
-    </div>
+    
       
 </ion-content>
