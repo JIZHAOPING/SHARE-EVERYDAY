@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
    </head>
   <body>
   <div class="container"> 
@@ -57,13 +59,13 @@
             <%- include ./index/usera.html %>
           </div>
           <div class="tab-pane" id="ios">
-            <%- include ./index/dyna.html %>
+            <%- include ./index/movea.html %>
           </div>
           <div class="tab-pane" id="user">
             <%- include ./index/userm.html %>
           </div>
           <div class="tab-pane" id="movement">
-            <%- include ./index/dynm.html %>
+            <%- include ./index/movem.html %>
           </div>
           <div class="tab-pane" id="comment">
             <%- include ./index/comment.html %>
@@ -88,8 +90,6 @@
       </div>
     </div>
     </div>
-    <script src="/javascripts/jquery.js"></script>
-    <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"> </script>
     <script>
     $('#myTab a').click(function(e){
       e.preventDefault();
