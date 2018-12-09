@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var TodoModel = mongoose.model('Todo');
 
 /* GET home page. */
 router.get('/',(req,res,next)=>{
@@ -10,7 +12,7 @@ router.get('/index', (req, res,next)=> {
 });
 router.post('/',(req,res,next)=>{
   if(req.body.username=='hello' && req.body.password=='123456'){
-    res.redirect('/index');
+                    res.redirect('/index'); 
   }else{
     res.render('login',{flag:1}); 
   }
