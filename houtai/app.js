@@ -1,8 +1,11 @@
+require('./modules/users.js');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var engine = require('ejs-mate');
 
 //===路由信息 （接口地址）开始 存放在./routes目录下===//
 var indexRouter = require('./routes/index');
@@ -14,6 +17,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.engine('ejs',engine);
 
 app.use(logger('dev'));
 app.use(express.json());
