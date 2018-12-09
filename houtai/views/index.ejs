@@ -39,11 +39,13 @@
             <li><a href="#comment">评论管理</a></li>
             <li><a href="#message">话题管理</a></li>
 
+            <!--
             <div>
               <span class="glyphicon glyphicon-folder-open"></span>开发
             </div>
             <li><a href="#config">基本配置</a></li>
             <li><a href="#access">接入权限</a></li>
+            -->
 
             <div>
               <span class="glyphicon glyphicon-cog"></span>设置
@@ -53,7 +55,7 @@
           </ul>
         </div>
 
-       <div class="tab-content col-xs-10">
+       <div class="tab-content">
 
           <div class="tab-pane active" id="home">
             <%- include ./index/usera.html %>
@@ -80,10 +82,21 @@
             <h1>接入权限</h1>
           </div>
           <div class="tab-pane" id="information">
+            <div>
             <h1>平台信息</h1>
+            <hr>
+            </div>
+            <div>
+            <p>平台名称:二筒</p>
+            <p>项目目标：为广大用户提供释放自我的平台</p>
+            <p>开发日期：2018-12-1</p>
+            <p>联系人：码到成功小组</p>
+            <p>固定电话:xxx</p>
+            <p>开发地：河北师范大学软件学院</p>
+            </div>
           </div>
           <div class="tab-pane" id="account">
-            <h1>账户权限</h1>
+            <%- include ./index/authority.html %>
           </div>
        </div>
 
