@@ -3,16 +3,12 @@ page-about {
     ion-content{
         background-image: url('../assets/imgs/write.png');
         background-repeat: no-repeat;
-        background-size:contain;
+        background-size:100%;
         font-family: "幼圆";
         font-size:16px;
         font-weight:bold;
         
-<<<<<<< HEAD
-    }s
-=======
     }
->>>>>>> 892991b49ab1edabb84378ac212585d062afeed2
     .container{
         margin-top:30px;
     }
@@ -34,13 +30,13 @@ page-about {
         width:100px;
         height:100px;
         line-height:100px;
-        color:lightgreen;   
+        color:#543e5c;   
     }
     #a2{
         width:80px;
         height:80px;
         line-height:80px;
-        color:lightgreen;
+        color:#e00543;
         margin:40px 30px 0px;
     }
     #a3{
@@ -48,20 +44,20 @@ page-about {
         height:80px;
         line-height:80px;
         color:lightgreen;
-        margin-right:0px;
+        margin-left:0px;
     }
     #b1{
         width:80px;
         height:80px;
         line-height:80px;
-        color:blue;   
+        color:#a1c45a;   
         margin:20px;
     }
     #c1{
         width:70px;
         height:70px;
         line-height:70px;
-        color:orange;   
+        color:#7045af;   
         margin:50px 20px 0px;
     }
     #b3{
@@ -69,48 +65,48 @@ page-about {
         height:80px;
         line-height:80px;
         color:blue;    
-        margin:0px 10px 60px;
+        margin: 10px;
     }
     #b2{
         width:80px;
         height:80px;
         line-height:80px;
-        color:blue;    
-        margin:0px;
+        color:#FF77FF;    
+        margin-left:120px;
     }
     #d1{
         width:70px;
         height:70px;
         line-height:70px;
-        color:#FF77FF;   
-        margin:20px 40px 0px;
+        color:#053220;   
+        margin:0px;
     }
     #c3{
         width:80px;
         height:80px;
         line-height:80px;
         color:orange;   
-        margin:10px;
+        margin-left:10px;
     }
     #c2{
         width:80px;
         height:80px;
         line-height:80px;
-        color:orange;   
-        margin:20px;
+        color:#db2d43;   
+        margin-left:20px;
     }
     #d2{
         width:80px;
         height:80px;
         line-height:80px;
-        color:#FF77FF;   
+        color:#aa530e;   
         margin:40px 20px 10px;
     }
     #d3{
         width:70px;
         height:70px;
         line-height:70px;
-        color:#FF77FF;   
+        color:#21e6c1;   
         margin:20px 10px 0px;
     }
 }

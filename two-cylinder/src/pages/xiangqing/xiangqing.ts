@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the PinglunPage page.
+ * Generated class for the XiangqingPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,19 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-pinglun',
-  templateUrl: 'pinglun.html',
+  selector: 'page-xiangqing',
+  templateUrl: 'xiangqing.html',
 })
-export class PinglunPage {
-  items=[
-    {src:'assets/imgs/touxiang.png',name:'小白'},
-    {src:'assets/imgs/touxiang-1.png',name:'小黑'}
-  ]
+export class XiangqingPage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PinglunPage');
+    console.log('ionViewDidLoad XiangqingPage');
   }
 
 }

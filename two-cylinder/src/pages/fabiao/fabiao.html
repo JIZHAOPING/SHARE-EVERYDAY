@@ -1,12 +1,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>fabiao</ion-title>
+    <ion-title></ion-title>
+    <input type="button" value="发表" (click)="fabiaoClick()" style="border-radius: 20px; background:#C0C8EA;float: right; margin-right:7% ">
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div id="show_time0" style="border: 1px solid grey;border-radius: 50%;text-align: center;"></div>
+  <input type="text" style="border: 1px solid grey;border-radius: 10%;width: 90%;height: 60%;margin:5%;">
+  <ion-icon name="md-camera" style="margin:6%" (click)="opencamera()"></ion-icon>
+  <ion-icon name="md-folder" style="margin:6%" (click)="openfile()"></ion-icon>
+  <span  style="margin:6% 0% ;float:right;">是否设为私密</span>
+  <input type="radio" style="margin:6% 0% ;float:right;">
 </ion-content>

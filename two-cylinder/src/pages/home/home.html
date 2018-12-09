@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar> 
-    <ion-title style="text-align:center;"> 二 筒</ion-title>
+    <ion-title style="padding-left: 140px;"> 二 筒</ion-title>
 
     <ion-buttons end  (click)="searchClick()">
       <button ion-button icon-only>
@@ -22,43 +22,23 @@
   <div class="bgImage" style="background-image: url('../assets/imgs/shouye-1-4.png');
   background-repeat: no-repeat; width: 21%; height: 90px; background-size: 100%"  (click)="yuleClick()">娱乐</div>
   <h6>最新发表</h6><hr/>
-     
-  <div style="overflow: hidden;" >
-    <div class="fabiao" style="width:20%">
-      <img src="assets/imgs/touxiang.png" alt="">
-    </div>
-    <div class="fabiao"  style="width:55%">
-      <h6>小白 <small style="color:grey;">十分钟前</small></h6>
-      <p>今天超开心的..</p>
-      <img src="assets/imgs/头像.png" alt="">
-    </div>
-    <div class="fabiao"  style="width:25%">
-      <input type="button" value="+关注" style="color:orange">
-      <!-- <ion-fab bottom right >
-        <button ion-fab><ion-icon name="md-share"></ion-icon></button>
-        <ion-fab-list side="top">
-          <button ion-fab><img src="assets/imgs/微信.png" alt=""></button>
-          <button ion-fab><img src="assets/imgs/微博.png" alt=""></button>
-          <button ion-fab><img src="assets/imgs/qq.png" alt=""></button>
-        </ion-fab-list>
-        <ion-fab-list side="left">
-          <button ion-fab><ion-icon name="md-heart-outline"></ion-icon></button>
-        </ion-fab-list>
-      </ion-fab> -->
-    </div>
-  </div>
-  <hr/>
-  <div style="overflow: hidden;" >
-    <div class="fabiao" style="width:20%">
-      <img src="assets/imgs/touxiang-1.png" alt="">
-    </div>
-    <div class="fabiao"  style="width:55%">
-      <h6>小黑 <small style="color:grey;">十五分钟前</small></h6>
-      <p>淡泊宁静..</p>
-      <img src="assets/imgs/huaping.jpg" alt="">
-    </div>
-    <div class="fabiao"  style="width:25%">
-      <input type="button" value="+关注" style="color:orange">
-    </div>
-  </div>
+  <ul>
+    <li *ngFor="let home1 of home_li;let id = index">
+      <div style="overflow: hidden;">
+        <div class="fabiao" style="width:20%" (click)="xiangqingClick()">
+          <img src="{{home1.src}}" alt="">
+        </div>
+        <div class="fabiao"  style="width:55%" (click)="xiangqingClick()">
+          <h6>{{home1.name}} <small style="color:grey;">{{home1.time}}</small></h6>
+          <p>{{home1.content}}</p>
+          <img src="{{home1.img}}" alt="">
+        </div>
+        <div  style=" float: left; width:25%">
+          <button type="button" id="guanzhu" (click)="guanzhuChange(id)" value="" style="color:orange; border: 1px solid grey;" >+关注</button> 
+        </div>
+      </div>
+      <hr>
+    </li>
+  </ul>   
+  
 </ion-content>
