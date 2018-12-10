@@ -47,7 +47,7 @@ export class FabiaoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FabiaoPage');
-    setInterval("show_time0.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1);  
+    //setInterval("show_time0.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1);  
   }
 
 }

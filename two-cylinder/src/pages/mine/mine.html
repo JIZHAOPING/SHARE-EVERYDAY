@@ -47,7 +47,7 @@
       <div *ngSwitchCase="2">
         <h5>我的关注</h5>
         <div class="list" *ngFor="let item3 of items3 ;let id=index">
-            <div class="list"><img src="{{item3.src}}" alt="" style="width:15%"><span>{{item3.name}}</span><ion-icon name="md-heart" style="float:right; color: red;"></ion-icon></div>
+            <div class="list"><img src="{{item3.src}}" alt="" style="width:15%"><span>{{item3.name}}</span><ion-icon name="md-heart" style="float:right; color: red;" (click)="change"></ion-icon></div>
         </div>
         
       </div>
