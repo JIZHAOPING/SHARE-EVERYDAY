@@ -2,6 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpModule} from '@angular/http';
+//引入接口文件
+import { ApiProvider} from '../provider/api';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -65,6 +68,7 @@ import { Camera } from '@ionic-native/camera';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     PipesModule,
+    HttpModule
    
   ],
   bootstrap: [IonicApp],
@@ -98,6 +102,7 @@ import { Camera } from '@ionic-native/camera';
   providers: [
     StatusBar,
     SplashScreen,
+    ApiProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera
   ]
