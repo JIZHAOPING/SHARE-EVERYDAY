@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+   </head>
+  <body>
+  <div class="container"> 
+    <nav class="navbar navbar-inverse ">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">二筒</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          
+        </div>
+      </div> 
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-3 col-xs-2 sidebar" id="myTab">
+          <ul class="nav nav-sidebar">
+          <div>
+            <span class="glyphicon glyphicon-globe"></span>统计
+          </div>
+            <li class="active"><a href="#home">用户分析</a></li>
+            <li><a href="#ios">动态分析</a></li>
+            
+            <div>
+              <span class="glyphicon glyphicon-folder-close"></span>管理
+            </div>
+            <li><a href="#user">用户管理</a></li>
+            <li><a href="#movement">动态管理</a></li>
+            <li><a href="#comment">评论管理</a></li>
+            <li><a href="#message">话题管理</a></li>
+
+            <!--
+            <div>
+              <span class="glyphicon glyphicon-folder-open"></span>开发
+            </div>
+            <li><a href="#config">基本配置</a></li>
+            <li><a href="#access">接入权限</a></li>
+            -->
+
+            <div>
+              <span class="glyphicon glyphicon-cog"></span>设置
+            </div>
+            <li><a href="#information">平台信息</a></li>
+            <li><a href="#account">账户权限</a></li>
+          </ul>
+        </div>
+
+       <div class="tab-content">
+
+          <div class="tab-pane active" id="home">
+            <%- include ./index/usera.html %>
+          </div>
+          <div class="tab-pane" id="ios">
+            <%- include ./index/movea.html %>
+          </div>
+          <div class="tab-pane" id="user">
+            <%- include ./index/userm.html %>
+          </div>
+          <div class="tab-pane" id="movement">
+            <%- include ./index/movem.html %>
+          </div>
+          <div class="tab-pane" id="comment">
+            <%- include ./index/comment.html %>
+          </div>
+          <div class="tab-pane" id="message">
+            <%- include ./index/topic.html %>
+          </div>
+          <div class="tab-pane" id="config">
+            <h1>基本配置</h1>
+          </div>
+          <div class="tab-pane" id="access">
+            <h1>接入权限</h1>
+          </div>
+          <div class="tab-pane" id="information">
+            <div>
+            <h1>平台信息</h1>
+            <hr>
+            </div>
+            <div>
+            <p>平台名称:二筒</p>
+            <p>项目目标：为广大用户提供释放自我的平台</p>
+            <p>开发日期：2018-12-1</p>
+            <p>联系人：码到成功小组</p>
+            <p>固定电话:xxx</p>
+            <p>开发地：河北师范大学软件学院</p>
+            </div>
+          </div>
+          <div class="tab-pane" id="account">
+            <%- include ./index/authority.html %>
+          </div>
+       </div>
+
+      </div>
+    </div>
+    </div>
+    <script>
+    $('#myTab a').click(function(e){
+      e.preventDefault();
+      $(this).tab('show');
+    })
+    var today=new Date();
+    var month=today.getMonth()+1;
+    document.getElementById("date").innerHTML=today.getFullYear()+"年"+month+"月"+today.getDate()+"日";
+    </script>
+  </body>
+</html>

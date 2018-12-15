@@ -1,11 +1,19 @@
-require('./modules/users.js');
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var engine = require('ejs-mate');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');            
+
+// var session = require('express-session');
+// var mongoStore = require('connect-mongo')(session);
+// var dbUrl = "mongodb://localhost/todo";
+
+// app.js
+
 
 //===路由信息 （接口地址）开始 存放在./routes目录下===//
 var indexRouter = require('./routes/index');
@@ -24,6 +32,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+// app.use(session({ secret:'express', store: new mongoStore({ url: dbUrl, collection: 'sessions' })}));
 
 //app.use('/index',indexRouter);
 app.use('/',indexRouter);
