@@ -10,11 +10,15 @@ var mysql = require('mysql');
 var index = require('./routes/index');
 //var usersRouter = require('./routes/users');
 var login = require('./routes/login');
-var permission = require('./routes/permission');
+//var permission = require('./routes/permission');
+//引入api路由
+var apiuser=require('./routes/api/user');
+
+
 
 var app = express();
 
-var connection = mysql.createConnection({      //创建mysql实例
+/*var connection = mysql.createConnection({      //创建mysql实例
   host:'192.168.189.144',
   port:'3306',
   user:'root',
@@ -30,7 +34,7 @@ connection.query(sql, function (err,result) {
   str = JSON.stringify(result);
   console.log(str);
   //数据库查询结果返回到result中
-});
+});*/
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -44,9 +48,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/index',index);
 app.use('/',login);
-app.use('/permission',permission);
+//app.use('/permission',permission);
 //app.use('/users', usersRouter);
-
+//api接口
+app.use('/api/user',apiuser);
 
 // catch 404 and forward to error handler
 app.use(function(req, res,next) {

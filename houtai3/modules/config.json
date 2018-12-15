@@ -1,0 +1,8 @@
+{
+  "host":"localhost",
+  "user":"root",
+  "password":"ddd",
+  "database":"two-cylinder",
+  "connectionLimit":20,
+  "supportBigMumbers":true
+}
