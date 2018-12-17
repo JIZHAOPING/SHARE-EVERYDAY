@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { XieyiPage } from '../xieyi/xieyi';
 import { ForgetPage } from '../forget/forget';
+import { ApiProvider } from '../../provider/api';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the DengluPage page.
@@ -10,7 +12,16 @@ import { ForgetPage } from '../forget/forget';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+interface user{
+  uid:number;
+  uname:string;
+  uimage:string;
+  utel:string;
+  upass:string;
+  ufans:number;
+  uguanzhu:number;
+ 
+}
 @IonicPage()
 @Component({
   selector: 'page-denglu',
@@ -34,6 +45,7 @@ export class DengluPage {
     countdown: 60,
     disable: true
 }
+  list: any;
 // 倒计时
 settime() {
     if (this.verifyCode.countdown == 1) {
@@ -81,8 +93,25 @@ doReset() {
     } else {
     console.debug("两次密码输入不一致");
     }
+    this.getList();
+    
 }
-
+getList(){
+  let data=JSON.stringify({
+    upass:this.params.newpass,
+    utel:this.params.usertel
+   
+  });
+  this.api.postZhuce(data).then(data=>{
+    console.dir(data);
+  });
+  this.api.getMy().then(data=>{
+    //console.dir(data);
+     this.list=<any>data;
+    //console.dir(this.list);
+  });
+  
+}
 
 
   items = [];
@@ -109,7 +138,10 @@ doReset() {
     alert("请同意用户条款");
     }
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  dengluClick(){
+    this.navCtrl.push(TabsPage);
+  }
+  constructor(private api:ApiProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
