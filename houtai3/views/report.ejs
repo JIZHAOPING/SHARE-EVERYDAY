@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/tab.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <% include header.ejs%>
+    <% include tab.ejs%> 
+    <div style="float:left;">  
+        <h4 style="color:lightcoral">举报管理</h4>
+        <div style="margin-left:100px;">
+            <form action="?" method="post">                           
+                <table>
+                    <tr>
+                        <td>用户ID</td>
+                        <td>
+                            <input name="uid" />
+                        </td>
+                        <td>头像</td>
+                        <td>
+                            <input type="file" name="uimg"/>
+                        </td>                                                   
+                        <td>用户名</td>
+                        <td>
+                            <input type="text" name="uname"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>密码 </td>
+                        <td>
+                            <input type="number" name="upwd"/>
+                        </td>
+                        <td class="tdl">联系方式</td>
+                        <td>
+                            <input type="number" name="telephone"/>
+                        </td>                                                                      
+                    </tr>                      
+                </table>
+                <input type="submit" value="添加" style="float:right;">                       
+            </form>
+        </div>  
+        <br>
+        <hr>                  
+        <table width='100%' cellpadding='5' style="margin-left:100px;">
+            <tr>                           
+                <th>用户ID</th>
+                <th>用户名</th>
+                <th>头像</th>
+                <th>联系方式</th>
+                <th>密码</th>  
+                <th>操作</th>  
+            </tr>
+        </table> 
+    </div> 
+</body>
+</html>

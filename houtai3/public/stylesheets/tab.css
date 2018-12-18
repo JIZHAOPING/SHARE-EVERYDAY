@@ -1,0 +1,22 @@
+li{
+    list-style: none;
+    height:50px;
+}
+ul{
+    float: left;
+    width: 15%;
+    background-color: lightblue;
+}
+h4{
+    margin-left:2%;
+    margin-top:4%;
+}
+th{
+    text-align: center;
+}
+td{
+    padding:10px;
+}
+.top td{
+    text-align: center;
+}
