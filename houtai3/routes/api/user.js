@@ -17,5 +17,16 @@ router.get('/haha',(req,res,next)=>{
   });
 });
 
+router.post('/reg',(req,res,next)=>{
+  var obj=req.body;
+  console.log(obj);
+  user.insertItem(obj,(err,result)=>{
+    if(err){
+      res.statusCode=500;
+      console.log(result);
+    }
+    res.send('success');
+  })
+})
 
 module.exports=router;
