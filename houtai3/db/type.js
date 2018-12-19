@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 var db = mysql.createConnection({      //创建mysql实例
-  host:'192.168.189.144',
+  host:'localhost',
   port:'3306',
   user:'root',
-  password:'ddd',
+  password:'',
   database:'two-cylinder'
 });
 db.connect();
