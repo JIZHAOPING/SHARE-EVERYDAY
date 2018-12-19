@@ -12,10 +12,10 @@ router.post('/', function (req, res) {
 	var password = req.body.password;
 	//定义数据库连接池
 	var pool = mysql.createPool({
-    host: '192.168.189.144',
+    host: 'localhost',
     port:'3306',
 	user: 'root',
-	password: 'ddd',
+	password: '',
 	database: 'two-cylinder'
 	});
 	pool.getConnection(function (err, connection) {

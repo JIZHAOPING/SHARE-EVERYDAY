@@ -1,17 +1,21 @@
-var express=require('express');
-var router=express.Router();
-var User=require('../../modules/api/user.js');
+const Users = require('../../modules/api/user');
+var express = require('express');
+var router = express.Router();
 
-var user=new User();
+var user = new Users();
 
-router.post('/login',(req,res,next)=>{
-  var obj=req.obj;//req.body:处理post请求，获取post请求体
-  user.getUser(obj,(err,result)=>{
+router.get('/haha',(req,res,next)=>{
+  user.getAll((err,result)=>{
     if(err){
-      res.statusCode=500;
+      res.statusCode = 500;
+      console.log('1');
+    } else {
+      var obj = JSON.parse(JSON.stringify(result));
+      res.json(obj);
+      console.log('0');
     }
-    var json=JSON.parse(JSON.stringify(result));
-    res.json(JSON);
-  })
+  });
 });
+
+
 module.exports=router;

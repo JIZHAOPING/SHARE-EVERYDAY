@@ -11,16 +11,6 @@ export class ApiProvider{
     }
 
     url:string="/api";
-    api(){
-        return new Promise((resolve,reject)=>{
-            this.http.get(this.url+"/user")
-                .subscribe(res=>{
-                    resolve(res.json());
-                },err=>{
-                    reject(err);
-                })
-        })
-    }
 
     //实例POST注册
   public postZhuce(data){
@@ -38,7 +28,7 @@ export class ApiProvider{
   public getMy(){
     return new Promise((resolve, reject) => {
       
-      this.http.get(this.url+'/user/2')
+      this.http.get(this.url+'/user/haha')
         .subscribe((res:Response)=>{
           resolve(res.json())
         },err=>{

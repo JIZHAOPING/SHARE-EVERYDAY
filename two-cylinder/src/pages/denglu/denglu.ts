@@ -98,18 +98,18 @@ doReset() {
 }
 getList(){
   let data=JSON.stringify({
-    upass:this.params.newpass,
+    upwd:this.params.newpass,
     utel:this.params.usertel
    
   });
   this.api.postZhuce(data).then(data=>{
     console.dir(data);
   });
-  this.api.getMy().then(data=>{
-    //console.dir(data);
-     this.list=<any>data;
-    //console.dir(this.list);
-  });
+  // this.api.api().then(data=>{
+  //   console.dir(data);
+  //    this.list=<any>data;
+  //   console.dir(this.list);
+  // });
   
 }
 
@@ -146,6 +146,11 @@ getList(){
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DengluPage');
+    this.api.api().then(data=>{
+      console.dir(data);
+      //  this.list=<any>data;
+      // console.dir(this.list);
+    });
   }
 
 }
