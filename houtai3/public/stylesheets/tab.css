@@ -1,20 +1,21 @@
-li{
+body{
+    background-color:ghostwhite;
+}
+.u li{
     list-style: none;
-    height:50px;
+    height:35px;
 }
-ul{
+.u{
+    text-align: center;
     float: left;
-    width: 15%;
-    background-color: lightblue;
-}
-h4{
-    margin-left:2%;
-    margin-top:4%;
+    margin-left: 15px;
+    
 }
 th{
     text-align: center;
 }
 td{
+    text-align: center;
     padding:10px;
 }
 .top td{

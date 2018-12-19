@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户管理</title>
+    <title>评论管理</title>
     <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -15,32 +15,32 @@
     <% include header.ejs%>
     <% include tab.ejs%> 
     <div style="float:left;">  
-        <h4 style="color:lightcoral">评论管理</h4>
+        <h4 style="color:lightcoral;padding-left: 40px">评论管理</h4>
         <div style="margin-left:100px;">
             <form action="?" method="post">                           
                 <table>
                     <tr>
-                        <td>用户ID</td>
+                        <td>评论ID</td>
                         <td>
-                            <input name="uid" />
+                            <input type='number' name="cid" />
                         </td>
-                        <td>头像</td>
+                        <td>评论动态ID</td>
                         <td>
-                            <input type="file" name="uimg"/>
+                            <input type='number' name="mid"/>
                         </td>                                                   
-                        <td>用户名</td>
+                        <td>评论者ID</td>
                         <td>
-                            <input type="text" name="uname"/>
+                            <input type='number' name="uid"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>密码 </td>
+                        <td>评论内容</td>
                         <td>
-                            <input type="number" name="upwd"/>
+                            <input type="text" name="mcontent"/>
                         </td>
-                        <td class="tdl">联系方式</td>
+                        <td>评论时间</td>
                         <td>
-                            <input type="number" name="telephone"/>
+                            <input typname="mdate"/>
                         </td>                                                                      
                     </tr>                      
                 </table>
@@ -51,13 +51,26 @@
         <hr>                  
         <table width='100%' cellpadding='5' style="margin-left:100px;">
             <tr>                           
-                <th>用户ID</th>
-                <th>用户名</th>
-                <th>头像</th>
-                <th>联系方式</th>
-                <th>密码</th>  
+                <th>评论ID</th>
+                <th>评论动态ID</th>
+                <th>评论者ID</th>
+                <th>评论内容</th>
+                <th>评论时间</th>  
                 <th>操作</th>  
             </tr>
+            <% for(var item in items){ %>
+                <tr class="top" id="<%= items[item].cid %>">
+                    <td><%= items[item].cid %></td>  
+                    <td><%= items[item].mid %></td>  
+                    <td><%= items[item].uid %></td>
+                    <td><%= items[item].ccontent %></td>  
+                    <td><%= items[item].cdate %></td>  
+                    <td>
+                        <button onclick="del('<%= items[item].cid %>')">删除</button>
+                        <button onclick="change()">修改</button>
+                    </td>                    
+                </tr>
+            <% } %>
         </table> 
     </div> 
 </body>

@@ -7,56 +7,55 @@ var db = mysql.createConnection({      //创建mysql实例
   database:'two-cylinder'
 });
 db.connect();
-var user = function(){};
-/*查*/
-user.prototype.getAll = function(cb){
-  const sql = 'SELECT * from users';
-  var items = [];
-  db.query(sql,function(err,result){
-    if(err){
-      cb(true);
-      return;                
-    }
-    result.forEach((e) => {items.push(e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate);});
-    cb(false,result);
-  });
-};
+var movement = function(){};
 
 /*增*/
-user.prototype.addItem = function(e,cb){
-  const sql = 'INSERT INTO users VALUES(?,?,?,?,?,?)';
-  db.query(sql,[e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate],function(err,result){
+movement.prototype.addItem = function(e,callback){
+  const sql = 'INSERT INTO movement VALUES(?,?,?,?,?,?)';
+  db.query(sql,[e.mid,e.mcontent,e.mimg,e.mtype,e.uid,e.mdate],function(err,result){
     if(err){
-      cb(true);
+      callback(true);
       return;
     }
-    cb(false,result);
+    callback(false,result);
   });
 };
 
 /*删*/
-user.prototype.delItem = function(id,cb){
-  const sql = 'DELETE FROM users WHERE uid=?';
+movement.prototype.delItem = function(id,callback){
+  const sql = 'DELETE FROM movement WHERE uid=?';
   db.query(sql,[uid],function(err,result){
     if(err){
-      cb(true);
+      callback(true);
       return;
     }
-    cb(false,result);
+    callback(false,result);
   });
 };
 
-user.prototype.delAll = function(cb){
+movement.prototype.delAll = function(callback){
   const sql = 'DELETE FROM users';
   db.query(sql,function(err,results){
     if(err){
-      cb(true);
+      callback(true);
       return;
     }
-    cb(false,results);
+    callback(false,results);
   });
 };
 
+/*查*/
+movement.prototype.getAll = function(callback){
+  const sql = 'SELECT * from movement';
+  var items = [];
+  db.query(sql,function(err,result){
+    if(err){
+      callback(true);
+      return;                
+    }
+    result.forEach((e) => {items.push(e.mid,e.mcontent,e.mimg,e.mtype,e.uid,e.mdate);});
+    callback(false,result);
+  });
+};
 
-
-module.exports = user;
+module.exports = movement;

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/stylesheets/tab.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/layui/css/modules/layer/default/layer.css">
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -15,40 +16,40 @@
     <% include header.ejs%>
     <% include tab.ejs%> 
     <div style="float:left;">  
-        <h4 style="color:lightcoral">用户管理</h4>
+        <h4 style="color:lightcoral;padding-left: 40px">用户管理</h4>
         <div style="margin-left:100px;">
             <form method="post">                           
                 <table>
                     <tr>
                         <td>用户ID</td>
                         <td>
-                            <input name="uid" />
+                            <input type="number" name='uid' id="uid"/>
                         </td>
                         <td>用户名</td>
                         <td>
-                            <input type="text" name="uname"/>
+                            <input type="text" name="uname" id="uname"/>
                         </td>
                         <td>头像</td>
-                        <td>
-                            <input type="file" name="uimg"/>
+                        <td> 
+                            <input type="file" name="uimg" id="uimg"/>
                         </td>                                                               
                     </tr>
                     <tr>
                         <td>联系方式</td>
                         <td>
-                            <input type="number" name="utel"/>
+                            <input type="number" name="utel" id="utel"/>
                         </td>  
                         <td>密码</td>
                         <td>
-                            <input type="number" name="upwd"/>
+                            <input type="number" name="upwd" id="upwd"/>
                         </td>                                                                         
                     </tr>                      
                 </table>
-                <input type="submit" value="添加" style="float:right;">                       
+                <input type="submit" value="添加" style="float:right;" id="insert">                       
             </form>
         </div>  
         <br>
-        <hr>                  
+        <hr style="margin-left:100px; width: 100%">                   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
             <tr>                           
                 <th>用户ID</th>
@@ -67,45 +68,25 @@
                     <td><%= items[item].utel %></td>  
                     <td><%= items[item].upwd %></td>  
                     <td><%= items[item].udate %></td>                      
-                    <td><button onclick="del('<%= items[item].uid %>')">删除</button>&nbsp;<button onclick="change()">修改</button></td>                    
+                    <td>
+                        <button onclick="del('<%= items[item].uid %>')">删除</button>
+                        <button><a href="#">修改</a></button>
+                    </td>                    
                 </tr>
             <% } %>
         </table>    
     </div> 
 </body>
+<script src="/javascripts/layui/lay/modules/layer.js"></script>
 <script>
     function del(uid){
-        fetch('http://192.168.189.144:3000/', {
-        method: 'delete',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body:'item=' + uid
-        });
-        showData(uid);
-    }
-    function showData(id){
-        var tr = document.getElementById(id);
+        var tr = document.getElementById(uid);
         tr.parentNode.removeChild(tr);
-    }
-    function change(){
-        layer.open({
-                type: 2,
-                title: '添加用户',
-                maxmin: true,
-                shadeClose: true, //点击遮罩关闭层
-                area : ['800px' , '520px'],
-                content: 'user-add'
+        fetch('http://localhost:3000/user', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body:'item=' + uid
         });
     }
-    //添加用户
-    $('#insert').on('click', function(){
-            layer.open({
-                type: 2,
-                title: '添加用户',
-                maxmin: true,
-                shadeClose: true, //点击遮罩关闭层
-                area : ['800px' , '520px'],
-                content: 'user-add'
-        });
-    });
 </script>
 </html>

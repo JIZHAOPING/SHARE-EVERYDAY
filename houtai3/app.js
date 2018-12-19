@@ -7,7 +7,9 @@ var engine = require('ejs-mate');
 var mysql = require('mysql');
 
 //===路由信息 （接口地址）开始 存放在./routes目录下===//
-var user = require('./routes/index');
+var index = require('./routes/index');
+var message = require('./routes/message');
+var user = require('./routes/user');
 var movement = require('./routes/movement');
 var comment = require('./routes/comment');
 var type = require('./routes/type');
@@ -41,6 +43,7 @@ connection.query(sql, function (err,result) {
   console.log(str);
   //数据库查询结果返回到result中
 });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -52,12 +55,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/index',user);
+app.use('/user',user);
+app.use('/index',index);
 app.use('/report',report);
 app.use('/movement',movement);
 app.use('/comment',comment);
 app.use('/type',type);
 app.use('/supergirl',supergirl);
+app.use('/message',message);
 app.use('/',login);
 //app.use('/permission',permission);
 //app.use('/users', usersRouter);
@@ -68,7 +73,6 @@ app.use('/',login);
 app.use(function(req, res,next) {
   next(createError(404));
 });
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

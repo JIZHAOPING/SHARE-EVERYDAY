@@ -7,56 +7,57 @@ var db = mysql.createConnection({      //创建mysql实例
   database:'two-cylinder'
 });
 db.connect();
-var user = function(){};
+
+var manager = function(){};
 /*查*/
-user.prototype.getAll = function(cb){
-  const sql = 'SELECT * from users';
+manager.prototype.getAll = function(callback){
+  const sql = 'SELECT * from supergirl';
   var items = [];
   db.query(sql,function(err,result){
     if(err){
-      cb(true);
+      callback(true);
       return;                
     }
-    result.forEach((e) => {items.push(e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate);});
-    cb(false,result);
+    result.forEach((e) => {items.push(e.sid,e.sname,e.spwd);});
+    callback(false,result);
   });
 };
 
 /*增*/
-user.prototype.addItem = function(e,cb){
-  const sql = 'INSERT INTO users VALUES(?,?,?,?,?,?)';
-  db.query(sql,[e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate],function(err,result){
+manager.prototype.addItem = function(e,callback){
+  const sql = 'INSERT INTO supergirl VALUES(?,?,?)';
+  db.query(sql,[e.sid,e.sname,e.spwd],function(err,result){
     if(err){
-      cb(true);
+      callback(true);
       return;
     }
-    cb(false,result);
+    callback(false,result);
   });
 };
 
 /*删*/
-user.prototype.delItem = function(id,cb){
-  const sql = 'DELETE FROM users WHERE uid=?';
-  db.query(sql,[uid],function(err,result){
+manager.prototype.delItem = function(sid,callback){
+  const sql = 'DELETE FROM supergirl WHERE sid=?';
+  db.query(sql,[sid],function(err,result){
     if(err){
-      cb(true);
+      callback(true);
       return;
     }
-    cb(false,result);
+    callback(false,result);
   });
 };
 
-user.prototype.delAll = function(cb){
-  const sql = 'DELETE FROM users';
+manager.prototype.delAll = function(callback){
+  const sql = 'DELETE FROM supergirl';
   db.query(sql,function(err,results){
     if(err){
-      cb(true);
+      callback(true);
       return;
     }
-    cb(false,results);
+    callback(false,results);
   });
 };
 
 
 
-module.exports = user;
+module.exports = manager;

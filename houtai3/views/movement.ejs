@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户管理</title>
+    <title>动态管理</title>
     <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -15,32 +15,32 @@
     <% include header.ejs%>
     <% include tab.ejs%> 
     <div style="float:left;">  
-        <h4 style="color:lightcoral">动态管理</h4>
+        <h4 style="color:lightcoral;padding-left: 40px">动态管理</h4>
         <div style="margin-left:100px;">
             <form action="?" method="post">                           
                 <table>
                     <tr>
                         <td>动态ID</td>
                         <td>
-                            <input name="uid" />
+                            <input type='number' name="mid" />
                         </td>
                         <td>动态内容</td>
                         <td>
-                            <input type="file" name="uimg"/>
+                            <input type="text" name="mcontent"/>
                         </td>                                                   
                         <td>动态图片</td>
                         <td>
-                            <input type="text" name="uname"/>
+                            <input type="file" name="mimg"/>
                         </td>
                     </tr>
                     <tr>
                         <td>动态类型</td>
                         <td>
-                            <input type="number" name="upwd"/>
+                            <input type="text" name="mtype"/>
                         </td>
-                        <td>发布者</td>
+                        <td>发布者ID</td>
                         <td>
-                            <input type="number" name="telephone"/>
+                            <input type="number" name="uid"/>
                         </td>                                                                      
                     </tr>                      
                 </table>
@@ -55,9 +55,24 @@
                 <th>动态内容</th>
                 <th>动态图片</th>
                 <th>动态类型</th>
-                <th>发布者</th>  
+                <th>发布者ID</th>  
+                <th>发布时间</th>
                 <th>操作</th>  
             </tr>
+            <% for(var item in items){ %>
+                <tr class="top" id="<%= items[item].mid %>">
+                    <td><%= items[item].mid %></td>  
+                    <td><%= items[item].mcontent %></td>  
+                    <td><img src="<%= items[item].mimg %>" style="width:30px;height:30px"></td>
+                    <td><%= items[item].mtype %></td>  
+                    <td><%= items[item].uid %></td>  
+                    <td><%= items[item].mdate %></td>                      
+                    <td>
+                        <button onclick="del('<%= items[item].mid %>')">删除</button>
+                        <button onclick="change()">修改</button>
+                    </td>                    
+                </tr>
+            <% } %>
         </table> 
     </div> 
 </body>

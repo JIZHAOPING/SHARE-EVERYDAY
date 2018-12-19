@@ -7,56 +7,47 @@ var db = mysql.createConnection({      //创建mysql实例
   database:'two-cylinder'
 });
 db.connect();
-var user = function(){};
+
+var report = function(){};
+
+
+/*删*/
+report.prototype.delItem = function(id,callback){
+  const sql = 'DELETE FROM report WHERE rid=?';
+  db.query(sql,[rid],function(err,result){
+    if(err){
+      callback(true);
+      return;
+    }
+    callback(false,result);
+  });
+};
+
+report.prototype.delAll = function(callback){
+  const sql = 'DELETE FROM report';
+  db.query(sql,function(err,results){
+    if(err){
+      callback(true);
+      return;
+    }
+    callback(false,results);
+  });
+};
+
 /*查*/
-user.prototype.getAll = function(cb){
-  const sql = 'SELECT * from users';
+report.prototype.getAll = function(callback){
+  const sql = 'SELECT * from report';
   var items = [];
   db.query(sql,function(err,result){
     if(err){
-      cb(true);
+      callback(true);
       return;                
     }
-    result.forEach((e) => {items.push(e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate);});
-    cb(false,result);
-  });
-};
-
-/*增*/
-user.prototype.addItem = function(e,cb){
-  const sql = 'INSERT INTO users VALUES(?,?,?,?,?,?)';
-  db.query(sql,[e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate],function(err,result){
-    if(err){
-      cb(true);
-      return;
-    }
-    cb(false,result);
-  });
-};
-
-/*删*/
-user.prototype.delItem = function(id,cb){
-  const sql = 'DELETE FROM users WHERE uid=?';
-  db.query(sql,[uid],function(err,result){
-    if(err){
-      cb(true);
-      return;
-    }
-    cb(false,result);
-  });
-};
-
-user.prototype.delAll = function(cb){
-  const sql = 'DELETE FROM users';
-  db.query(sql,function(err,results){
-    if(err){
-      cb(true);
-      return;
-    }
-    cb(false,results);
+    result.forEach((e) => {items.push(e.cid,e.mid,e.uid,e.ccontent,e.cdate);});
+    callback(false,result);
   });
 };
 
 
 
-module.exports = user;
+module.exports = report;
