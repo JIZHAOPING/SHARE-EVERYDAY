@@ -1,51 +1,53 @@
-const managers = require('../db/supergirl.js');
+const Users = require('../db/user.js');
 var express = require('express');
 var router = express.Router();
-var ssql = require('../db/ssql');
+var sql = require('../db/sql');
 const mysql = require('mysql');
 
 let db = mysql.createConnection({
-    host: '192.168.189.144',
+    host: 'localhost',
     user: 'root',
-    password: 'ddd',
+    password: '',
     database: 'two-cylinder',
     port: 3306
 });
 
-var manager = new managers();
+
+var user = new Users();
 
 router.get('/',function(req, res) {
-  manager.getAll(function(err,result){
+  user.getAll(function(err,result){
     if(err){
       console.error(err);
       return;
     }
-    res.render('supergirl',{items:result});
+    res.render('user',{items:result});
   }); 
 });
 
 router.post('/',function(req,res){
-  db.query(ssql.insert, [req.body.sid, req.body.sname, req.body.spwd],
+  db.query(sql.insert, [req.body.uid, req.body.uname, req.body.uimg, req.body.utel, req.body.upwd, new Date().toLocaleString()],
      function (err, result) {
     if (err) return err;
-    res.redirect('supergirl');
+    res.redirect('user');
  });
 });
-  
+
 
 router.delete('/',function(req,res){
-  console.log(2);
-  res.header('Access-Control-Allow-Origin', '*');
+  // console.log(2);
+  // res.header('Access-Control-Allow-Origin', '*');
   if(req.body === '') {
-    mmanager.delAll((err) => {
+    user.delAll((err) => {
       if(err) {
-        res.staus(500).send('DB error!');               
+        res.staus(500).send('DB error!');
+                      
       } else {
         res.status(200).send('Delete OK!');              
       }
     });  
   } else {
-    manager.delItem(req.body.item,function(err){
+    user.delItem(req.body.item,function(err){
       if(err){
         res.status(500).send('DB error');
       }else{
@@ -59,7 +61,7 @@ router.put('/',function(req,res){
   if(typeof req.query.id === 'undefined'){
     res.status(404).send('Not found!');
   }else{
-    manager.update(Number(req.query.id),req.body.item,function(err){
+    user.update(Number(req.query.id),req.body.item,function(err){
       if(err){
         res.status(500).send('DB error');
       }else{

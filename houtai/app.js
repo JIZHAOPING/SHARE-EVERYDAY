@@ -27,12 +27,11 @@ var apiuser=require('./routes/api/user');
 
 var app = express();
 
-<<<<<<< HEAD
 var connection = mysql.createConnection({      //创建mysql实例
-  host:'192.168.189.144',
+  host:'localhost',
   port:'3306',
   user:'root',
-  password:'ddd',
+  password:'',
   database:'two-cylinder'
 });
 connection.connect();
@@ -45,8 +44,6 @@ connection.query(sql, function (err,result) {
   console.log(str);
   //数据库查询结果返回到result中
 });
-=======
->>>>>>> 7ee4a7be72c637e01c2aaed18b906d20a81be05c
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -62,14 +59,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-<<<<<<< HEAD
 app.use('/user',user);
 app.use('/index',index);
 app.use('/report',report);
-=======
 app.use('/index',user);
 //app.use('/report',report);
->>>>>>> 7ee4a7be72c637e01c2aaed18b906d20a81be05c
 app.use('/movement',movement);
 app.use('/comment',comment);
 app.use('/type',type);
