@@ -1,8 +1,12 @@
 .container{
   padding-top:100px;
   padding-bottom:200px;
-  background-color:#e0e0e0;
+  background-image: url(../images/logo.jpg);
+  background-size: contain;
 }
 #submit{
   background-color:#f55d54;
+}
+h2{
+  text-align: center;
 }
