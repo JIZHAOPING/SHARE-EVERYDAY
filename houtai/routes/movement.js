@@ -32,6 +32,15 @@ router.post('/',function(req,res){
 });
 });
 
+router.post('/findm',function(req,res){
+    const sql= 'SELECT * FROM movement WHERE mid=?' ;
+  db.query(sql, [req.body.mid],
+  function (err, result) {
+     if (err) return err;
+     res.render('findm',{items:result});
+});
+});
+
 router.delete('/',function(req,res){
   console.log(2);
   res.header('Access-Control-Allow-Origin', '*');

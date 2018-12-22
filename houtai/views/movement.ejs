@@ -49,10 +49,11 @@
             </form>
         </div>  
         <hr style="margin-left:100px; width: 100%"> 
-        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
-        <p></p>   
-        <input placeholder="请输入动态ID" style="margin-left: 185px;width: 220px;">   
-        <button type="submit" style="float:right;" onclick="find()" name="uid" class="btn btn-primary radius">搜索</button>                   
+        <form method="post" action="/movement/findm"> 
+            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
+            <p></p>   
+            <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">点击搜索</button>                               
+        </form>                 
         <hr style="margin-left:100px; width: 100%">   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
         <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>

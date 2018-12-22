@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态管理</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/tab.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/layui/css/modules/layer/default/layer.css">
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+        <nav class="navbar navbar-inverse" role="navigation" style="background-image:url(../images/logo.jpg);background-size:100%">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="#" style="color: snow">二筒APP后台管理</a>
+            </div>
+            <div>
+               <ul class="nav navbar-nav" style="float:right">
+                  <li class="active"><a href="#"><img src="../images/头像/1.jpg" width="18px"></a></li>
+                  <li><a href="/" style="color:snow">退出登录</a></li>
+               </ul>
+            </div>
+            </nav>    
+    <% include tab.ejs%> 
+    <div style="float:left;">  
+        <h4 style="color:lightcoral;padding-left: 40px">动态管理</h4>
+        <hr style="margin-left:100px; width: 100%"> 
+        <form method="POST">        
+            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
+            <p></p>
+            <input placeholder="请输入动态id" style="margin-left: 185px;width: 220px;" name="mid">   
+            <button type="submit" style="margin-bottom: 1%" class="btn btn-primary radius">搜索</button>                                       
+        </form>               
+        <hr style="margin-left:100px; width: 100%">   
+        <table width='100%' cellpadding='5' style="margin-left:100px;">
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">用户列表</i>
+        <p></p>                   
+        <table width='100%' cellpadding='5' style="margin-left:100px;">
+                <tr>                           
+                    <th>动态ID</th>
+                    <th>动态内容</th>
+                    <th>动态图片</th>
+                    <th>动态类型</th>
+                    <th>发布者ID</th>  
+                    <th>发布时间</th>
+                    <th>操作</th>  
+                </tr>
+                <% for(var item in items){ %>
+                    <tr class="top" id="<%= items[item].mid %>">
+                        <td><%= items[item].mid %></td>  
+                        <td><%= items[item].mcontent %></td>  
+                        <td><img src="<%= items[item].mimg %>" style="width:30px;height:30px"></td>
+                        <td><%= items[item].mtype %></td>  
+                        <td><%= items[item].uid %></td>  
+                        <td><%= items[item].mdate %></td>                      
+                        <td>
+                            <button onclick="del('<%= items[item].mid %>')" class="btn btn-primary radius">删除</button>
+                        </td>                    
+                    </tr>
+                <% } %>
+            </table> 
+    </div>
+</body>
+<script>
+       function del(mid){
+        var tr = document.getElementById(mid);
+        tr.parentNode.removeChild(tr);
+        fetch('http://localhost:3000/movement', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body:'item=' + mid
+        });
+    };
+</script>
+</html>

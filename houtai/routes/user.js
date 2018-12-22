@@ -24,20 +24,22 @@ router.get('/',function(req, res) {
   }); 
 });
 
+
+
 router.post('/',function(req,res){
-  if(req.body.uname!==''){
     db.query(sql.insert, [req.body.uid, req.body.uname, req.body.uimg, req.body.utel, req.body.upwd, new Date().toLocaleString()],
     function (err, result) {
       if (err) return err;
       res.redirect('user');
     });
-}else if(req.body.uid!==''&&req.body.uname==''){
-  console.log(req.body.uid)
-  db.query(sql.queryById,[req.body.uid],function(err,result){
+});
+
+router.post('/findu',function(req,res){
+  db.query(sql.queryById, [req.body.uid],
+  function (err, result) {
     if (err) return err;
-    res.end('user');
+    res.render('findu',{items:result});
   });
-}
 });
 
 

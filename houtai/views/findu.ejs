@@ -13,47 +13,26 @@
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-    <% include header.ejs%>
+        <nav class="navbar navbar-inverse" role="navigation" style="background-image:url(../images/logo.jpg);background-size:100%">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="#" style="color: snow">二筒APP后台管理</a>
+            </div>
+            <div>
+               <ul class="nav navbar-nav" style="float:right">
+                  <li class="active"><a href="#"><img src="../images/头像/1.jpg" width="18px"></a></li>
+                  <li><a href="/" style="color:snow">退出登录</a></li>
+               </ul>
+            </div>
+            </nav>    
     <% include tab.ejs%> 
     <div style="float:left;">  
         <h4 style="color:lightcoral;padding-left: 40px">用户管理</h4>
-        <div style="margin-left:100px;">
-            <form method="post">        
-                <i style="font-size:18px;color:cadetblue">添加用户</i>                   
-                <table>
-                    <tr>
-                        <td>用户ID</td>
-                        <td>
-                            <input type="number" name='uid'/>
-                        </td>
-                        <td>用户名</td>
-                        <td>
-                            <input type="text" name="uname"/>
-                        </td>
-                        <td>头像</td>
-                        <td> 
-                            <input type="file" name="uimg"/>
-                        </td>                                                               
-                    </tr>
-                    <tr>
-                        <td>联系方式</td>
-                        <td>
-                            <input type="number" name="utel"/>
-                        </td>  
-                        <td>密码</td>
-                        <td>
-                            <input type="number" name="upwd"/>
-                        </td>                                                                         
-                    </tr>                      
-                </table>
-                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
-            </form>
-        </div>  
         <hr style="margin-left:100px; width: 100%"> 
-        <form method="post" action="/user/findu"> 
+        <form method="POST">        
             <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
-            <p></p>   
-            <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">点击搜索</button>                               
+            <p></p>
+            <input placeholder="请输入用户id" style="margin-left: 185px;width: 220px;" name="uid">   
+            <button type="submit" style="margin-bottom: 1%" class="btn btn-primary radius">搜索</button>                                       
         </form>               
         <hr style="margin-left:100px; width: 100%">   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
@@ -82,11 +61,10 @@
                 </tr>
             <% } %>
         </table>    
-    </div> 
+    </div>
 </body>
-<script src="/javascripts/layui/lay/modules/layer.js"></script>
 <script>
-    function del(uid){
+      function del(uid){
         var tr = document.getElementById(uid);
         tr.parentNode.removeChild(tr);
         fetch('http://localhost:3000/user', {
@@ -94,6 +72,6 @@
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body:'item=' + uid
         });
-    }
+    };
 </script>
 </html>
