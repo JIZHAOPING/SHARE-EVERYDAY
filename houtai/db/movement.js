@@ -22,9 +22,9 @@ movement.prototype.addItem = function(e,callback){
 };
 
 /*删*/
-movement.prototype.delItem = function(id,callback){
-  const sql = 'DELETE FROM movement WHERE uid=?';
-  db.query(sql,[uid],function(err,result){
+movement.prototype.delItem = function(mid,callback){
+  const sql = 'DELETE FROM movement WHERE mid=?';
+  db.query(sql,[mid],function(err,result){
     if(err){
       callback(true);
       return;

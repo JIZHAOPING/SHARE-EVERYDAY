@@ -17,7 +17,8 @@
     <div style="float:left;">  
         <h4 style="color:lightcoral;padding-left: 40px">动态管理</h4>
         <div style="margin-left:100px;">
-            <form action="?" method="post">                           
+            <form method="post">          
+                <i style="font-size:18px;color:cadetblue">添加动态</i>                   
                 <table>
                     <tr>
                         <td>动态ID</td>
@@ -44,11 +45,18 @@
                         </td>                                                                      
                     </tr>                      
                 </table>
-                <input type="submit" value="添加" style="float:right;">                       
+                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
             </form>
         </div>  
-        <br>
-        <hr>                  
+        <hr style="margin-left:100px; width: 100%"> 
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
+        <p></p>   
+        <input placeholder="请输入动态ID" style="margin-left: 185px;width: 220px;">   
+        <button type="submit" style="float:right;" onclick="find()" name="uid" class="btn btn-primary radius">搜索</button>                   
+        <hr style="margin-left:100px; width: 100%">   
+        <table width='100%' cellpadding='5' style="margin-left:100px;">
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>
+        <p></p>                                    
         <table width='100%' cellpadding='5' style="margin-left:100px;">
             <tr>                           
                 <th>动态ID</th>
@@ -68,12 +76,22 @@
                     <td><%= items[item].uid %></td>  
                     <td><%= items[item].mdate %></td>                      
                     <td>
-                        <button onclick="del('<%= items[item].mid %>')">删除</button>
-                        <button onclick="change()">修改</button>
+                        <button onclick="del('<%= items[item].mid %>')" class="btn btn-primary radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
         </table> 
     </div> 
 </body>
+<script>
+       function del(mid){
+        var tr = document.getElementById(mid);
+        tr.parentNode.removeChild(tr);
+        fetch('http://localhost:3000/movement', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body:'item=' + mid
+        });
+    };
+</script>
 </html>

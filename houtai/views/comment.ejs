@@ -17,6 +17,7 @@
     <div style="float:left;">  
         <h4 style="color:lightcoral;padding-left: 40px">评论管理</h4>
         <div style="margin-left:100px;">
+            <i style="font-size:18px;color:cadetblue">添加评论</i>                   
             <form action="?" method="post">                           
                 <table>
                     <tr>
@@ -36,20 +37,21 @@
                     <tr>
                         <td>评论内容</td>
                         <td>
-                            <input type="text" name="mcontent"/>
+                            <input type="text" name="ccontent"/>
                         </td>
                         <td>评论时间</td>
                         <td>
-                            <input typname="mdate"/>
+                            <input typname="cdate"/>
                         </td>                                                                      
                     </tr>                      
                 </table>
-                <input type="submit" value="添加" style="float:right;">                       
+                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
             </form>
         </div>  
-        <br>
-        <hr>                  
+        <hr style="margin-left:100px; width: 100%">   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>
+        <p></p>
             <tr>                           
                 <th>评论ID</th>
                 <th>评论动态ID</th>
@@ -66,12 +68,22 @@
                     <td><%= items[item].ccontent %></td>  
                     <td><%= items[item].cdate %></td>  
                     <td>
-                        <button onclick="del('<%= items[item].cid %>')">删除</button>
-                        <button onclick="change()">修改</button>
+                        <button onclick="del('<%= items[item].cid %>')" class="btn btn-primary radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
         </table> 
     </div> 
 </body>
+<script>
+        function del(cid){
+        var tr = document.getElementById(cid);
+        tr.parentNode.removeChild(tr);
+        fetch('http://localhost:3000/comment', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body:'item=' + cid
+        });
+    };
+</script>
 </html>

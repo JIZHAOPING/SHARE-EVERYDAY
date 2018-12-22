@@ -18,7 +18,8 @@
     <div style="float:left;">  
         <h4 style="color:lightcoral;padding-left: 40px">用户管理</h4>
         <div style="margin-left:100px;">
-            <form method="post">                           
+            <form method="post">        
+                <i style="font-size:18px;color:cadetblue">添加用户</i>                   
                 <table>
                     <tr>
                         <td>用户ID</td>
@@ -45,21 +46,20 @@
                         </td>                                                                         
                     </tr>                      
                 </table>
-                <input type="submit" value="添加" style="float:right;" id="insert">                       
+                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
             </form>
         </div>  
-        <br>
-        <hr style="margin-left:100px; width: 100%">  
-        <!-- 实现搜索查找用户的功能 -->
-        <div class="searcher" style="width:80px;height:40px;float:right;background-color: pink;">
-            <p class="searcher-main">
-                <i><img src=""></i>
-                <input class="searcher-text" placeholder="请输入用户信息"></input>
-            </p>
-            <p class="searcher-cancel">取消</p>
-        </div>    
-
+        <hr style="margin-left:100px; width: 100%"> 
+        <form method="post">        
+            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
+            <p></p>   
+            <input placeholder="请输入用户ID" style="margin-left: 185px;width: 220px;">   
+            <input type="submit" style="float:right;" name="uid" class="btn btn-primary radius"> 
+        </form>               
+        <hr style="margin-left:100px; width: 100%">   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">用户列表</i>
+        <p></p>                   
             <tr>                           
                 <th>用户ID</th>
                 <th>用户名</th>
@@ -78,8 +78,7 @@
                     <td><%= items[item].upwd %></td>  
                     <td><%= items[item].udate %></td>                      
                     <td>
-                        <button onclick="del('<%= items[item].uid %>')">删除</button>
-                        <button><a href="#">修改</a></button>
+                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-primary radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>

@@ -23,9 +23,9 @@ comment.prototype.addItem = function(e,callback){
 };
 
 /*删*/
-comment.prototype.delItem = function(id,callback){
-  const sql = 'DELETE FROM comment WHERE uid=?';
-  db.query(sql,[uid],function(err,result){
+comment.prototype.delItem = function(cid,callback){
+  const sql = 'DELETE FROM comment WHERE cid=?';
+  db.query(sql,[cid],function(err,result){
     if(err){
       callback(true);
       return;
