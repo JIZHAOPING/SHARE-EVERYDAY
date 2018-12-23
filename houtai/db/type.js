@@ -11,7 +11,7 @@ db.connect();
 var type = function(){};
 /*查*/
 type.prototype.getAll = function(callback){
-  const sql = 'SELECT * from type ';
+  const sql = 'SELECT * from type order by tid ASC';
   var items = [];
   db.query(sql,function(err,result){
     if(err){

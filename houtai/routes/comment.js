@@ -33,6 +33,15 @@ router.post('/',function(req,res){
 });
 });
 
+router.post('/findc',function(req,res){
+  const sql= 'SELECT * FROM comment WHERE cid=?' ;
+  db.query(sql, [req.body.cid],
+  function (err, result) {
+     if (err) return err;
+     res.render('findc',{items:result});
+});
+});
+
 router.delete('/',function(req,res){
   console.log(2);
   res.header('Access-Control-Allow-Origin', '*');
