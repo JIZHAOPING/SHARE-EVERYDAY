@@ -10,9 +10,181 @@
     <link href="/stylesheets/tab.css" rel="stylesheet" type="text/css">
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/javascripts/highcharts.js"></script>
 </head>
 <body>
     <% include header.ejs%>
     <% include tab.ejs%>
-    <div><img src="images/index.jpg" style="height:400px;padding-left:300px"></div>
+    <div class="up1" id="show">
+    </div>
+
+    <div class="up">
+    <div class="amount">
+        <h4>昨日新增用户</h4>
+        <div class="h3"></div>
+    </div>
+    <div class="amount">
+        <h4>昨日新增动态</h4>
+        <div class="h3">202</div>
+    </div>
+    <div class="amount">
+        <h4>总注册用户</h4>
+        <div class="h3">111</div>
+    </div>
+    <div class="amount">
+        <h4>总动态数</h4>
+        <div class="h3">202</div>
+    </div>
+    </div>
+
+    <div class="down">
+    <div id="container0"></div>
+    <div id="container"></div>
+    </div>
+    <!-- <div><img src="images/index.jpg" style="height:400px;padding-left:300px"></div> -->
+
+</body>
+<script type="text/javascript"> 
+    window.onload = function() {  
+    var show = document.getElementById("show");  
+    setInterval(function() {   
+    var time = new Date();   // 程序计时的月从0开始取值后+1   
+    var m = time.getMonth() + 1;   
+    var t = "当前时间："+ time.getFullYear() + "-" + m + "-"     
+    + time.getDate() + " " + time.getHours() + ":"     
+    + time.getMinutes() + ":" + time.getSeconds();   
+    show.innerHTML = t;  
+    }, 1000); 
+    };
+</script>
+<script language="JavaScript">
+    $(document).ready(function() {
+       var title = {
+          text: '每月注册人数'   
+       };
+       var subtitle = {
+          text: 'Source: runoob.com'
+       };
+       var xAxis = {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+       };
+       var yAxis = {
+          title: {
+             text: '数量/个'
+          },
+          plotLines: [{
+             value: 0,
+             width: 1,
+             color: '#808080'
+          }]
+       };   
+    
+       var tooltip = {
+          valueSuffix: '\xB0C'
+       }
+    
+       var legend = {
+          layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'middle',
+          borderWidth: 0
+       };
+    
+       var series =  [
+          {
+             name: 'Tokyo',
+             data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
+                26.5, 23.3, 18.3, 13.9, 9.6]
+          }, 
+          {
+             name: 'New York',
+             data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8,
+                24.1, 20.1, 14.1, 8.6, 2.5]
+          },
+          {
+             name: 'London',
+             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 
+                16.6, 14.2, 10.3, 6.6, 4.8]
+          }
+       ];
+    
+       var json = {};
+    
+       json.title = title;
+       json.subtitle = subtitle;
+       json.xAxis = xAxis;
+       json.yAxis = yAxis;
+       json.tooltip = tooltip;
+       json.legend = legend;
+       json.series = series;
+    
+       $('#container0').highcharts(json);
+    });
+    </script>
+<script language="JavaScript">
+    $(document).ready(function() {  
+       var chart = {
+           plotBackgroundColor: null,
+           plotBorderWidth: null,
+           plotShadow: false
+       };
+       //为图标配置标题
+       var title = {
+          text: '12个话题各占比例'   
+       }; 
+       //配置提示信息     
+       var tooltip = {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+       };
+       var plotOptions = {
+          pie: {
+             allowPointSelect: true,
+             cursor: 'pointer',
+             dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                style: {
+                   color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+             }
+          }
+       };
+       //配置图标要显示的数据
+       var series= [{
+          type: 'pie',
+          name: 'Browser share',
+          data: [
+             {
+                name: '升学',
+                y: 10.0,
+                sliced: true,
+                selected: true
+             },
+             ['艺能',       10.0],
+             ['技能',      10.0],
+
+             ['工作日常',       10.0],
+             ['工作烦恼',       10.0],
+             ['职场经验',       5.0],
+             
+             ['亲情',    10.0],
+             ['友情',    5.0],
+             ['爱情',   10.0],
+
+             ['健身',     10.0],
+             ['旅行',     5.0],
+             ['娱乐',   5.0]
+          ]
+       }];     
+       //第三步：创建json数据-组合是由配置信息   
+       var json = {};   
+       json.chart = chart; 
+       json.title = title;     
+       json.tooltip = tooltip;  
+       json.series = series;
+       json.plotOptions = plotOptions;
+       $('#container').highcharts(json);  
+    });
+    </script>
 </html>
