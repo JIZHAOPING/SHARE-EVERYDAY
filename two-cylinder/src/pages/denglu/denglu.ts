@@ -146,15 +146,7 @@ getList(){
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DengluPage');
-<<<<<<< HEAD
-    // this.api.api().then(data=>{
-    //   console.dir(data);
-    //   //  this.list=<any>data;
-    //   // console.dir(this.list);
-    // });
-=======
     
->>>>>>> 1d4f19d975a33d9de32ba9d74a0a211a2c9fe5c6
   }
 
 }
