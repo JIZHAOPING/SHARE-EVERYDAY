@@ -9,7 +9,7 @@ var db = mysql.createConnection({      //创建mysql实例
 db.connect();
 
 var type = function(){};
-/*查*/
+
 type.prototype.getAll = function(callback){
   const sql = 'SELECT * from type order by tid ASC';
   var items = [];
@@ -18,22 +18,12 @@ type.prototype.getAll = function(callback){
       callback(true);
       return;                
     }
-    result.forEach((e) => {items.push(e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate);});
+    result.forEach((e) => {items.push(e.tid,e.tname);});
     callback(false,result);
   });
 };
 
-/*增*/
-type.prototype.addItem = function(e,callback){
-  const sql = 'INSERT INTO users VALUES(?,?,?,?,?,?)';
-  db.query(sql,[e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate],function(err,result){
-    if(err){
-      cb(true);
-      return;
-    }
-    cb(false,result);
-  });
-};
+
 
 
 

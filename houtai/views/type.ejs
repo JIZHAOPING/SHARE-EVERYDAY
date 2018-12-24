@@ -19,15 +19,15 @@
         <table width='100%' cellpadding='5' style="margin-left:100px;">
             <tr>                           
                 <td>话题ID</td>
-                <td>话题内容</td>
+                <td>话题名称</td>
                 <td>操作</td>                
             </tr>
             <% for(var item in items){ %>
-                <tr class="top" id="<%= items[item].uid %>">
+                <tr id="<%= items[item].uid %>">
                     <td><%= items[item].tid %></td>  
                     <td><%= items[item].tname %></td>                    
                     <td>
-                        <button class="btn btn-primary radius">修改</button>
+                        <button type="submit" class="btn btn-primary radius">修改</button>
                     </td>                    
                 </tr>
             <% } %>

@@ -20,14 +20,14 @@
             <tr>                           
                 <th>举报ID</th>
                 <th>被举报者</th>
+                <th>操作</th>
             </tr>
             <% for(var item in items){ %>
-                <tr class="top" id="<%= items[item].uid %>">
+                <tr id="<%= items[item].uid %>">
                     <td><%= items[item].rid %></td>  
                     <td><%= items[item].uid %></td>                        
                     <td>
                         <button onclick="del('<%= items[item].uid %>')">删除</button>
-                        <button><a href="#">修改</a></button>
                     </td>                    
                 </tr>
             <% } %>

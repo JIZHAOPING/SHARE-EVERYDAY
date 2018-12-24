@@ -69,7 +69,7 @@
                 <th>操作</th> 
             </tr>
             <% for(var item in items){ %>
-                <tr class="top" id="<%= items[item].uid %>">
+                <tr id="<%= items[item].uid %>">
                     <td><%= items[item].uid %></td>  
                     <td><%= items[item].uname %></td>  
                     <td><img src="<%= items[item].uimg %>" style="width:30px;height:30px"></td>
@@ -84,7 +84,6 @@
         </table>    
     </div> 
 </body>
-<script src="/javascripts/layui/lay/modules/layer.js"></script>
 <script>
     function del(uid){
         var tr = document.getElementById(uid);
