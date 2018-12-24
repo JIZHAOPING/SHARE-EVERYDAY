@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera,CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
+=======
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+>>>>>>> 1ff21e18a8f6f2ed287b8e13edfe946b8e1e281b
 /**
  * Generated class for the InformationPage page.
  *
@@ -15,6 +20,7 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
   templateUrl: 'information.html',
 })
 export class InformationPage {
+<<<<<<< HEAD
   
   touxiangChange(){
     let alert = this.alertCtrl.create({
@@ -83,6 +89,11 @@ export class InformationPage {
   }
   constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private imagePicker: ImagePicker) {
   }
+=======
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+>>>>>>> 1ff21e18a8f6f2ed287b8e13edfe946b8e1e281b
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InformationPage');
