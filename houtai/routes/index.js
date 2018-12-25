@@ -12,8 +12,8 @@ var db = mysql.createConnection({      //创建mysql实例
 router.get('/',function(req,res){
     const sql = 'select count(*) as c from users';
     const sql1 = 'select count(*) as d from movement';
-    const sql2 = 'select count(*) as a from users where udate between NOW() - INTERVAL 1 DAY  and NOW()';
-    const sql3 = 'select count(*) as b from movement where mdate between NOW() - INTERVAL 1 DAY  and NOW()';
+    const sql2 = 'select count(*) as a from users where udate between NOW() - INTERVAL 2 DAY  and NOW() - INTERVAL 1 DAY';
+    const sql3 = 'select count(*) as b from movement where mdate between NOW() - INTERVAL 2 DAY  and NOW() - INTERVAL 1 DAY';
 
 
     const sql4 = "select count(*) as e from movement where mtype='升学'";
