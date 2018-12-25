@@ -12,51 +12,30 @@
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-    <% include header.ejs%>
+        <nav class="navbar navbar-inverse" role="navigation" style="background-image:url(../images/logo.jpg);background-size:100%">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="#" style="color: snow">二筒APP后台管理</a>
+            </div>
+            <div>
+               <ul class="nav navbar-nav" style="float:right">
+                  <li class="active"><a href="#"><img src="../images/头像/1.jpg" width="18px"></a></li>
+                  <li><a href="/" style="color:snow">退出登录</a></li>
+               </ul>
+            </div>
+            </nav>    
     <% include tab.ejs%> 
     <div style="float:left;">  
-        <h4 style="color:lightcoral;padding-left: 40px">评论管理</h4>
-        <div style="margin-left:100px;">
-            <i style="font-size:18px;color:cadetblue">添加评论</i>                   
-            <form action="?" method="post">                           
-                <table>
-                    <tr>
-                        <td>评论ID</td>
-                        <td>
-                            <input type='number' name="cid" />
-                        </td>
-                        <td>评论动态ID</td>
-                        <td>
-                            <input type='number' name="mid"/>
-                        </td>                                                   
-                        <td>评论者ID</td>
-                        <td>
-                            <input type='number' name="uid"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>评论内容</td>
-                        <td>
-                            <input type="text" name="ccontent"/>
-                        </td>
-                        <td>评论时间</td>
-                        <td>
-                            <input typname="cdate"/>
-                        </td>                                                                      
-                    </tr>                      
-                </table>
-                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
-            </form>
-        </div>  
+        <h4 style="color:lightcoral;padding-left: 40px">评论管理</h4>        
         <hr style="margin-left:100px; width: 100%">  
-        <form method="post" action="/comment/findc"> 
+        <form method="post"> 
             <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
-            <p></p>   
-            <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">点击搜索</button>                               
+            <p></p> 
+            <input placeholder="请输入评论id" style="margin-left: 185px;width: 220px;" name="cid">   
+            <button type="submit" style="margin-bottom: 1%" class="btn btn-primary radius">搜索</button>                                                                                
         </form> 
         <hr style="margin-left:100px; width: 100%">  
         <table width='100%' cellpadding='5' style="margin-left:100px;">
-        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">评论列表</i>
         <p></p>
             <tr>                           
                 <th>评论ID</th>
