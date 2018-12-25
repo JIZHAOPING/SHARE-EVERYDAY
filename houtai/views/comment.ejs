@@ -58,6 +58,7 @@
         <table width='100%' cellpadding='5' style="margin-left:100px;">
         <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>
         <p></p>
+            <thead>
             <tr>                           
                 <th>评论ID</th>
                 <th>评论动态ID</th>
@@ -66,19 +67,38 @@
                 <th>评论时间</th>  
                 <th>操作</th>  
             </tr>
+            </thead>
+            <tbody id="ec_table">
             <% for(var item in items){ %>
                 <tr class="top" id="<%= items[item].cid %>">
                     <td><%= items[item].cid %></td>  
                     <td><%= items[item].mid %></td>  
                     <td><%= items[item].uid %></td>
                     <td><%= items[item].ccontent %></td>  
-                    <td><%= items[item].cdate %></td>  
+                    <td>
+                        <script>
+                            var date = new Date('<%= items[item].cdate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td> 
                     <td>
                         <button onclick="del('<%= items[item].cid %>')" class="btn btn-primary radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
+            </tbody>
         </table> 
+        <!-- 实现分页功能 -->
+        <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
+            <span id="spanFirst" >第一页</span>
+            <span id="spanPre">上一页</span>
+            <span id="spanNext">下一页</span>
+            <span id="spanLast">最后一页</span> 第
+            <span id="spanPageNum"></span>页/共
+            <span id="spanTotalPage"></span>页
+        </div>
+        <script src="/javascripts/page.js"></script>
     </div> 
 </body>
 <script>

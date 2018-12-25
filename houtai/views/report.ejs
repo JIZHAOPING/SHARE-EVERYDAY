@@ -17,11 +17,14 @@
     <div style="float:left;">  
         <h4 style="color:lightcoral;padding-left: 40px">举报管理</h4>              
         <table width='100%' cellpadding='5' style="margin-left:100px;">
+            <thead>
             <tr>                           
                 <th>举报ID</th>
                 <th>被举报者</th>
                 <th>操作</th>
             </tr>
+            </thead>
+            <tbody id="ec_table">
             <% for(var item in items){ %>
                 <tr class="top" id="<%= items[item].uid %>">
                     <td><%= items[item].rid %></td>  
@@ -32,7 +35,18 @@
                     </td>                    
                 </tr>
             <% } %>
+            </tbody>
         </table> 
+        <!-- 实现分页功能 -->
+        <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
+            <span id="spanFirst" >第一页</span>
+            <span id="spanPre">上一页</span>
+            <span id="spanNext">下一页</span>
+            <span id="spanLast">最后一页</span> 第
+            <span id="spanPageNum"></span>页/共
+            <span id="spanTotalPage"></span>页
+        </div>
+        <script src="/javascripts/page.js"></script>
     </div> 
 </body>
 </html>
