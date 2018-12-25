@@ -51,6 +51,16 @@
                     <td><%= items[item].mid %></td>  
                     <td><%= items[item].uid %></td>
                     <td><%= items[item].ccontent %></td>  
+<<<<<<< HEAD
+                    <td>
+                        <script>
+                            var date = new Date('<%= items[item].cdate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td> 
+=======
+>>>>>>> 2d1b006910e12f0e55eaed01c21908ea5207a4f9
                     <td>
                         <script>
                             var date = new Date('<%= items[item].cdate %>');  
@@ -59,7 +69,7 @@
                         </script>
                     </td> 
                     <td>
-                        <button onclick="del('<%= items[item].cid %>')" class="btn btn-primary radius">删除</button>
+                        <button onclick="del('<%= items[item].cid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>

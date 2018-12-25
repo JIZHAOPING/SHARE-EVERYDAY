@@ -24,6 +24,7 @@ router.get('/',function(req, res) {
   }); 
 });
 
+
 router.post('/',function(req,res){
   const sql='INSERT INTO comment(cid,mid,uid,ccontent,cdate) VALUES(?,?,?,?,?)';
   db.query(sql, [req.body.cid, req.body.mid,req.body.uid,req.body.ccontent,new Date().toLocaleString()],

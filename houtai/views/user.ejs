@@ -86,14 +86,18 @@
                         </script>
                     </td> 
                     <td>
-                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-primary radius">删除</button>
+                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
             </tbody>
         </table>    
     </div> 
+<<<<<<< HEAD
  <!-- 实现分页功能 -->
+=======
+    <!-- 实现分页功能 -->
+>>>>>>> 2d1b006910e12f0e55eaed01c21908ea5207a4f9
     <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
         <span id="spanFirst" >第一页</span>
         <span id="spanPre">上一页</span>
@@ -231,7 +235,6 @@
         hide();
     </script>
 </body>
-<script src="/javascripts/layui/lay/modules/layer.js"></script>
 <script>
     function del(uid){
         var tr = document.getElementById(uid);

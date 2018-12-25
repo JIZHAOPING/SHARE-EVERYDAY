@@ -51,9 +51,10 @@
                 <tr class="top" id="<%= items[item].uid %>">
                     <td><%= items[item].uid %></td>  
                     <td><%= items[item].uname %></td>  
-                    <td><img src="<%= items[item].uimg %>" style="width:30px;height:30px"></td>
+                    <td><img src="../<%= items[item].uimg %>" style="width:30px;height:30px"></td>
                     <td><%= items[item].utel %></td>  
                     <td><%= items[item].upwd %></td>  
+<<<<<<< HEAD
                     <td>
                         <script>
                             var date = new Date('<%= items[item].udate %>');  
@@ -61,8 +62,17 @@
                                     + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
                         </script>
                     </td>                     
+=======
+>>>>>>> 2d1b006910e12f0e55eaed01c21908ea5207a4f9
                     <td>
-                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-primary radius">删除</button>
+                        <script>
+                            var date = new Date('<%= items[item].udate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td>               
+                    <td>
+                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
