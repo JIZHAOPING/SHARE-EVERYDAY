@@ -52,7 +52,7 @@
                     <tr class="top" id="<%= items[item].mid %>">
                         <td><%= items[item].mid %></td>  
                         <td><%= items[item].mcontent %></td>  
-                        <td><img src="<%= items[item].mimg %>" style="width:30px;height:30px"></td>
+                        <td><img src="../<%= items[item].mimg %>" style="width:30px;height:30px"></td>
                         <td><%= items[item].mtype %></td>  
                         <td><%= items[item].uid %></td>  
                         <td>
@@ -63,7 +63,7 @@
                             </script>
                         </td>                      
                         <td>
-                            <button onclick="del('<%= items[item].mid %>')" class="btn btn-primary radius">删除</button>
+                            <button onclick="del('<%= items[item].mid %>')" class="btn btn-danger radius">删除</button>
                         </td>                    
                     </tr>
                 <% } %>
@@ -91,7 +91,7 @@
                         <tr id="<%= itemss[item].mid %>">
                             <td><%= itemss[item].mid %></td>  
                             <td><%= itemss[item].mcontent %></td>  
-                            <td><img src="<%= itemss[item].mimg %>" style="width:30px;height:30px"></td>
+                            <td><img src="../<%= itemss[item].mimg %>" style="width:30px;height:30px"></td>
                             <td><%= itemss[item].mtype %></td>  
                             <td><%= itemss[item].uid %></td>  
                             <td><%= itemss[item].mdate %></td>                      

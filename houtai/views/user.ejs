@@ -83,7 +83,7 @@
                         </script>
                     </td> 
                     <td>
-                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-primary radius">删除</button>
+                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
@@ -227,7 +227,6 @@
         hide();
     </script>
 </body>
-<script src="/javascripts/layui/lay/modules/layer.js"></script>
 <script>
     function del(uid){
         var tr = document.getElementById(uid);

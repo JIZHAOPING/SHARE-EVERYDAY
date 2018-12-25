@@ -51,7 +51,7 @@
                 <tr class="top" id="<%= items[item].uid %>">
                     <td><%= items[item].uid %></td>  
                     <td><%= items[item].uname %></td>  
-                    <td><img src="<%= items[item].uimg %>" style="width:30px;height:30px"></td>
+                    <td><img src="../<%= items[item].uimg %>" style="width:30px;height:30px"></td>
                     <td><%= items[item].utel %></td>  
                     <td><%= items[item].upwd %></td>  
                     <td>
@@ -62,7 +62,7 @@
                         </script>
                     </td>                     
                     <td>
-                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-primary radius">删除</button>
+                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
