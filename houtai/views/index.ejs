@@ -10,9 +10,140 @@
     <link href="/stylesheets/tab.css" rel="stylesheet" type="text/css">
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/javascripts/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
 </head>
 <body>
     <% include header.ejs%>
     <% include tab.ejs%>
-    <div><img src="images/index.jpg" style="height:400px;padding-left:300px"></div>
+    <div class="up1" id="show">
+    </div>
+
+    <div class="up">
+    <div class="amount">
+        <h4>昨日新增用户</h4>
+        <div class="h3"><%= newuser %></div>
+    </div>
+    <div class="amount">
+        <h4>昨日新增动态</h4>
+        <div class="h3"><%= newmovement %></div>
+    </div>
+    <div class="amount">
+        <h4>总注册用户</h4>
+        <div class="h3"><%= totaluser %></div>
+    </div>
+    <div class="amount">
+        <h4>总动态数</h4>
+        <div class="h3" id="total"><%= totalmovement %></div>
+    </div>
+    </div>
+    <div id="only">
+       <i id="e"><%= e %></i>
+       <i id="f"><%= f %></i>
+       <i id="g"><%= g %></i>
+       <i id="h"><%= h %></i>
+       <i id="i"><%= i %></i>
+       <i id="j"><%= j %></i>
+       <i id="k"><%= k %></i>
+       <i id="l"><%= l %></i>
+       <i id="m"><%= m %></i>
+       <i id="n"><%= n %></i>
+       <i id="o"><%= o %></i>
+       <i id="p"><%= p %></i>
+    </div>
+    <div id="container">
+    </div>
+
+</body>
+<script type="text/javascript"> 
+    window.onload = function() {  
+    var show = document.getElementById("show");  
+    setInterval(function() {   
+    var time = new Date();   // 程序计时的月从0开始取值后+1   
+    var m = time.getMonth() + 1;   
+    var t = "当前时间："+ time.getFullYear() + "-" + m + "-"     
+    + time.getDate() + " " + time.getHours() + ":"     
+    + time.getMinutes() + ":" + time.getSeconds();   
+    show.innerHTML = t;  
+    }, 1000); 
+    };
+</script>
+<script language="JavaScript">
+   var total=document.getElementById('total').textContent;
+   var e=document.getElementById('e').textContent;
+   var f=document.getElementById('f').textContent;
+   var g=document.getElementById('g').textContent;
+   var h=document.getElementById('h').textContent;
+   var i=document.getElementById('i').textContent;
+   var j=document.getElementById('j').textContent;
+   var k=document.getElementById('k').textContent;
+   var l=document.getElementById('l').textContent;
+   var m=document.getElementById('m').textContent;
+   var n=document.getElementById('n').textContent;
+   var o=document.getElementById('o').textContent;
+   var p=document.getElementById('p').textContent;
+    $(document).ready(function() {  
+       var chart = {
+           plotBackgroundColor: null,
+           plotBorderWidth: null,
+           plotShadow: false
+       };
+       //为图标配置标题
+       var title = {
+          text: '12个话题占比' 
+       }; 
+       //配置提示信息     
+       var tooltip = {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+       };
+       var plotOptions = {
+          pie: {
+             allowPointSelect: true,
+             cursor: 'pointer',
+             dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                style: {
+                   color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+             }
+          }
+       };
+       //配置图标要显示的数据
+       var series= [{
+          type: 'pie',
+          name: 'Browser share',
+          data: [
+             {
+                name: '升学',
+                y: e/total*100,
+                sliced: true,
+                selected: true
+             },
+             ['艺能',f/total*100],
+             ['技能',g/total*100],
+
+             ['工作日常',h/total*100],
+             ['工作烦恼',i/total*100],
+             ['职场经验',j/total*100],
+             
+             ['亲情',k/total*100],
+             ['友情',l/total*100],
+             ['爱情',m/total*100],
+
+             ['健身',n/total*100],
+             ['旅行',o/total*100],
+             ['娱乐',p/total*100]
+          ]
+       }];     
+       //第三步：创建json数据-组合是由配置信息   
+       var json = {};   
+       json.chart = chart; 
+       json.title = title;     
+       json.tooltip = tooltip;  
+       json.series = series;
+       json.plotOptions = plotOptions;
+       $('#container').highcharts(json);  
+    });
+    </script>
 </html>

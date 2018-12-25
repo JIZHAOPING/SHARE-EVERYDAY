@@ -62,14 +62,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/user',user);
 app.use('/index',index);
 app.use('/report',report);
-app.use('/index',user);
-//app.use('/report',report);
 app.use('/movement',movement);
 app.use('/comment',comment);
 app.use('/type',type);
 app.use('/supergirl',supergirl);
 app.use('/message',message);
 app.use('/',login);
+
 //app.use('/permission',permission);
 //app.use('/users', usersRouter);
 //api接口

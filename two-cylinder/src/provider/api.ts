@@ -13,17 +13,17 @@ export class ApiProvider{
     url:string="/api";
 
     //实例POST注册
-    public postZhuce(data){
-      return new Promise((resolve, reject) => {
-        this.http.post(this.url+'/user/reg',data,{headers:this.headers})
-          .subscribe((res:Response)=>{
-            console.log(res);
-          },err=>{
-            console.dir(err)
-            reject()
-          });
-      });
-    }
+  public postZhuce(data){
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url+'/user/reg',data,{headers:this.headers})
+        .subscribe((res:Response)=>{
+          console.log(res);
+        },err=>{
+          console.dir(err)
+          reject()
+        });
+    });
+  }
   //实例get 用户请求
   public getMy(){
     return new Promise((resolve, reject) => {
@@ -35,6 +35,18 @@ export class ApiProvider{
           console.dir(err);
           reject()
       });
+    });
+  }
+  //发表
+  public postArticle(data){
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url+'movement',data,{headers:this.headers})
+        .subscribe((res:Response)=>{
+          console.log(res);
+        },err=>{
+          console.dir(err)
+          reject()
+        });
     });
   }
 

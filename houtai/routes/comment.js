@@ -1,6 +1,16 @@
 const comments = require('../db/comment.js');
 var express = require('express');
 var router = express.Router();
+const mysql = require('mysql');
+
+let db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'two-cylinder',
+    port: 3306
+});
+
 
 var comment = new comments();
 
@@ -14,21 +24,26 @@ router.get('/',function(req, res) {
   }); 
 });
 
+
 router.post('/',function(req,res){
-  comment.addItem(req.body.item,function(err){
-    if(err){
-      res.status(500).send('DB error');
-      return;
-    }
-  });
-  comment.getAll(function(err,result){
-    if(err){
-      res.status(500).send('DB error');
-      return;
-    }
-    res.render('user',{items:result});
+  const sql='INSERT INTO comment(cid,mid,uid,ccontent,cdate) VALUES(?,?,?,?,?)';
+  db.query(sql, [req.body.cid, req.body.mid,req.body.uid,req.body.ccontent,new Date().toLocaleString()],
+  function (err, result) {
+     if (err) return err;
+     res.redirect('comment');
+});
+});
+
+
+router.post('/findc',function(req,res){
+  const sql = 'select * from comment where cid=?';
+  db.query(sql, [req.body.cid],
+  function (err, result) {
+    if (err) return err;
+    res.render('findc',{items:result});
   });
 });
+
 
 router.delete('/',function(req,res){
   console.log(2);

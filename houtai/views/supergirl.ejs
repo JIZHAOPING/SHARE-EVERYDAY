@@ -16,6 +16,7 @@
     <% include tab.ejs%> 
     <div style="float:left;">  
         <h4 style="color:lightcoral;padding-left: 40px;">账户管理</h4>
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">添加账户</i>
         <div style="margin-left:100px;">
             <form method="post">                           
                 <table>
@@ -33,12 +34,14 @@
                             <input type="password" name="spwd"/>
                         </td>                
                 </table>
-                <input type="submit" value="添加" style="float:right;">                       
+                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
             </form>
         </div>  
         <br>
-        <hr>                  
+        <hr style="margin-left:100px; width: 100%">   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">账户列表</i>
+        <p></p>
             <tr>                           
                 <th>账户ID</th>
                 <th>账户名</th>
@@ -51,8 +54,8 @@
                     <td><%= items[item].sname %></td>
                     <td><%= items[item].spwd %></td>
                     <td>
-                        <button onclick="del('<%= items[item].sid %>')">删除</button>
-                        <button onclick="change()">修改</button>
+                        <button onclick="del('<%= items[item].sid %>')" class="btn btn-primary radius">删除</button>
+                        <button onclick="change()" class="btn btn-primary radius">修改</button>
                     </td>                    
                 </tr>
             <% } %>

@@ -94,7 +94,7 @@ doReset() {
     console.debug("两次密码输入不一致");
     }
     this.getList();
-    
+    this.navCtrl.push(DengluPage);
 }
 getList(){
   let data=JSON.stringify({
@@ -146,7 +146,8 @@ getList(){
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DengluPage');
-    
+      // console.dir(this.list);
+    };
   }
 
-}
+

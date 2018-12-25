@@ -1,12 +1,10 @@
-.container{
-  padding-top:100px;
-  padding-bottom:200px;
-  background-image: url(../images/logo.jpg);
-  background-size: contain;
+body{
+  background-image: url(../images/index1.jpg);
+  background-position-x: -20%;
 }
-#submit{
-  background-color:#f55d54;
+div{
+  margin-top: 12%;
+  position: relative;
+  left: 20%
 }
-h2{
-  text-align: center;
-}
+

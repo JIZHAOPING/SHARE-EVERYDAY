@@ -18,39 +18,48 @@
     <div style="float:left;">  
         <h4 style="color:lightcoral;padding-left: 40px">用户管理</h4>
         <div style="margin-left:100px;">
-            <form method="post">                           
+            <form method="post">        
+                <i style="font-size:18px;color:cadetblue">添加用户</i>                   
                 <table>
                     <tr>
                         <td>用户ID</td>
                         <td>
-                            <input type="number" name='uid' id="uid"/>
+                            <input type="number" name='uid'/>
                         </td>
                         <td>用户名</td>
                         <td>
-                            <input type="text" name="uname" id="uname"/>
+                            <input type="text" name="uname"/>
                         </td>
                         <td>头像</td>
                         <td> 
-                            <input type="file" name="uimg" id="uimg"/>
+                            <input type="file" name="uimg"/>
                         </td>                                                               
                     </tr>
                     <tr>
                         <td>联系方式</td>
                         <td>
-                            <input type="number" name="utel" id="utel"/>
+                            <input type="number" name="utel"/>
                         </td>  
                         <td>密码</td>
                         <td>
-                            <input type="number" name="upwd" id="upwd"/>
+                            <input type="number" name="upwd"/>
                         </td>                                                                         
                     </tr>                      
                 </table>
-                <input type="submit" value="添加" style="float:right;" id="insert">                       
+                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
             </form>
         </div>  
-        <br>
-        <hr style="margin-left:100px; width: 100%">                   
+        <hr style="margin-left:100px; width: 100%"> 
+        <form method="post" action="/user/findu"> 
+            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
+            <p></p>   
+            <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">点击搜索</button>                               
+        </form>               
+        <hr style="margin-left:100px; width: 100%">   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">用户列表</i>
+        <p></p>
+            <thead>                  
             <tr>                           
                 <th>用户ID</th>
                 <th>用户名</th>
@@ -60,24 +69,172 @@
                 <th>注册时间</th> 
                 <th>操作</th> 
             </tr>
+            </thead> 
+            <tbody id="ec_table">
             <% for(var item in items){ %>
                 <tr class="top" id="<%= items[item].uid %>">
                     <td><%= items[item].uid %></td>  
                     <td><%= items[item].uname %></td>  
                     <td><img src="<%= items[item].uimg %>" style="width:30px;height:30px"></td>
-                    <td><%= items[item].utel %></td>  
-                    <td><%= items[item].upwd %></td>  
-                    <td><%= items[item].udate %></td>                      
+                    <td><%= items[item].utel %></td>
+                    <td><%= items[item].upwd %></td> 
                     <td>
-                        <button onclick="del('<%= items[item].uid %>')">删除</button>
-                        <button><a href="#">修改</a></button>
+                        <script>
+                            var date = new Date('<%= items[item].udate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td> 
+                    <td>
+                        <button onclick="del('<%= items[item].uid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    
                 </tr>
             <% } %>
+            </tbody>
         </table>    
     </div> 
+<<<<<<< HEAD
+ <!-- 实现分页功能 -->
+=======
+    <!-- 实现分页功能 -->
+>>>>>>> 2d1b006910e12f0e55eaed01c21908ea5207a4f9
+    <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
+        <span id="spanFirst" >第一页</span>
+        <span id="spanPre">上一页</span>
+        <span id="spanNext">下一页</span>
+        <span id="spanLast">最后一页</span> 第
+        <span id="spanPageNum"></span>页/共
+        <span id="spanTotalPage"></span>页
+    </div>
+        
+    <script>
+        var theTable = document.getElementById("ec_table");
+        var totalPage = document.getElementById("spanTotalPage");
+        var pageNum = document.getElementById("spanPageNum");
+        var spanPre = document.getElementById("spanPre");
+        var spanNext = document.getElementById("spanNext");
+        var spanFirst = document.getElementById("spanFirst");
+        var spanLast = document.getElementById("spanLast");
+        var numberRowsInTable = theTable.rows.length;
+        var pageSize = 5;
+        var page = 1;
+        //下一页
+        function next() {
+            hideTable();
+            currentRow = pageSize * page;
+            maxRow = currentRow + pageSize;
+            if (maxRow > numberRowsInTable)
+                maxRow = numberRowsInTable;
+            for ( var i = currentRow; i < maxRow; i++) {
+                theTable.rows[i].style.display = '';//currentRow ~ maxRow 内显示出来
+            }
+            page++;
+            if (maxRow == numberRowsInTable) {
+                nextText();
+                lastText();
+            }
+            showPage();
+            preLink();
+            firstLink();
+        }
+        //上一页
+        function pre() {
+            hideTable();
+            page--;
+            currentRow = pageSize * page;
+            maxRow = currentRow - pageSize;
+            if (currentRow > numberRowsInTable)
+                currentRow = numberRowsInTable;
+            for ( var i = maxRow; i < currentRow; i++) {
+                theTable.rows[i].style.display = '';
+            }
+            if (maxRow == 0) {
+                preText();
+                firstText();
+            }
+            showPage();
+            nextLink();
+            lastLink();
+        }
+        //第一页
+        function first() {
+            hideTable();
+            page = 1;
+            for ( var i = 0; i < pageSize; i++) {
+                theTable.rows[i].style.display = '';
+            }
+            showPage();
+            preText();
+            nextLink();
+            lastLink();
+        }
+        //最后一页
+        function last() {
+            hideTable();
+            page = pageCount();
+            currentRow = pageSize * (page - 1);
+            for ( var i = currentRow; i < numberRowsInTable; i++) {
+                theTable.rows[i].style.display = '';
+            }
+            showPage();
+            preLink();
+            nextText();
+            firstLink();
+        }
+        function hideTable() {
+            for ( var i = 0; i < numberRowsInTable; i++) {
+                theTable.rows[i].style.display = 'none';
+            }
+        }
+        function showPage() {
+            pageNum.innerHTML = page;
+        }
+        //总共页数
+        function pageCount() {
+            var count = 0;
+            if (numberRowsInTable % pageSize != 0)
+                count = 1;
+            return parseInt(numberRowsInTable / pageSize) + count;
+        }
+
+        //显示链接
+        function preLink() {
+            spanPre.innerHTML = "<a href='javascript:pre();'>上一页</a>";
+        }
+        function preText() {
+            spanPre.innerHTML = "上一页";
+        }
+        function nextLink() {
+            spanNext.innerHTML = "<a href='javascript:next();'>下一页</a>";
+        }
+        function nextText() {
+            spanNext.innerHTML = "下一页";
+        }
+        function firstLink() {
+            spanFirst.innerHTML = "<a href='javascript:first();'>第一页</a>";
+        }
+        function firstText() {
+            spanFirst.innerHTML = "第一页";
+        }
+        function lastLink() {
+            spanLast.innerHTML = "<a href='javascript:last();'>最后一页</a>";
+        }
+        function lastText() {
+            spanLast.innerHTML = "最后一页";
+        }
+        //隐藏表格
+        function hide() {
+            for ( var i = pageSize; i < numberRowsInTable; i++) {
+                theTable.rows[i].style.display = 'none';
+            }
+            totalPage.innerHTML = pageCount();
+            pageNum.innerHTML = '1';
+            nextLink();
+            lastLink();
+        }
+        hide();
+    </script>
 </body>
-<script src="/javascripts/layui/lay/modules/layer.js"></script>
 <script>
     function del(uid){
         var tr = document.getElementById(uid);
@@ -87,6 +244,7 @@
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body:'item=' + uid
         });
-    }
+    }  
+
 </script>
 </html>

@@ -1,6 +1,15 @@
 const movements = require('../db/movement.js');
 var express = require('express');
 var router = express.Router();
+const mysql = require('mysql');
+
+let db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'two-cylinder',
+    port: 3306
+});
 
 var movement = new movements();
 
@@ -15,19 +24,26 @@ router.get('/',function(req, res) {
 });
 
 router.post('/',function(req,res){
-  movement.addItem(req.body.item,function(err){
-    if(err){
-      res.status(500).send('DB error');
-      return;
-    }
-  });
-  movement.getAll(function(err,result){
-    if(err){
-      res.status(500).send('DB error');
-      return;
-    }
-    res.render('user',{items:result});
-  });
+  const sql='INSERT INTO movement(mid,mcontent,mdate,mimg,mtype,uid) VALUES(?,?,?,?,?,?)';
+  db.query(sql, [req.body.mid, req.body.mcontent,new Date().toLocaleString(),req.body.mimg, req.body.mtype,req.body.uid],
+  function (err, result) {
+     if (err) return err;
+     res.redirect('movement');
+});
+});
+
+router.post('/findm',function(req,res){
+    const sql= 'SELECT * FROM movement WHERE mid=?' ;
+    const sql1= 'SELECT * FROM movement WHERE mtype=?' ;
+  db.query(sql, [req.body.mid],
+  function (err, result) {
+     if (err) return err;
+     db.query(sql1,[req.body.mtype],function(err,jieguo){
+       if (err) return err;
+     
+     res.render('findm',{items:result,itemss:jieguo});
+     })
+});
 });
 
 router.delete('/',function(req,res){
