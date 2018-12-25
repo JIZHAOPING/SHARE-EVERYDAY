@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { Camera,CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 
-
+import { ApiProvider } from '../../provider/api';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the FabiaoPage page.
  *
@@ -17,6 +18,7 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
   templateUrl: 'fabiao.html',
 })
 export class FabiaoPage {
+  text: any;
   
   
   opencamera(){
@@ -66,9 +68,21 @@ export class FabiaoPage {
     {src:'assets/imgs/加号.jpg'},
     
   ]
-  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private imagePicker: ImagePicker) {
+  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,private camera: Camera,private imagePicker: ImagePicker) {
   }
-  
+  getList(){
+    let data=JSON.stringify({
+      acontent:this.text,
+    });
+    this.api.postArticle(data).then(data=>{
+      console.dir(data);
+    });
+  }
+
+  openModal(){
+    this.getList();
+    this.navCtrl.setRoot(HomePage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FabiaoPage');
     //setInterval("show_time0.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1);  
