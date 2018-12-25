@@ -65,7 +65,6 @@ user.prototype.getAll = function(callback){
       callback(true);
       return;                
     }
-    
     result.forEach((e) => {items.push(e.uid,e.uname,e.uimg,e.utel,e.upwd,e.udate)});
     callback(false,result);
   });
