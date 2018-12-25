@@ -37,5 +37,17 @@ export class ApiProvider{
       });
     });
   }
+  //发表
+  public postArticle(data){
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url+'movement',data,{headers:this.headers})
+        .subscribe((res:Response)=>{
+          console.log(res);
+        },err=>{
+          console.dir(err)
+          reject()
+        });
+    });
+  }
 
 }

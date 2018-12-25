@@ -24,7 +24,7 @@ var login = require('./routes/login');
 //var permission = require('./routes/permission');
 //引入api路由
 var apiuser=require('./routes/api/user');
-
+var apimovement=require('./routes/api/movement');
 
 
 var app = express();
@@ -59,7 +59,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // 这两行是post获取参数(repress已分离body-parser组建)
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/user',user);
 app.use('/change',change);
@@ -77,6 +77,7 @@ app.use('/modify',modify);
 //app.use('/users', usersRouter);
 //api接口
 app.use('/api/user',apiuser);
+app.use('/api/movement',apimovement);
 
 // catch 404 and forward to error handler
 app.use(function(req, res,next) {

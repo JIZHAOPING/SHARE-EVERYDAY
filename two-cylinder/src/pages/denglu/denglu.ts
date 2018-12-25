@@ -94,7 +94,7 @@ doReset() {
     console.debug("两次密码输入不一致");
     }
     this.getList();
-    
+    this.navCtrl.push(DengluPage);
 }
 getList(){
   let data=JSON.stringify({
@@ -146,15 +146,8 @@ getList(){
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DengluPage');
-<<<<<<< HEAD
-    
-=======
-    this.api.api().then(data=>{
-      console.dir(data);
-      //  this.list=<any>data;
       // console.dir(this.list);
-    });
->>>>>>> 1ff21e18a8f6f2ed287b8e13edfe946b8e1e281b
+    };
   }
 
-}
+
