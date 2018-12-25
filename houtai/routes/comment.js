@@ -33,14 +33,16 @@ router.post('/',function(req,res){
 });
 });
 
+
 router.post('/findc',function(req,res){
-  const sql= 'SELECT * FROM comment WHERE cid=?' ;
+  const sql = 'select * from comment where cid=?';
   db.query(sql, [req.body.cid],
   function (err, result) {
-     if (err) return err;
-     res.render('findc',{items:result});
+    if (err) return err;
+    res.render('findc',{items:result});
+  });
 });
-});
+
 
 router.delete('/',function(req,res){
   console.log(2);

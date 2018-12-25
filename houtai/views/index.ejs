@@ -10,7 +10,7 @@
     <link href="/stylesheets/tab.css" rel="stylesheet" type="text/css">
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/javascripts/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
 </head>
 <body>
     <% include header.ejs%>
@@ -21,27 +21,37 @@
     <div class="up">
     <div class="amount">
         <h4>昨日新增用户</h4>
-        <div class="h3"></div>
+        <div class="h3"><%= newuser %></div>
     </div>
     <div class="amount">
         <h4>昨日新增动态</h4>
-        <div class="h3">202</div>
+        <div class="h3"><%= newmovement %></div>
     </div>
     <div class="amount">
         <h4>总注册用户</h4>
-        <div class="h3">111</div>
+        <div class="h3"><%= totaluser %></div>
     </div>
     <div class="amount">
         <h4>总动态数</h4>
-        <div class="h3">202</div>
+        <div class="h3" id="total"><%= totalmovement %></div>
     </div>
     </div>
-
-    <div class="down">
-    <div id="container0"></div>
-    <div id="container"></div>
+    <div id="only">
+       <i id="e"><%= e %></i>
+       <i id="f"><%= f %></i>
+       <i id="g"><%= g %></i>
+       <i id="h"><%= h %></i>
+       <i id="i"><%= i %></i>
+       <i id="j"><%= j %></i>
+       <i id="k"><%= k %></i>
+       <i id="l"><%= l %></i>
+       <i id="m"><%= m %></i>
+       <i id="n"><%= n %></i>
+       <i id="o"><%= o %></i>
+       <i id="p"><%= p %></i>
     </div>
-    <!-- <div><img src="images/index.jpg" style="height:400px;padding-left:300px"></div> -->
+    <div id="container">
+    </div>
 
 </body>
 <script type="text/javascript"> 
@@ -58,71 +68,19 @@
     };
 </script>
 <script language="JavaScript">
-    $(document).ready(function() {
-       var title = {
-          text: '每月注册人数'   
-       };
-       var subtitle = {
-          text: 'Source: runoob.com'
-       };
-       var xAxis = {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-       };
-       var yAxis = {
-          title: {
-             text: '数量/个'
-          },
-          plotLines: [{
-             value: 0,
-             width: 1,
-             color: '#808080'
-          }]
-       };   
-    
-       var tooltip = {
-          valueSuffix: '\xB0C'
-       }
-    
-       var legend = {
-          layout: 'vertical',
-          align: 'right',
-          verticalAlign: 'middle',
-          borderWidth: 0
-       };
-    
-       var series =  [
-          {
-             name: 'Tokyo',
-             data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
-                26.5, 23.3, 18.3, 13.9, 9.6]
-          }, 
-          {
-             name: 'New York',
-             data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8,
-                24.1, 20.1, 14.1, 8.6, 2.5]
-          },
-          {
-             name: 'London',
-             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 
-                16.6, 14.2, 10.3, 6.6, 4.8]
-          }
-       ];
-    
-       var json = {};
-    
-       json.title = title;
-       json.subtitle = subtitle;
-       json.xAxis = xAxis;
-       json.yAxis = yAxis;
-       json.tooltip = tooltip;
-       json.legend = legend;
-       json.series = series;
-    
-       $('#container0').highcharts(json);
-    });
-    </script>
-<script language="JavaScript">
+   var total=document.getElementById('total').textContent;
+   var e=document.getElementById('e').textContent;
+   var f=document.getElementById('f').textContent;
+   var g=document.getElementById('g').textContent;
+   var h=document.getElementById('h').textContent;
+   var i=document.getElementById('i').textContent;
+   var j=document.getElementById('j').textContent;
+   var k=document.getElementById('k').textContent;
+   var l=document.getElementById('l').textContent;
+   var m=document.getElementById('m').textContent;
+   var n=document.getElementById('n').textContent;
+   var o=document.getElementById('o').textContent;
+   var p=document.getElementById('p').textContent;
     $(document).ready(function() {  
        var chart = {
            plotBackgroundColor: null,
@@ -131,7 +89,7 @@
        };
        //为图标配置标题
        var title = {
-          text: '12个话题各占比例'   
+          text: '12个话题占比' 
        }; 
        //配置提示信息     
        var tooltip = {
@@ -157,24 +115,24 @@
           data: [
              {
                 name: '升学',
-                y: 10.0,
+                y: e/total*100,
                 sliced: true,
                 selected: true
              },
-             ['艺能',       10.0],
-             ['技能',      10.0],
+             ['艺能',f/total*100],
+             ['技能',g/total*100],
 
-             ['工作日常',       10.0],
-             ['工作烦恼',       10.0],
-             ['职场经验',       5.0],
+             ['工作日常',h/total*100],
+             ['工作烦恼',i/total*100],
+             ['职场经验',j/total*100],
              
-             ['亲情',    10.0],
-             ['友情',    5.0],
-             ['爱情',   10.0],
+             ['亲情',k/total*100],
+             ['友情',l/total*100],
+             ['爱情',m/total*100],
 
-             ['健身',     10.0],
-             ['旅行',     5.0],
-             ['娱乐',   5.0]
+             ['健身',n/total*100],
+             ['旅行',o/total*100],
+             ['娱乐',p/total*100]
           ]
        }];     
        //第三步：创建json数据-组合是由配置信息   

@@ -34,10 +34,15 @@ router.post('/',function(req,res){
 
 router.post('/findm',function(req,res){
     const sql= 'SELECT * FROM movement WHERE mid=?' ;
+    const sql1= 'SELECT * FROM movement WHERE mtype=?' ;
   db.query(sql, [req.body.mid],
   function (err, result) {
      if (err) return err;
-     res.render('findm',{items:result});
+     db.query(sql1,[req.body.mtype],function(err,jieguo){
+       if (err) return err;
+     
+     res.render('findm',{items:result,itemss:jieguo});
+     })
 });
 });
 
