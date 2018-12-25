@@ -17,6 +17,7 @@ var supergirl = require('./routes/supergirl');
 var report = require('./routes/report');
 var change = require('./routes/change');
 var bodyParser = require("body-parser");
+var modify = require('./routes/modify');
 
 //var usersRouter = require('./routes/users');
 var login = require('./routes/login');
@@ -70,6 +71,7 @@ app.use('/type',type);
 app.use('/supergirl',supergirl);
 app.use('/message',message);
 app.use('/',login);
+app.use('/modify',modify);
 
 //app.use('/permission',permission);
 //app.use('/users', usersRouter);

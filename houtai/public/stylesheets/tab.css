@@ -1,15 +1,22 @@
 body{
+    margin: 0;
+    padding: 0%;
     background-color:ghostwhite;
 }
 .u li{
     list-style: none;
     height:35px;
 }
+.u li a{
+    line-height: 35px;
+}
 .u{
+    position: fixed;
+    top: 50px;
+    padding-right: 40px;
     text-align: center;
     float: left;
-    margin-left: 15px;
-    
+    margin: 0;
 }
 th{
     text-align: center;

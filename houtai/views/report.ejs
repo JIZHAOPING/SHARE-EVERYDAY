@@ -14,40 +14,41 @@
 <body>
     <% include header.ejs%>
     <% include tab.ejs%> 
-    <div style="float:left;">  
-        <h4 style="color:lightcoral;padding-left: 40px">举报管理</h4>              
-        <table width='100%' cellpadding='5' style="margin-left:100px;">
-            <thead>
-            <tr>                           
-                <th>举报ID</th>
-                <th>被举报者</th>
-                <th>操作</th>
-            </tr>
-            </thead>
-            <tbody id="ec_table">
-            <% for(var item in items){ %>
-                <tr class="top" id="<%= items[item].uid %>">
-                    <td><%= items[item].rid %></td>  
-                    <td><%= items[item].uid %></td>                        
-                    <td>
-                        <button onclick="del('<%= items[item].uid %>')">删除</button>
-                        <button><a href="#">修改</a></button>
-                    </td>                    
+    <div style="position:relative; top:50px;margin-left: 10%"> 
+        <div style="float:left;">  
+            <h4 style="color:lightcoral;">举报管理</h4>              
+            <table width='100%' cellpadding='5' style="margin-left:100px;">
+                <thead>
+                <tr>                           
+                    <th>举报ID</th>
+                    <th>被举报者</th>
                 </tr>
-            <% } %>
-            </tbody>
-        </table> 
-        
-        <!-- 实现分页功能 -->
-        <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
-            <span id="spanFirst" >第一页</span>
-            <span id="spanPre">上一页</span>
-            <span id="spanNext">下一页</span>
-            <span id="spanLast">最后一页</span> 第
-            <span id="spanPageNum"></span>页/共
-            <span id="spanTotalPage"></span>页
-        </div>
-        <script src="/javascripts/page.js"></script>
-    </div> 
+                </thead>
+                <tbody id="ec_table">
+                <% for(var item in items){ %>
+                    <tr class="top" id="<%= items[item].uid %>">
+                        <td><%= items[item].rid %></td>  
+                        <td><%= items[item].uid %></td>                        
+                        <td>
+                            <button onclick="del('<%= items[item].uid %>')">删除</button>
+                            <button><a href="#">修改</a></button>
+                        </td>                    
+                    </tr>
+                <% } %>
+                </tbody>
+            </table> 
+            <div class="clear" style="clear:both"></div>        
+            <!-- 实现分页功能 -->
+            <div style="width:600px; margin-top:50%;margin-left: 38%;color:palevioletred; font-size: 16px;">
+                <span id="spanFirst" >第一页</span>
+                <span id="spanPre">上一页</span>
+                <span id="spanNext">下一页</span>
+                <span id="spanLast">最后一页</span> 第
+                <span id="spanPageNum"></span>页/共
+                <span id="spanTotalPage"></span>页
+            </div>
+        </div> 
+    </div>
 </body>
+<script src="/javascripts/page.js"></script>
 </html>

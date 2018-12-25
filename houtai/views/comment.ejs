@@ -14,102 +14,95 @@
 <body>
     <% include header.ejs%>
     <% include tab.ejs%> 
-    <div style="float:left;">  
-        <h4 style="color:lightcoral;padding-left: 40px">评论管理</h4>
-        <div style="margin-left:100px;">
-            <i style="font-size:18px;color:cadetblue">添加评论</i>                   
-            <form action="?" method="post">                           
-                <table>
-                    <tr>
-                        <td>评论ID</td>
-                        <td>
-                            <input type='number' name="cid" />
-                        </td>
-                        <td>评论动态ID</td>
-                        <td>
-                            <input type='number' name="mid"/>
-                        </td>                                                   
-                        <td>评论者ID</td>
-                        <td>
-                            <input type='number' name="uid"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>评论内容</td>
-                        <td>
-                            <input type="text" name="ccontent"/>
-                        </td>
-                        <td>评论时间</td>
-                        <td>
-                            <input typname="cdate"/>
-                        </td>                                                                      
-                    </tr>                      
-                </table>
-                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
-            </form>
-        </div>  
-        <hr style="margin-left:100px; width: 100%">  
-        <form method="post" action="/comment/findc"> 
-            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
-            <p></p>   
-            <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">点击搜索</button>                               
-        </form> 
-        <hr style="margin-left:100px; width: 100%">  
-        <table width='100%' cellpadding='5' style="margin-left:100px;">
-        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>
-        <p></p>
-            <thead>
-            <tr>                           
-                <th>评论ID</th>
-                <th>评论动态ID</th>
-                <th>评论者ID</th>
-                <th>评论内容</th>
-                <th>评论时间</th>  
-                <th>操作</th>  
-            </tr>
-            </thead>
-            <tbody id="ec_table">
-            <% for(var item in items){ %>
-                <tr class="top" id="<%= items[item].cid %>">
-                    <td><%= items[item].cid %></td>  
-                    <td><%= items[item].mid %></td>  
-                    <td><%= items[item].uid %></td>
-                    <td><%= items[item].ccontent %></td>  
-<<<<<<< HEAD
-                    <td>
-                        <script>
-                            var date = new Date('<%= items[item].cdate %>');  
-                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
-                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
-                        </script>
-                    </td> 
-=======
->>>>>>> 2d1b006910e12f0e55eaed01c21908ea5207a4f9
-                    <td>
-                        <script>
-                            var date = new Date('<%= items[item].cdate %>');  
-                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
-                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
-                        </script>
-                    </td> 
-                    <td>
-                        <button onclick="del('<%= items[item].cid %>')" class="btn btn-danger radius">删除</button>
-                    </td>                    
+    <div style="position:relative; top:50px;margin-left: 10%">
+        <div style="float:left;">  
+            <h4 style="color:lightcoral;">评论管理</h4>
+            <div style="margin-left:100px;">
+                <i style="font-size:18px;color:cadetblue">添加评论</i>                   
+                <form action="?" method="post">                           
+                    <table>
+                        <tr>
+                            <td>评论ID</td>
+                            <td>
+                                <input type='number' name="cid" />
+                            </td>
+                            <td>评论动态ID</td>
+                            <td>
+                                <input type='number' name="mid"/>
+                            </td>                                                   
+                            <td>评论者ID</td>
+                            <td>
+                                <input type='number' name="uid"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>评论内容</td>
+                            <td>
+                                <input type="text" name="ccontent"/>
+                            </td>
+                            <td>评论时间</td>
+                            <td>
+                                <input typname="cdate"/>
+                            </td>                                                                      
+                        </tr>                      
+                    </table>
+                    <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
+                </form>
+            </div>  
+            <hr style="margin-left:100px; width: 100%">  
+            <form method="post" action="/comment/findc"> 
+                <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
+                <p></p>   
+                <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">点击搜索</button>                               
+            </form> 
+            <hr style="margin-left:100px; width: 100%">  
+            <table width='100%' cellpadding='5' style="margin-left:100px;">
+            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">评论列表</i>
+            <p></p>
+                <thead>
+                <tr>                           
+                    <th>评论ID</th>
+                    <th>评论动态ID</th>
+                    <th>评论者ID</th>
+                    <th>评论内容</th>
+                    <th>评论时间</th>  
+                    <th>操作</th>  
                 </tr>
-            <% } %>
-            </tbody>
-        </table> 
-        <!-- 实现分页功能 -->
-        <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
-            <span id="spanFirst" >第一页</span>
-            <span id="spanPre">上一页</span>
-            <span id="spanNext">下一页</span>
-            <span id="spanLast">最后一页</span> 第
-            <span id="spanPageNum"></span>页/共
-            <span id="spanTotalPage"></span>页
-        </div>
-        <script src="/javascripts/page.js"></script>
-    </div> 
+                </thead>
+                <tbody id="ec_table">
+                <% for(var item in items){ %>
+                    <tr class="top" id="<%= items[item].cid %>">
+                        <td><%= items[item].cid %></td>  
+                        <td><%= items[item].mid %></td>  
+                        <td><%= items[item].uid %></td>
+                        <td><%= items[item].ccontent %></td>  
+                        <td>
+                            <script>
+                                var date = new Date('<%= items[item].cdate %>');  
+                                document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                        + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                            </script>
+                        </td> 
+                        <td>
+                            <button onclick="del('<%= items[item].cid %>')" class="btn btn-danger radius">删除</button>
+                        </td>                    
+                    </tr>
+                <% } %>
+                </tbody>
+            </table> 
+            <div class="clear" style="clear:both"></div>
+            <!-- 实现分页功能 -->
+            <div style='color:palevioletred; font-size: 16px; text-align: center;margin-top: 50px;margin-left: 20%'>                
+                <span id="spanFirst" >第一页</span>
+                <span id="spanPre">上一页</span>
+                <span id="spanNext">下一页</span>
+                <span id="spanLast">最后一页</span> 第
+                <span id="spanPageNum"></span>页/共
+                <span id="spanTotalPage"></span>页
+            </div>
+            <script src="/javascripts/page.js"></script>
+        </div> 
+    </div>
 </body>
 <script>
         function del(cid){
