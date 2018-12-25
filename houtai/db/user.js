@@ -45,7 +45,7 @@ user.prototype.delAll = function(callback){
 };
 
 /*改*/
-user.prototype.update = function(id,username,callback){
+user.prototype.update = function(uname,uid,callback){
   const sql = 'UPDATE users SET uname = ? WHERE uid = ?';
   db.query(sql,[uname,uid],function(err,results){
     if(err){

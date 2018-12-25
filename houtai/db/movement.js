@@ -34,7 +34,7 @@ movement.prototype.delItem = function(mid,callback){
 };
 
 movement.prototype.delAll = function(callback){
-  const sql = 'DELETE FROM users';
+  const sql = 'DELETE FROM movement';
   db.query(sql,function(err,results){
     if(err){
       callback(true);
