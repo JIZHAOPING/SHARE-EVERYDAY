@@ -75,7 +75,13 @@
                     <td><img src="<%= items[item].mimg %>" style="width:30px;height:30px"></td>
                     <td><%= items[item].mtype %></td>  
                     <td><%= items[item].uid %></td>  
-                    <td><%= items[item].mdate %></td>                      
+                    <td>
+                        <script>
+                            var date = new Date('<%= items[item].mdate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td>                      
                     <td>
                         <button onclick="del('<%= items[item].mid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    

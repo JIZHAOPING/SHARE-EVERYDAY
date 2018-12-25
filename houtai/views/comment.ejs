@@ -72,7 +72,13 @@
                     <td><%= items[item].mid %></td>  
                     <td><%= items[item].uid %></td>
                     <td><%= items[item].ccontent %></td>  
-                    <td><%= items[item].cdate %></td>  
+                    <td>
+                        <script>
+                            var date = new Date('<%= items[item].cdate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td> 
                     <td>
                         <button onclick="del('<%= items[item].cid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    

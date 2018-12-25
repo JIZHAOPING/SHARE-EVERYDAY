@@ -54,7 +54,13 @@
                     <td><img src="../<%= items[item].uimg %>" style="width:30px;height:30px"></td>
                     <td><%= items[item].utel %></td>  
                     <td><%= items[item].upwd %></td>  
-                    <td><%= items[item].udate %></td>                      
+                    <td>
+                        <script>
+                            var date = new Date('<%= items[item].udate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td>               
                     <td>
                         <button onclick="del('<%= items[item].uid %>')" class="btn btn-danger radius">删除</button>
                     </td>                    
