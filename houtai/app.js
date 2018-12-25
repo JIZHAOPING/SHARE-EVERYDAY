@@ -15,7 +15,8 @@ var comment = require('./routes/comment');
 var type = require('./routes/type');
 var supergirl = require('./routes/supergirl');
 var report = require('./routes/report');
-var bodyParser = require("body-parser")
+var change = require('./routes/change');
+var bodyParser = require("body-parser");
 
 //var usersRouter = require('./routes/users');
 var login = require('./routes/login');
@@ -60,6 +61,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/user',user);
+app.use('/change',change);
 app.use('/index',index);
 app.use('/report',report);
 app.use('/movement',movement);
