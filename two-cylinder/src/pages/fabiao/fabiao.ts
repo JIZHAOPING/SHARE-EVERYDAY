@@ -5,6 +5,7 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 
 import { ApiProvider } from '../../provider/api';
 import { HomePage } from '../home/home';
+import { AboutPage } from '../about/about';
 /**
  * Generated class for the FabiaoPage page.
  *
@@ -61,8 +62,12 @@ export class FabiaoPage {
       title: '发表成功！！',
       subTitle: new Date().toLocaleString(),
       buttons: ['确认']
+      
     });
+   
     alert.present();
+     this.getList();
+    this.openModal();
   }
   img_li=[
     {src:'assets/imgs/加号.jpg'},
@@ -81,7 +86,7 @@ export class FabiaoPage {
 
   openModal(){
     this.getList();
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(AboutPage);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FabiaoPage');
