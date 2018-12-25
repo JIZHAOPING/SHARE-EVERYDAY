@@ -14,63 +14,76 @@
 <body>
     <% include header.ejs%>
     <% include tab.ejs%> 
-    <div style="float:left;">  
-        <h4 style="color:lightcoral;padding-left: 40px;">账户管理</h4>
-        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">添加账户</i>
-        <div style="margin-left:100px;">
-            <form method="post">                           
-                <table>
-                    <tr>
-                        <td>账户ID</td>
-                        <td>
-                            <input type='number' name="sid" />
-                        </td>                                                 
-                        <td>账户名</td>
-                        <td>
-                            <input type="text" name="sname"/>
-                        </td>
-                        <td>账户密码</td>
-                        <td>
-                            <input type="password" name="spwd"/>
-                        </td>                
-                </table>
-                <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
-            </form>
-        </div>  
-        <br>
-        <hr style="margin-left:100px; width: 100%">   
-        <table width='100%' cellpadding='5' style="margin-left:100px;">
-        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">账户列表</i>
-        <p></p>
-            <tr>                           
-                <th>账户ID</th>
-                <th>账户名</th>
-                <th>账户密码</th>
-                <th>操作</th>
-            </tr>
-            <% for(var item in items){ %>
-                <tr class="top" id="<%= items[item].sid %>">
-                    <td><%= items[item].sid %></td>  
-                    <td><%= items[item].sname %></td>
-                    <td><%= items[item].spwd %></td>
-                    <td>
-                        <button onclick="del('<%= items[item].sid %>')" class="btn btn-primary radius">删除</button>
-                        <button onclick="change()" class="btn btn-primary radius">修改</button>
-                    </td>                    
+    <div style="position:relative; top:50px;margin-left: 10%">
+        <div style="float:left;">  
+            <h4 style="color:lightcoral;">账户管理</h4>
+            <div style="margin-left:100px;">
+                <form method="post">          
+                    <i style="font-size:18px;color:cadetblue">添加账户</i>                   
+                    <table style="margin-left:100px">
+                            <tr>
+                                <td>账户ID</td>
+                                <td>
+                                    <input type='number' name="sid" />
+                                </td>                                                 
+                                <td>账户名</td>
+                                <td>
+                                    <input type="text" name="sname"/>
+                                </td>
+                                <td>账户密码</td>
+                                <td>
+                                    <input type="password" name="spwd"/>
+                                </td>      
+                            </tr>    
+                    </table>
+                    <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
+                </form>
+            </div>  
+            <hr style="margin-left:100px; width: 100%">    
+            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">账户列表</i>
+            <table width='100%' cellpadding='5' style="margin-left:200px">
+                <p></p>
+                <tr>                           
+                    <th>账户ID</th>
+                    <th>账户名称</th>
+                    <th>账户密码</th>
+                    <th>操作</th>
                 </tr>
-            <% } %>
-        </table> 
-    </div> 
+                <% for(var item in items){ %>
+                    <tr class="top" id="<%= items[item].sid %>">
+                        <td><%= items[item].sid %></td>  
+                        <td><%= items[item].sname %></td>
+                        <td><%= items[item].spwd %></td>
+                        <td>
+                            <button onclick="del('<%= items[item].sid %>')" class="btn btn-primary radius">删除</button>
+                            <a href="/modify"><button class="btn btn-primary radius">修改</button></a>
+                        </td>                    
+                    </tr>
+                <% } %>
+            </table> 
+        </div> 
+        <div class="clear" style="clear:both"></div>
+        <!-- 实现分页功能 -->
+        <!-- <div style='width: 700px; text-align: center;margin:0 auto;background-color: bisque;'>    
+            <span id="spanFirst" >第一页</span>
+            <span id="spanPre">上一页</span>
+            <span id="spanNext">下一页</span>
+            <span id="spanLast">最后一页</span> 第
+            <span id="spanPageNum"></span>页/共
+            <span id="spanTotalPage"></span>页
+        </div> -->
+    </div>
 </body>
+<script src="/javascripts/page.js"></script>
 <script>
-       function del(sid){
-        var tr = document.getElementById(sid);
+       function del(mid){
+        var tr = document.getElementById(mid);
         tr.parentNode.removeChild(tr);
-        fetch('http://localhost:3000/supergirl', {
+        fetch('http://localhost:3000/movement', {
             method: 'delete',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body:'item=' + sid
+            body:'item=' + mid
         });
-    }
+    };
 </script>
 </html>
