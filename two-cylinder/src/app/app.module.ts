@@ -33,8 +33,8 @@ import { FabiaoPage } from '../pages/fabiao/fabiao';
 //import { ChatMessagePage } from '../pages/chat-message/chat-message';
 import { PipesModule } from '../pipes/pipes.module';
 import { XiangqingPage } from '../pages/xiangqing/xiangqing';
-import { Camera } from '@ionic-native/camera';
-
+import { Camera} from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 @NgModule({
   declarations: [
@@ -104,7 +104,14 @@ import { Camera } from '@ionic-native/camera';
     SplashScreen,
     ApiProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera
+    Camera,
+    ImagePicker
+    
   ]
 })
 export class AppModule {}
+
+
+
+
+

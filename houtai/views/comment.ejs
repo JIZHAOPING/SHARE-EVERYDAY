@@ -48,15 +48,9 @@
                 <button type="submit" style="float:right;margin-bottom: 1%" class="btn btn-primary radius">添加</button>                   
             </form>
         </div>  
-        <hr style="margin-left:100px; width: 100%"> 
-        <form method="post" action="/comment/findc"> 
-            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">搜索条件</i> 
-            <p></p>   
-            <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">点击搜索</button>                               
-        </form>                 
         <hr style="margin-left:100px; width: 100%">   
         <table width='100%' cellpadding='5' style="margin-left:100px;">
-        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">评论列表</i>
+        <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>
         <p></p>
             <tr>                           
                 <th>评论ID</th>
@@ -67,7 +61,7 @@
                 <th>操作</th>  
             </tr>
             <% for(var item in items){ %>
-                <tr id="<%= items[item].cid %>">
+                <tr class="top" id="<%= items[item].cid %>">
                     <td><%= items[item].cid %></td>  
                     <td><%= items[item].mid %></td>  
                     <td><%= items[item].uid %></td>
