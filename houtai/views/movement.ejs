@@ -59,6 +59,7 @@
         <i style="font-size:18px;color:cadetblue;margin-left: 10%;">动态列表</i>
         <p></p>                                    
         <table width='100%' cellpadding='5' style="margin-left:100px;">
+            <thead>
             <tr>                           
                 <th>动态ID</th>
                 <th>动态内容</th>
@@ -68,6 +69,8 @@
                 <th>发布时间</th>
                 <th>操作</th>  
             </tr>
+            </thead>
+            <tbody id="ec_table">
             <% for(var item in items){ %>
                 <tr class="top" id="<%= items[item].mid %>">
                     <td><%= items[item].mid %></td>  
@@ -75,6 +78,16 @@
                     <td><img src="<%= items[item].mimg %>" style="width:30px;height:30px"></td>
                     <td><%= items[item].mtype %></td>  
                     <td><%= items[item].uid %></td>  
+<<<<<<< HEAD
+                    <td>
+                        <script>
+                            var date = new Date('<%= items[item].mdate %>');  
+                            document.write(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' 
+                                    + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()); 
+                        </script>
+                    </td>                      
+=======
+>>>>>>> 2d1b006910e12f0e55eaed01c21908ea5207a4f9
                     <td>
                         <script>
                             var date = new Date('<%= items[item].mdate %>');  
@@ -87,8 +100,19 @@
                     </td>                    
                 </tr>
             <% } %>
+        </tbody>
         </table> 
     </div> 
+    <!-- 实现分页功能 -->
+    <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
+        <span id="spanFirst" >第一页</span>
+        <span id="spanPre">上一页</span>
+        <span id="spanNext">下一页</span>
+        <span id="spanLast">最后一页</span> 第
+        <span id="spanPageNum"></span>页/共
+        <span id="spanTotalPage"></span>页
+    </div>
+    <script src="/javascripts/page.js"></script>
 </body>
 <script>
        function del(mid){
