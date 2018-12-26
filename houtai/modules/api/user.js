@@ -36,7 +36,7 @@ User.prototype.insertItem=function(obj,cb){
 
 //获取用户的动态
 User.prototype.getMovement=function(obj,cb){
-  const sql = 'select * from movement where uid = ?';
+  const sql = 'select mcontent from movement where uid = ?';
   db.query(sql,[obj.uid],(err,result)=>{
     if(err){
       cb(true);
@@ -48,7 +48,7 @@ User.prototype.getMovement=function(obj,cb){
 
 //获取用户的收藏
 User.prototype.getKeep = function(obj,cb){
-  const sql = 'select * from keep where uid = ?';
+  const sql = 'select mid from keep where uid = ?';
   db.query(sql,[obj.uid],(err,result)=>{
     if(err){
       cb(true);
