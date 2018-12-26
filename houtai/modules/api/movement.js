@@ -21,16 +21,16 @@ Movement.prototype.selectMid = function(cb){
   });
 }
 
-// Movement.prototype.getAll = function(cb){
-// const sql = 'select mid,atitle,acontent,atime,acomment,aimage,uname from movement,User where movement.muid = users.uid';
-// db.query(sql,(err,result)=>{
-//   if(err){
-//     cb(true);
-//     return;
-//   }
-//   cb(false,result);
-// });
-// }
+Movement.prototype.getAll = function(cb){
+const sql = 'select mid,mimg,mcontent,mdata,uname,uimg,uid from movement,User where movement.uid = users.uid';
+db.query(sql,(err,result)=>{
+  if(err){
+    cb(true);
+    return;
+  }
+  cb(false,result);
+});
+}
 
 // Movement.prototype.getArtile = function(obj,cb){
 // const sql = 'select aid,atitle,acontent,atime,acomment,aimage,uname from Article,User where Article.uid = User.uid and aid = ?';

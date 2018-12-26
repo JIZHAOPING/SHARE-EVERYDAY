@@ -66,10 +66,6 @@ export class FabiaoPage {
     });
    
     alert.present();
-<<<<<<< HEAD
-=======
-     this.getList();
->>>>>>> 04e5164e1ca072ff1a0f76b39b1c33aa0df64950
     this.openModal();
   }
   img_li=[
