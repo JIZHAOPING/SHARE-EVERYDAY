@@ -6,12 +6,16 @@ var movement = new Movement();
 //获取所有动态
 router.get('/',(req,res,next)=>{
     movement.getAll((err,result)=>{
-      if(err){res.statusCode = 500;}
+      if(err){
+        console.log(err);
+        res.statusCode = 500;
+      }
       else{
         //console.log(result);
         var obj = JSON.parse(JSON.stringify(result));
         //console.log(obj);
         res.json(obj);
+        console.log(obj);
       }
     });
   });

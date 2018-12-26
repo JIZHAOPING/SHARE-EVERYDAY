@@ -49,6 +49,7 @@ export class HomePage {
     this.api.getLists().then(data=>{
       console.dir(data);
       this.home_li=<any>data;
+      // console.log(this.home_li.mimg);
       //console.dir(this.list);
     });
   }

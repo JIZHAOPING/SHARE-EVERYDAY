@@ -22,9 +22,10 @@ Movement.prototype.selectMid = function(cb){
 }
 
 Movement.prototype.getAll = function(cb){
-const sql = 'select mid,mimg,mcontent,mdata,uname,uimg,uid from movement,User where movement.uid = users.uid';
+const sql = 'select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where movement.uid = users.uid';
 db.query(sql,(err,result)=>{
   if(err){
+    throw err;
     cb(true);
     return;
   }
