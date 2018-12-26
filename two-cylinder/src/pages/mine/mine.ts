@@ -27,6 +27,7 @@ interface user{
 })
 export class MinePage {
   items = [];
+
   isActive=0;
   isClick(i){
     this.isActive=i;
