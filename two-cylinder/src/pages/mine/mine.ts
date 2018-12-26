@@ -27,6 +27,7 @@ interface user{
 export class MinePage {
   list:Array<user>=[];
   items = [];
+
   isActive=0;
   isClick(i){
     this.isActive=i;

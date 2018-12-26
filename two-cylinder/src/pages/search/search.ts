@@ -22,6 +22,9 @@ export class SearchPage {
   }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.initializeItems();
+
+    
+
   }
   initializeItems() {
     this.items = [
