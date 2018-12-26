@@ -32,16 +32,16 @@ export class HomePage {
     this.navCtrl.push(XiangqingPage);
   }
   guanzhuChange(id){
-    if(this.home_li[id].guanzhu==="取消关注"){
-      this.home_li[id].guanzhu="+ 关注";
+    if(document.getElementById("guanzhu").innerHTML =="取消关注"){
+      document.getElementById("guanzhu").innerHTML ="+ 关注";
     }else{
-      this.home_li[id].guanzhu ="取消关注";
+      document.getElementById("guanzhu").innerHTML ="取消关注";
     }
-    
+    console.log(document.getElementById("{{home1.id}}"));
   }
   home_li=[
-    {src:'assets/imgs/touxiang.png',img:'assets/imgs/头像.png',name:'小白',content:'今天超开心。。',time:'十分钟前',guanzhu:"+关注"},
-    {src:'assets/imgs/touxiang-1.png',img:'assets/imgs/huaping.jpg',name:'小黑',content:'淡泊宁静。。',time:'十五分钟前',guanzhu:"+关注"}
+    {id:1,src:'assets/imgs/touxiang.png',img:'assets/imgs/头像.png',name:'小白',content:'今天超开心。。',time:'十分钟前'},
+    {id:2,src:'assets/imgs/touxiang-1.png',img:'assets/imgs/huaping.jpg',name:'小黑',content:'淡泊宁静。。',time:'十五分钟前'}
   ]
  
   constructor(public navCtrl: NavController) {
