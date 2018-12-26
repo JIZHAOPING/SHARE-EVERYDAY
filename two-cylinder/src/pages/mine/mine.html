@@ -16,13 +16,8 @@
     <div [ngSwitch]="isActive">
       <div *ngSwitchCase="0">
           <h5>我的动态</h5>
-<<<<<<< HEAD
-          <div class="me" *ngFor="let item1 of items1" (press)="press1()">        
-            <!-- {{item2.title}}<img src="{{item2.src}}" alt=""> -->
-=======
           <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()">        
             <!-- {{item1.title}}<img src="{{item1.src}}" alt=""> -->
->>>>>>> 8a80714aa870425c9d1bbfa27f49b7d8c169b00c
             {{item1.mcontent}}
           </div>       
       </div>
