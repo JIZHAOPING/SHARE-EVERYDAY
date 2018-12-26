@@ -44,10 +44,9 @@ export class HomePage {
   //   {src:'assets/imgs/touxiang-1.png',img:'assets/imgs/huaping.jpg',name:'小黑',content:'淡泊宁静。。',time:'十五分钟前',guanzhu:"+关注"}
   // ]
   home_li:any[]=[];
-  id:1;
   getList(){
     //获取list用于显示
-    this.api.getMovements(this.id).then(data=>{
+    this.api.getLists().then(data=>{
       console.dir(data);
       this.home_li=<any>data;
       //console.dir(this.list);
