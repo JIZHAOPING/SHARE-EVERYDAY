@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论管理</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/tab.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <% include header.ejs%>
+    <% include tab.ejs%> 
+    <h4 style="color:lightcoral;margin-top: 5%;margin-left:10%">账户修改</h4>
+    <div style="margin-left: 10%;margin-top: 5%">        
+        <form method="post"> 
+            <i style="font-size:18px;color:cadetblue;margin-left: 10%;">更改账户信息</i> 
+            <p></p>   
+            <input placeholder="请输入需要更改的账户ID" style="margin-left: 185px;width: 220px;height: 30px;" name="sid">
+            <p></p>
+            <input placeholder="请输入更改后的账户名称" style="margin-left: 185px;width: 220px;height: 30px;" name="sname"> 
+            <p></p>
+            <input placeholder="请输入更改后的账户密码" style="margin-left: 185px;width: 220px; height: 30px;" name="spwd" type="password">           
+            <button type="submit" style="margin-left:20%;margin-bottom: 1%" class="btn btn-primary radius">提交修改</button>                               
+        </form> 
+    </div>
+</body>
+</html>
