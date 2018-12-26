@@ -134,14 +134,7 @@ export class MinePage {
     });
     
   }
-  // change(){
-    
-  //   if(document.getElementsByTagName('ion-icon').name=="md-heart"){
-  //     document.getElementsByTagName('ion-icon').name="md-heart-outline";
-  //   }else{
-  //     document.getElementsByTagName('ion-icon').name="md-heart";
-  //   }
-  // }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad MinePage');
     this.getList();
