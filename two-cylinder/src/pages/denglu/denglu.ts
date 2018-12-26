@@ -88,14 +88,13 @@ doReset() {
     return;
     }
 
-    if (this.params.newpass !== this.params.sure_pwd) {
-      console.debug("两次密码输入不一致");
-      alert('两次密码不一致，请重新输入')
+    if (this.params.newpass == this.params.sure_pwd) {
+
     } else {
-      this.getList();
-      this.navCtrl.push(DengluPage);
+    console.debug("两次密码输入不一致");
     }
-   
+    this.getList();
+    this.navCtrl.push(DengluPage);
 }
 getList(){
   let data=JSON.stringify({

@@ -1,17 +1,10 @@
 <ion-header>
-  <ion-navbar> 
-    <ion-title style="padding-left: 140px;"> 二 筒</ion-title>
-
-    <ion-buttons end  (click)="searchClick()">
+    <ion-title style="background-image:url(../assets/imgs/logo.jpg);background-size: 100%;"><div style="color:white;font-size:20px;">二 筒</div></ion-title>
+    <!-- <ion-buttons end  (click)="searchClick()">
       <button ion-button icon-only>
         <ion-icon name="search"></ion-icon>
       </button>
-    </ion-buttons>
-
-  </ion-navbar>
-</ion-header>
-
-<ion-content>
+    </ion-buttons> -->
   <h6>专属频道</h6>
   <div class="bgImage" style="background-image: url('../assets/imgs/shouye-1-1.png');
   background-repeat: no-repeat; width: 21%; height: 90px; background-size: 100%" (click)="xuexiClick()">学习</div>
@@ -20,8 +13,12 @@
   <div class="bgImage" style="background-image: url('../assets/imgs/shouye-1-3.png');
   background-repeat: no-repeat; width: 21%; height: 90px; background-size: 100%"  (click)="qingganClick()">情感</div>
   <div class="bgImage" style="background-image: url('../assets/imgs/shouye-1-4.png');
-  background-repeat: no-repeat; width: 21%; height: 90px; background-size: 100%"  (click)="yuleClick()">娱乐</div>
+  background-repeat: no-repeat; width: 21%; height: 90px; background-size: 100%"  (click)="yuleClick()">放松</div>
   <h6>最新发表</h6><hr/>
+</ion-header>
+
+<ion-content>
+  
   <ul>
     <li *ngFor="let home1 of home_li;let id = index">
       <div style="overflow: hidden;">
@@ -34,7 +31,7 @@
           <img src="{{home1.mimg}}" alt="">
         </div>
         <div  style=" float: left; width:25%">
-        <button type="button" id="guanzhu" (click)="guanzhuChange(id)" value="" style="color:orange; border: 1px solid grey;" >{{home1.guanzhu}}</button> 
+          <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button> 
         </div>
       </div>
       <hr>
