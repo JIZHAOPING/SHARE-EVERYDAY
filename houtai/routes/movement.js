@@ -29,7 +29,7 @@ router.post('/',function(req,res){
   function (err, result) {
      if (err) return err;
      res.redirect('movement');
-});
+  });
 });
 
 router.post('/findm',function(req,res){

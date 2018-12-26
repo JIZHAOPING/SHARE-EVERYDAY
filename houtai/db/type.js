@@ -23,18 +23,6 @@ type.prototype.getAll = function(callback){
   });
 };
 
-/*增*/
-type.prototype.addItem = function(e,callback){
-  const sql = 'INSERT INTO users VALUES(?,?,?,?,?,?)';
-  db.query(sql,[e.uid,e.uname,e.uimg,e.utel,e.pwd,e.udate],function(err,result){
-    if(err){
-      cb(true);
-      return;
-    }
-    cb(false,result);
-  });
-};
-
 
 
 

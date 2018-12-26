@@ -1,21 +1,4 @@
-<!--
-  Generated template for the MinePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>mine</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content> -->
 <ion-content style="background-color:#F3F4F9;">
   <div style="background-image: url('../assets/imgs/mine-bg.png');
   background-repeat: no-repeat; width: 100%; height: 1290px; background-size: 100%" >
@@ -33,20 +16,25 @@
     <div [ngSwitch]="isActive">
       <div *ngSwitchCase="0">
           <h5>我的动态</h5>
+<<<<<<< HEAD
           <div class="me" *ngFor="let item1 of items1" (press)="press1()">        
             <!-- {{item2.title}}<img src="{{item2.src}}" alt=""> -->
             {{item1.mcontent}}
+=======
+          <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()">        
+            {{item1.title}}<img src="{{item1.src}}" alt="">
+>>>>>>> 04e5164e1ca072ff1a0f76b39b1c33aa0df64950
           </div>       
       </div>
       <div *ngSwitchCase="1">
         <h5>我的收藏</h5>
-        <div class="me" *ngFor="let item2 of items2" (press)="press2()">        
+        <div class="me" *ngFor="let item2 of items2;let id2 = index" (press)="press2()">        
             {{item2.title}}<img src="{{item2.src}}" alt="">
         </div>
       </div>
       <div *ngSwitchCase="2">
         <h5>我的关注</h5>
-        <div class="list" *ngFor="let item3 of items3 ;let id=index">
+        <div class="list" *ngFor="let item3 of items3 ;let id3=index">
             <div class="list"><img src="{{item3.src}}" alt="" style="width:15%"><span>{{item3.name}}</span><ion-icon name="md-heart" style="float:right; color: red;" (click)="change"></ion-icon></div>
         </div>
         

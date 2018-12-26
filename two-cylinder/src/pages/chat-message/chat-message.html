@@ -18,7 +18,7 @@
         <div class="right_angle"></div>
       </div>
       <div class="right_icon">
-        <img src="assets/imgs/user.jpg" alt="">
+        <img src="assets/imgs/touxiang.png" alt="">
       </div>
     </div>
   </div>
@@ -28,16 +28,10 @@
 <ion-footer class="msg_footer">
   <ion-toolbar color=zhijia>
     <ion-buttons start>
-      <button ion-button>
-        <ion-icon  name="md-volume-up"></ion-icon>
-      </button>
+      
     </ion-buttons>
     <ion-input [(ngModel)]="sendmsg" type="text" placeholder="输入聊天内容..."></ion-input>
-    <ion-buttons end>
-      <button ion-button>
-        <ion-icon name="ios-happy-outline"></ion-icon>
-      </button>
-    </ion-buttons>
+    
     <ion-buttons end>
       <button ion-button (click)="send()">
         发送

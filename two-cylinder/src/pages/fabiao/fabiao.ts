@@ -62,8 +62,14 @@ export class FabiaoPage {
       title: '发表成功！！',
       subTitle: new Date().toLocaleString(),
       buttons: ['确认']
+      
     });
+   
     alert.present();
+<<<<<<< HEAD
+=======
+     this.getList();
+>>>>>>> 04e5164e1ca072ff1a0f76b39b1c33aa0df64950
     this.openModal();
   }
   img_li=[

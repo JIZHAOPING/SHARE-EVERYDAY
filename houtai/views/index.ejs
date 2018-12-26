@@ -11,48 +11,53 @@
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascripts/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts.src.js"></script>
 </head>
 <body>
     <% include header.ejs%>
     <% include tab.ejs%>
-    <div class="up1" id="show">
-    </div>
+    <div style="position:relative; top:50px;margin-left: 10%">
+      <div class="up1" id="show">
+      </div>
 
-    <div class="up">
-    <div class="amount">
-        <h4>昨日新增用户</h4>
-        <div class="h3"><%= newuser %></div>
-    </div>
-    <div class="amount">
-        <h4>昨日新增动态</h4>
-        <div class="h3"><%= newmovement %></div>
-    </div>
-    <div class="amount">
-        <h4>总注册用户</h4>
-        <div class="h3"><%= totaluser %></div>
-    </div>
-    <div class="amount">
+      <div class="up">
+      <div class="col-md-2">
+          <h4>昨日新增用户</h4>
+          <div class="h3"><%= newuser %></div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+          <h4>昨日新增动态</h4>
+          <div class="h3"><%= newmovement %></div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+          <h4>总注册用户</h4>
+          <div class="h3"><%= totaluser %></div>
+      </div>
+      <div class="col-md-1"></div>
+
+      <div class="col-md-2">
         <h4>总动态数</h4>
         <div class="h3" id="total"><%= totalmovement %></div>
-    </div>
-    </div>
-    <div id="only">
-       <i id="e"><%= e %></i>
-       <i id="f"><%= f %></i>
-       <i id="g"><%= g %></i>
-       <i id="h"><%= h %></i>
-       <i id="i"><%= i %></i>
-       <i id="j"><%= j %></i>
-       <i id="k"><%= k %></i>
-       <i id="l"><%= l %></i>
-       <i id="m"><%= m %></i>
-       <i id="n"><%= n %></i>
-       <i id="o"><%= o %></i>
-       <i id="p"><%= p %></i>
-    </div>
-    <div id="container">
-    </div>
+      </div>
+      </div>
+      <div id="only">
+         <i id="e"><%= e %></i>
+         <i id="f"><%= f %></i>
+         <i id="g"><%= g %></i>
+         <i id="h"><%= h %></i>
+         <i id="i"><%= i %></i>
+         <i id="j"><%= j %></i>
+         <i id="k"><%= k %></i>
+         <i id="l"><%= l %></i>
+         <i id="m"><%= m %></i>
+         <i id="n"><%= n %></i>
+         <i id="o"><%= o %></i>
+         <i id="p"><%= p %></i>
+      </div>
+      <div id="container">
+      </div>
+   </div>
 
 </body>
 <script type="text/javascript"> 

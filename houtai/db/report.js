@@ -12,7 +12,7 @@ var report = function(){};
 
 
 /*删*/
-report.prototype.delItem = function(id,callback){
+report.prototype.delItem = function(rid,callback){
   const sql = 'DELETE FROM report WHERE rid=?';
   db.query(sql,[rid],function(err,result){
     if(err){
@@ -43,7 +43,7 @@ report.prototype.getAll = function(callback){
       callback(true);
       return;                
     }
-    result.forEach((e) => {items.push(e.cid,e.mid,e.uid,e.ccontent,e.cdate);});
+    result.forEach((e) => {items.push(e.rid,e.uid);});
     callback(false,result);
   });
 };
