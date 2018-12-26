@@ -13,7 +13,7 @@ export class ApiProvider{
     url:string="/api";
 
     //获取所有动态
-    public getList(){
+    public getLists(){
       return new Promise((resolve, reject) => {
         this.http.get(this.url+'/movement')
           .subscribe((res:Response)=>{
