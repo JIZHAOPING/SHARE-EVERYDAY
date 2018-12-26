@@ -66,7 +66,10 @@ export class FabiaoPage {
     });
    
     alert.present();
+<<<<<<< HEAD
+=======
      this.getList();
+>>>>>>> 04e5164e1ca072ff1a0f76b39b1c33aa0df64950
     this.openModal();
   }
   img_li=[
@@ -77,7 +80,7 @@ export class FabiaoPage {
   }
   getList(){
     let data=JSON.stringify({
-      acontent:this.text,
+      mcontent:this.text,
     });
     this.api.postArticle(data).then(data=>{
       console.dir(data);

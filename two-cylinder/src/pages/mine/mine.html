@@ -6,7 +6,7 @@
     <div class="bg-white" style="background-image: url('../assets/imgs/mine-white.png');
       background-repeat: no-repeat; width: 100%; height: 280px; background-size: 100%" >
       <img src="assets/imgs/touxiang.png" alt=""style="width:45%; padding-top:70px;padding-left:70px;" (click)="gerenxinxiClick()"> 
-      {{list[0]?.uname}}
+      <!-- {{list[0]?.uname}} -->
       <ul>
         <li (click)="isClick(0)" [class.first]="isActive==0"><ion-icon name="md-aperture" style="color:blue"></ion-icon><br/>动态</li>
         <li (click)="isClick(1)" [class.first]="isActive==1"><ion-icon name="md-heart" style="color:red"></ion-icon><br/>收藏</li>
@@ -16,8 +16,14 @@
     <div [ngSwitch]="isActive">
       <div *ngSwitchCase="0">
           <h5>我的动态</h5>
+<<<<<<< HEAD
+          <div class="me" *ngFor="let item1 of items1" (press)="press1()">        
+            <!-- {{item2.title}}<img src="{{item2.src}}" alt=""> -->
+            {{item1.mcontent}}
+=======
           <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()">        
             {{item1.title}}<img src="{{item1.src}}" alt="">
+>>>>>>> 04e5164e1ca072ff1a0f76b39b1c33aa0df64950
           </div>       
       </div>
       <div *ngSwitchCase="1">
@@ -26,7 +32,6 @@
             {{item2.title}}<img src="{{item2.src}}" alt="">
         </div>
       </div>
-       
       <div *ngSwitchCase="2">
         <h5>我的关注</h5>
         <div class="list" *ngFor="let item3 of items3 ;let id3=index">

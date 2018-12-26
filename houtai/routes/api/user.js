@@ -36,15 +36,15 @@ router.get('/:uid',(req,res,next)=>{
 router.post('/reg',(req,res,next)=>{
   var obj = req.body;
   console.log(obj);
-  var params=obj.params;
-  console.log(params);
+  // var params=obj.params;
+  // console.log(params);
   user.selectUid((err,result)=>{
     if(err){
       console.log(err);
       res.statusCode = 500;
     }
     var uid = JSON.parse(JSON.stringify(result))[0].c;
-    console.log(JSON.parse(JSON.stringify(result))[0]);
+    // console.log(JSON.parse(JSON.stringify(result))[0]);
     obj.uid = uid;
     if(obj.uid){
       user.insertItem(obj,(err,result)=>{
@@ -73,6 +73,7 @@ router.get('/mymovement/:uid',(req,res,next)=>{
       res.statusCode = 500;
     } else {
       res.json(JSON.parse(JSON.stringify(result)));
+     // console.log(res.json(JSON.parse(JSON.stringify(result))));
     }
   });
 })

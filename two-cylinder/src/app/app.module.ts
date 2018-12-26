@@ -5,7 +5,8 @@ import { MyApp } from './app.component';
 import { HttpModule} from '@angular/http';
 //引入接口文件
 import { ApiProvider} from '../provider/api';
-
+//引入本地存储文件
+import{ StorageProvider} from '../provider/ls';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -103,6 +104,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     StatusBar,
     SplashScreen,
     ApiProvider,
+    // StorageProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
     ImagePicker
