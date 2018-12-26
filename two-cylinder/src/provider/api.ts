@@ -26,6 +26,20 @@ public getMovement(id){
   });
 }
 
+//实例get 所有动态请求
+public getMovements(id){
+  return new Promise((resolve, reject) => {
+    this.http.get(this.url+'/user/mymovement/2')
+      .subscribe((res:Response)=>{
+        resolve(res.json());
+        console.log(res.json);
+      },err=>{
+        console.dir(err);
+        reject()
+    });
+  });
+}
+
     //实例POST注册
   public postZhuce(data){
     return new Promise((resolve, reject) => {
