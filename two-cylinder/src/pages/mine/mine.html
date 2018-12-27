@@ -1,24 +1,24 @@
   
-<ion-header style="background-image: url('../assets/imgs/mine-bg.png'); background-size: cover">  
+<ion-header style="background-image: url('../assets/imgs/mine-bg.png'); background-size: contain;background-repeat: no-repeat;height: 300px;">  
     <ion-icon name="md-notifications" (click)="TongzhiClick()"></ion-icon><ion-icon name="md-settings" (click)="SettingClick()"></ion-icon>
     <div class="bg-white" style="background-image: url('../assets/imgs/mine-white.png');
-      background-repeat: no-repeat; width: 100%; height: 280px; background-size: 100%" >
+      background-repeat: no-repeat; width: 100%;  background-size: 100%;" >
       <img src="assets/imgs/touxiang.png" alt=""style="width:45%; padding-top:70px;padding-left:70px;" (click)="gerenxinxiClick()"> 
       <!-- {{list[0]?.uname}} -->
       <ul>
         <li (click)="isClick(0)" [class.first]="isActive==0"><ion-icon name="md-aperture" style="color:blue"></ion-icon><br/>动态</li>
         <li (click)="isClick(1)" [class.first]="isActive==1"><ion-icon name="md-heart" style="color:red"></ion-icon><br/>收藏</li>
-        <li (click)="isClick(2)" [class.first]="isActive==2"><ion-icon name="md-eye" style="color:yellow"></ion-icon><br/>关注</li>
+        <li (click)="isClick(2)" [class.first]="isActive==2"><ion-icon name="md-eye" style="color:cadetblue"></ion-icon><br/>关注</li>
       </ul>
     <div [ngSwitch]="isActive">
-      <div *ngSwitchCase="0" style="margin-top:110px">
-        <h5>我的动态</h5>
+      <div *ngSwitchCase="0" style="margin-top:110px;">
+        <h4 style="color:blue;">我的动态</h4>
       </div>
       <div *ngSwitchCase="1" style="margin-top:110px">
-        <h5>我的收藏</h5>
+        <h4 style="color:red">我的收藏</h4>
       </div>
       <div *ngSwitchCase="2" style="margin-top:110px">
-        <h5>我的关注</h5>
+        <h4 style="color:cadetblue">我的关注</h4>
       </div>
     </div>
   </div>
@@ -27,15 +27,8 @@
 
     <div [ngSwitch]="isActive">
       <div *ngSwitchCase="0">
-<<<<<<< HEAD
-          <div class="me" *ngFor="let item1 of items1" (press)="press1()">        
-            {{item1.title}}<img src="{{item1.src}}" alt="">
-=======
-          <h5>我的动态</h5>
           <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()">        
-            <!-- {{item1.title}}<img src="{{item1.src}}" alt=""> -->
             {{item1.mcontent}}
->>>>>>> d01b913da6f582aa4333bbeb18d6e7cd9fd9d7e9
           </div>       
       </div>
       <div *ngSwitchCase="1">
