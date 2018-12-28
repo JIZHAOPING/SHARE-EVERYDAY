@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { ApiProvider } from '../../provider/api';
+
 
 /**
  * Generated class for the WorkPage page.
@@ -16,7 +18,7 @@ import { HomePage } from '../home/home';
 })
 export class WorkPage {
   items = [];
-  arr=['日常','经验','烦恼'];
+  arr=['日常','烦恼','经验'];
   isActive=0;
   isClick(i){
     this.isActive=i;
@@ -25,23 +27,46 @@ export class WorkPage {
     this.navCtrl.push(HomePage);
   }
 
-  work1_li=[
-    {src:'assets/imgs/touxiang.png',img:'assets/imgs/xuexi.jpg',name:'小白',content:'工作打卡第一天。。',time:'一分钟前'},
-    {src:'assets/imgs/touxiang-1.png',img:'assets/imgs/huaping.jpg',name:'小黑',content:'不想工作。。',time:'十五分钟前'}
-  ]
-  work2_li=[
-    {src:'assets/imgs/touxiang-xiaoxiao.png',img:'assets/imgs/成功.jpg',name:'小小',content:'每个成功者都有一个开始。',time:'一分钟前'},
-    {src:'assets/imgs/touxiang-dongdong.png',img:'assets/imgs/huahua.jpg',name:'东东',content:'画画我有方法。。有意者私聊',time:'十五分钟前'}
-  ]
-  work3_li=[
-    {src:'assets/imgs/touxiang-xiaomei.png',img:'assets/imgs/不胖.jpg',name:'小美',content:'喝水都胖。。不开心',time:'一分钟前'},
-    {src:'assets/imgs/touxiang-healar.png',img:'assets/imgs/烦.jpg',name:'Healar',content:'鸭梨山大',time:'十五分钟前'}
-  ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  work1_li:any[]=[];
+  work2_li:any[]=[];
+  work3_li:any[]=[];
 
+  getwork(){
+    this.api.getwork1().then(data=>{
+      console.dir(data);
+      for(var i=0;i<Array(data).length;i++)
+      {   
+        var date = new Date(data[i].mdate);  
+        data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
+      }
+      this.work1_li=<any>data;
+    });
+
+    this.api.getwork2().then(data=>{
+      console.dir(data);
+      for(var i=0;i<Array(data).length;i++)
+      {   
+        var date = new Date(data[i].mdate);  
+        data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
+      }
+      this.work2_li=<any>data;
+    });
+
+      this.api.getwork3().then(data=>{
+        console.dir(data);
+        for(var i=0;i<Array(data).length;i++)
+        {   
+          var date = new Date(data[i].mdate);  
+          data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
+        }
+        this.work3_li=<any>data;
+  });
+}
+  constructor(public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider) {
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad WorkPage');
+    this.getwork();
   }
 
 }

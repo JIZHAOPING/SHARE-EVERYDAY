@@ -23,12 +23,12 @@
     <li *ngFor="let home1 of home_li;let id = index">
       <div style="overflow: hidden;">
         <div class="fabiao" style="width:20%" (click)="xiangqingClick()">
-          <img src="{{home1.uimg}}" alt="">
+          <img src="../../assets/imgs/{{home1.uimg}}" alt="">
         </div>
         <div class="fabiao"  style="width:55%" (click)="xiangqingClick()">
           <h6>{{home1.uname}} <small style="color:grey;">{{home1.mdate}}</small></h6>
           <p>{{home1.mcontent}}</p>
-          <img src="{{home1.mimg}}" alt="">
+          <img src="../../assets/imgs/{{home1.mimg}}" alt="">
         </div>
         <div  style=" float: left; width:25%">
           <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button> 
@@ -39,3 +39,8 @@
   </ul>   
   
 </ion-content>
+<script>
+  var a=document.getElementsByName('small');
+  console.log(a);
+  console.log(2);
+</script>
