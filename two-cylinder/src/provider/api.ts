@@ -24,6 +24,150 @@ export class ApiProvider{
         });
       });
     }
+
+    public getxuexi1(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/xuexi1')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getxuexi2(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/xuexi2')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getxuexi3(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/xuexi3')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getwork1(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/work1')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getwork2(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/work2')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getwork3(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/work3')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getqinggan1(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/qinggan1')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getqinggan2(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/qinggan2')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getqinggan3(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/qinggan3')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+    
+    public getyule1(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/yule3')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getyule2(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/yule2')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
+    public getyule3(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/movement/yule3')
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
     //实例get 用户动态请求
     public getMovement(id){
       return new Promise((resolve, reject) => {

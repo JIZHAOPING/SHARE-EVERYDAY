@@ -13,12 +13,12 @@
                 <li *ngFor="let work1 of work1_li;let id = index">
                     <div style="overflow: hidden;" >
                         <div class="fabiao" style="width:20%">
-                          <img src="{{work1.src}}" alt="">
+                          <img src="../../assets/imgs/{{work1.uimg}}" alt="">
                         </div>
                         <div class="fabiao"  style="width:55%">
-                          <h6>{{work1.name}}<small style="color:grey;">{{work1.time}}</small></h6>
-                          <p>{{work1.content}}</p>
-                          <img src="{{work1.img}}" alt="">
+                          <h6>{{work1.uname}}<small style="color:grey;">{{work1.mdate}}</small></h6>
+                          <p>{{work1.mcontent}}</p>
+                          <img src="../../assets/imgs/{{work1.mimg}}" alt="">
                         </div>
                         <div class="fabiao"  style="width:25%">
                             <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button>         
@@ -36,12 +36,12 @@
                 <li *ngFor="let work2 of work2_li;let id = index">
                     <div style="overflow: hidden;" >
                         <div class="fabiao" style="width:20%">
-                          <img src="{{work2.src}}" alt="">
+                          <img src="../../assets/imgs/{{work2.uimg}}" alt="">
                         </div>
                         <div class="fabiao"  style="width:55%">
-                          <h6>{{work2.name}}<small style="color:grey;">{{work2.time}}</small></h6>
-                          <p>{{work2.content}}</p>
-                          <img src="{{work2.img}}" alt="">
+                          <h6>{{work2.uname}}<small style="color:grey;">{{work2.mdate}}</small></h6>
+                          <p>{{work2.mcontent}}</p>
+                          <img src="../../assets/imgs/{{work2.mimg}}" alt="">
                         </div>
                         <div class="fabiao"  style="width:25%">
                             <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button>                   
@@ -56,12 +56,12 @@
                 <li *ngFor="let work3 of work3_li;let id = index">
                     <div style="overflow: hidden;" >
                         <div class="fabiao" style="width:20%">
-                          <img src="{{work3.src}}" alt="">
+                          <img src="../../assets/imgs/{{work3.uimg}}" alt="">
                         </div>
                         <div class="fabiao"  style="width:55%">
-                          <h6>{{work3.name}}<small style="color:grey;">{{work3.time}}</small></h6>
-                          <p>{{work3.content}}</p>
-                          <img src="{{work3.img}}" alt="">
+                          <h6>{{work3.uname}}<small style="color:grey;">{{work3.mdate}}</small></h6>
+                          <p>{{work3.mcontent}}</p>
+                          <img src="../../assets/imgs/{{work3.mimg}}" alt="">
                         </div>
                         <div class="fabiao"  style="width:25%">
                             <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button> 
