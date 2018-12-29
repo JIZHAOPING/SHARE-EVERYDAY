@@ -6,14 +6,15 @@ var user = new Users();
 
 //获取用户信息
 router.get('/:uid',(req,res,next)=>{
-  user.getAll((err,result)=>{
+  var obj = req.params;
+  console.log(req.params)
+  user.getAll(obj,(err,result)=>{
     if(err){
+      console.log("出错啦");
       res.statusCode = 500;
-      console.log('1');
     } else {
       var obj = JSON.parse(JSON.stringify(result));
       res.json(obj);
-      console.log('0');
     }
   });
 });
@@ -44,7 +45,7 @@ router.post('/reg',(req,res,next)=>{
       res.statusCode = 500;
     }
     var uid = JSON.parse(JSON.stringify(result))[0].c;
-    // console.log(JSON.parse(JSON.stringify(result))[0]);
+    console.log(JSON.parse(JSON.stringify(result))[0]);
     obj.uid = uid;
     if(obj.uid){
       user.insertItem(obj,(err,result)=>{
@@ -60,10 +61,18 @@ router.post('/reg',(req,res,next)=>{
 });
 
 //登陆接口
-router.get('/login',(req,res,next)=>{
-  var obj=req.obj;
-  console.log(obj);
-})
+router.post('/login',(req,res,next)=>{
+  var obj = req.body;
+  user.getUser(obj,(err,result)=>{
+    if(err){
+      console.log(err);
+      res.statusCode = 500;
+    }
+    var json = JSON.parse(JSON.stringify(result));
+    res.json(json);
+  })
+});
+
 
 //请求动态
 router.get('/mymovement/:uid',(req,res,next)=>{
@@ -85,6 +94,7 @@ router.get('/mykeep/:uid',(req,res,next)=>{
     if(err){
       res.statusCode = 500;
     } else {
+      user. 
       res.json(JSON.parse(JSON.stringify(result)));
     }
   })

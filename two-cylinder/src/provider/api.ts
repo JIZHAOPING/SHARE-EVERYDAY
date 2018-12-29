@@ -27,7 +27,7 @@ export class ApiProvider{
     //实例get 用户动态请求
     public getMovement(id){
       return new Promise((resolve, reject) => {
-        this.http.get(this.url+'/user/mymovement/2')
+        this.http.get(this.url+'/user/mymovement/'+id)
           .subscribe((res:Response)=>{
             resolve(res.json());
             console.log(res.json);
@@ -38,19 +38,32 @@ export class ApiProvider{
       });
     }
 
-//实例get 所有动态请求
-public getMovements(id){
-  return new Promise((resolve, reject) => {
-    this.http.get(this.url+'/user/mymovement/2')
-      .subscribe((res:Response)=>{
-        resolve(res.json());
-        console.log(res.json);
-      },err=>{
-        console.dir(err);
-        reject()
-    });
-  });
-}
+    //实例get 所有动态请求
+    public getMovements(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/user/mymovement/')
+          .subscribe((res:Response)=>{
+            resolve(res.json());
+            console.log(res.json);
+          },err=>{
+            console.dir(err);
+            reject()
+        });
+      });
+    }
+
+    //get用户登录
+    public postLogin(data){
+      return new Promise((resolve, reject) => {
+        this.http.post(this.url+'/user/login',data,{headers:this.headers})
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+          });
+      });
+    }
 
     //实例POST注册
     public postZhuce(data){
@@ -65,13 +78,14 @@ public getMovements(id){
       });
     }
     //实例get 用户请求
-    public getMy(){
-      return new Promise((resolve, reject) => {     
-        this.http.get(this.url+'/user/haha')
+    public getMy(id){
+      return new Promise((resolve, reject) => {
+        
+        this.http.get(this.url+'/user/'+id)
           .subscribe((res:Response)=>{
             resolve(res.json())
           },err=>{
-            console.dir(err);
+            console.dir(err)
             reject()
         });
       });
@@ -91,7 +105,7 @@ public getMovements(id){
     //获取用户的收藏
     public getKeep(id){
       return new Promise((resolve, reject) => {
-        this.http.get(this.url+'/user/mykeep/2')
+        this.http.get(this.url+'/user/mykeep/'+'id')
           .subscribe((res:Response)=>{
             resolve(res.json());
             console.log(res.json);
