@@ -5,6 +5,25 @@ router.get('/',(req,res,next)=>{
   res.render('login');//渲染
 });
 
+
+// router.post('/search',function(req,res){
+// 	var account=req.body.tel;
+// 	var password=req.body.password;
+// 	res.header('Access-Control-Allow-Origin','*');
+// 	res.header('Content-Type','text/plain; charset="utf-8"');
+// 	const sql =  "select * from users where utel = '"+ account +"'and upwd = '"+password+"' ";
+// 	db.query(sql,(err,result)=>{
+// 	  if(err){
+// 		res.send('查询失败：'+err);
+// 	  }else{
+// 		res.send(result);
+  
+// 	  }
+  
+//   })
+	  
+//   });
+  
 router.post('/', function (req, res) {
 	//获得用户名和密码
 	var username = req.body.username;
