@@ -5,6 +5,7 @@ import { XieyiPage } from '../xieyi/xieyi';
 import { ForgetPage } from '../forget/forget';
 import { ApiProvider } from '../../provider/api';
 import { TabsPage } from '../tabs/tabs';
+import { StorageProvider } from '../../provider/ls';
 
 /**
  * Generated class for the DengluPage page.
@@ -35,10 +36,10 @@ export class DengluPage {
     vcode: '',
     sure_pwd: ''
   }
-  codeParam = {
-    fromflag: 2,
-    usertel: ""
-  }
+  // codeParam = {
+  //   fromflag: 2,
+  //   usertel: ""
+  // }
   // 验证码倒计时
   verifyCode: any = {
     verifyCodeTips: "获取验证码",
@@ -63,8 +64,9 @@ settime() {
     this.settime();
     }, 1000);
 }
+
 getCode() {
-    if (this.codeParam.usertel == '') {
+    if (this.usertel == '') {
     console.debug("请填写手机号!");
     return;
     }
@@ -76,7 +78,7 @@ getCode() {
 
 }
 doReset() {
-    this.params.usertel = this.codeParam.usertel;
+    this.params.usertel = this.usertel;
 
     if (this.params.usertel == "") {
     console.debug("请输入手机号");
@@ -96,6 +98,7 @@ doReset() {
     this.getList();
     this.navCtrl.push(DengluPage);
 }
+//注册
 getList(){
   let data=JSON.stringify({
     upwd:this.params.newpass,
@@ -105,12 +108,40 @@ getList(){
   this.api.postZhuce(data).then(data=>{
     console.dir(data);
   });
-  // this.api.api().then(data=>{
-  //   console.dir(data);
-  //    this.list=<any>data;
-  //   console.dir(this.list);
-  // });
+  this.storage.setItem('tel',this.params.usertel);
+  this.storage.setItem('pwd',this.params.sure_pwd);
+  console.log('电话是',this.params.usertel);
+  console.log('密码是',this.params.newpass);
+}
+bo;
+uid;
+usertel=this.storage.getItem('tel');
+newpass=this.storage.getItem('pwd');
+//登录
+getDl(){
+  //往后台传的数据
+      let data=JSON.stringify({
+        upwd:this.newpass,
+        utel:this.usertel   
+      });
   
+      this.api.postLogin(data).then(data=>{
+        console.dir(data);
+        if(data[0].uid){
+            console.log(data[0].uid)
+            console.dir(data);
+            
+            this.storage.setItem('uid',data[0].uid);
+            this.storage.setItem('pwd',data[0].upwd);
+            this.storage.setItem('tel',data[0].utel);
+
+            this.bo =Array.isArray(data)&& data.length==0;
+            console.log(this.bo);
+            if(this.bo!==true){
+              this.navCtrl.setRoot(TabsPage);
+            }
+        }              
+      });    
 }
 
 
@@ -139,15 +170,16 @@ getList(){
     }
   }
   dengluClick(){
-    this.navCtrl.push(TabsPage);
+    if(this.usertel!=''&&this.newpass!=''){
+      this.getDl();
+    }
   }
-  constructor(private api:ApiProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private api:ApiProvider,public navCtrl: NavController, public navParams: NavParams,private storage:StorageProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DengluPage');
-      // console.dir(this.list);
-    };
-  }
+  };
+}
 
 

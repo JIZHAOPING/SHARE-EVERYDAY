@@ -104,7 +104,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     StatusBar,
     SplashScreen,
     ApiProvider,
-    // StorageProvider,
+    StorageProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
     ImagePicker

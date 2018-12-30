@@ -5,6 +5,7 @@ import { SettingPage } from '../setting/setting';
 import { InformationPage } from '../information/information';
 import { AlertController } from 'ionic-angular';
 import { ApiProvider } from '../../provider/api';
+import { StorageProvider } from '../../provider/ls';
 // import { StorageProvider } from '../../provider/ls';
 /**
  * Generated class for the MinePage page.
@@ -107,7 +108,7 @@ export class MinePage {
     alert.present();
   }
   
-  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,) {
+  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,private storage:StorageProvider) {
     // this.items1 = [
     //   {title: '南方宝宝团的雪球。虽然看起来很大，但有如新作的棉花糖一样松软，如天使的怀抱一样温柔，主要成分是冰沙，打到人身上立刻散掉，不疼不痒，打起来常伴着欢声笑语，一片祥和',src:''},
     //   {title: '懵逼  一觉起来过年了？！ 周围一圈的都在说新年好 然后还有人说点鞭炮 然后懵逼的我 脑子一抽 拍案而起 特别大声 TMD过年了还不放假？！',src:''},
@@ -126,8 +127,8 @@ export class MinePage {
     ]
   }
 
-  id:1;
-  // id=this.storage.getItem('uid');
+  id=this.storage.getItem('uid');
+  //获取动态
   getList(){
     //获取list用于显示
     this.api.getMovement(this.id).then(data=>{
@@ -135,6 +136,17 @@ export class MinePage {
       this.items1=<any>data;
       //console.dir(this.list);
     });
+  }
+  
+  list:Array<user>=[];
+  getUser(){
+    //获取list用于显示
+    this.api.getMy(this.id).then(data=>{
+      //console.dir(data);
+      this.list=<any>data;
+      //console.dir(this.list);
+    });
+    this.getList();
   }
   // change(){
     
@@ -146,7 +158,7 @@ export class MinePage {
   // }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MinePage');
-    this.getList();
+    this.getUser();
   }
 
 }
