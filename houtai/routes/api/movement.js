@@ -28,9 +28,9 @@ router.get('/',(req,res,next)=>{
         console.log(err);
       }
       var mid = JSON.parse(JSON.stringify(result))[0].c;
-      // console.log(result);
+      console.log(result);
       obj.mid = mid;
-      // obj.uid = req.body.uid;
+      obj.uid = req.body.uid;
       // obj.mtype = req.body.mtype;
       obj.mcontent = req.body.mcontent;
       console.log(obj);

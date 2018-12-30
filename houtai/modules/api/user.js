@@ -59,9 +59,10 @@ User.prototype.getMovement=function(obj,cb){
 
 //获取用户的收藏
 User.prototype.getKeep = function(obj,cb){
-  const sql = 'select mid from keep where uid = ?';
+  const sql = 'select mcontent from movement,keep where movement.mid = keep.mid';
   db.query(sql,[obj.uid],(err,result)=>{
     if(err){
+      throw err;
       cb(true);
       return;
     }

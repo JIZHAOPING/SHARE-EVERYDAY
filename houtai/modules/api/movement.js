@@ -44,8 +44,8 @@ db.query(sql,(err,result)=>{
 // });
 // }
 Movement.prototype.insertItem =function(obj,cb){
-const sql = 'insert into movement(mcontent) values(?)';
-db.query(sql,[obj.mcontent],(err,result)=>{
+const sql = 'insert into movement(mid,mcontent,uid) values(?,?,?)';
+db.query(sql,[obj.mid,obj.mcontent,obj.uid],(err,result)=>{
   if(err){
     throw err;
     cb(true);

@@ -27,17 +27,13 @@
 
     <div [ngSwitch]="isActive">
       <div *ngSwitchCase="0">
-<<<<<<< HEAD
-          <h5>我的动态</h5>
-=======
->>>>>>> 49ed30d99cf91837676374d99ec84a63371d6fbf
           <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()">        
             {{item1.mcontent}}
           </div>       
       </div>
       <div *ngSwitchCase="1">
         <div class="me" *ngFor="let item2 of items2" (press)="press2()">        
-            {{item2.title}}<img src="{{item2.src}}" alt="">
+            {{item2.mcontent}}<img src="{{item2.src}}" alt="">
         </div>
       </div>
       <div *ngSwitchCase="2">

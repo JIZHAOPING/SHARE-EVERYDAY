@@ -94,7 +94,7 @@ router.get('/mykeep/:uid',(req,res,next)=>{
     if(err){
       res.statusCode = 500;
     } else {
-      user. 
+      
       res.json(JSON.parse(JSON.stringify(result)));
     }
   })

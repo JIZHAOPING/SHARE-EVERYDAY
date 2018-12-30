@@ -34,7 +34,7 @@ export class MinePage {
     this.isActive=i;
   }
   items1: any[] = [];
-  items2: { title: string;src:string }[];
+  items2: any[]=[];
   items3: { src: string;name:string }[];
   removeItem1(item){
     //console.log("here")
@@ -115,11 +115,11 @@ export class MinePage {
     //   {title: '今日12时26分进入24节气中的“大雪”；②古说，“大者盛也，至此而雪盛”。小雪腌菜，大雪腌肉，封河之时，冰上溜溜；③冬天进补，顿顿不漏，“晨起服热粥，晚餐宜节食”，适当多吃些牛羊肉；④这也是个充满诗意的节气，雾凇挂满枝桠，片片雪花飘落…新年不远了，你期待吗？ ​',src:''},
     //   {title: '你的坚强，会将一路坎坷踏成万马征途你的努力，会让所有的坚持变得有意义',src:''},
     // ];
-    this.items2=[
-      {title:'健康的生活方式是怎样的？',src:'assets/imgs/蔬菜.png'},
-      {title:'怎样养成良好的写作姿势？',src:'assets/imgs/坐姿.jpg'},
-      {title:'怎样让心情放松？',src:'assets/imgs/放松.png'},
-    ]
+    // this.items2=[
+    //   {title:'健康的生活方式是怎样的？',src:'assets/imgs/蔬菜.png'},
+    //   {title:'怎样养成良好的写作姿势？',src:'assets/imgs/坐姿.jpg'},
+    //   {title:'怎样让心情放松？',src:'assets/imgs/放松.png'},
+    // ]
     this.items3=[
       {src:'assets/imgs/touxiang-dongdong.png',name:'东东'},
       {src:'assets/imgs/touxiang-xiaoxiao.png',name:'小小'},
@@ -137,7 +137,13 @@ export class MinePage {
       //console.dir(this.list);
     });
   }
-  
+  //获取收藏
+  getK(){
+    this.api.getKeep(this.id).then(data=>{
+      console.log(data);
+      this.items2=<any>data;
+    })
+  }
   list:Array<user>=[];
   getUser(){
     //获取list用于显示
@@ -147,6 +153,7 @@ export class MinePage {
       //console.dir(this.list);
     });
     this.getList();
+    this.getK();
   }
   // change(){
     
