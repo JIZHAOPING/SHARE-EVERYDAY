@@ -21,6 +21,150 @@ Movement.prototype.selectMid = function(cb){
   });
 }
 
+Movement.prototype.selectMtype1 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='升学';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype2 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='艺能';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype3 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='技能';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype4 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='工作日常';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype5 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='工作烦恼';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype6 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='职场经验';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype7 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='亲情';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype8 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='爱情';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype9 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='友情';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype10 =function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='娱乐';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype11 =function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='健身';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
+Movement.prototype.selectMtype12 = function(cb){
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='旅行';"
+  db.query(sql,(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;                  
+    }
+    cb(false,result);     
+  });
+}
+
 Movement.prototype.getAll = function(cb){
 const sql = 'select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where movement.uid = users.uid';
 db.query(sql,(err,result)=>{
