@@ -47,7 +47,7 @@ User.prototype.insertItem=function(obj,cb){
 
 //获取用户的动态
 User.prototype.getMovement=function(obj,cb){
-  const sql = 'select mcontent from movement where uid = ?';
+  const sql = 'select mcontent,mimg from movement where uid = ?';
   db.query(sql,[obj.uid],(err,result)=>{
     if(err){
       cb(true);

@@ -22,7 +22,7 @@ Movement.prototype.selectMid = function(cb){
 }
 
 Movement.prototype.selectMtype1 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='升学';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='升学' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -34,7 +34,7 @@ Movement.prototype.selectMtype1 = function(cb){
 }
 
 Movement.prototype.selectMtype2 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='艺能';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='艺能' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -46,7 +46,7 @@ Movement.prototype.selectMtype2 = function(cb){
 }
 
 Movement.prototype.selectMtype3 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='技能';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='技能' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -58,7 +58,7 @@ Movement.prototype.selectMtype3 = function(cb){
 }
 
 Movement.prototype.selectMtype4 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='工作日常';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='工作日常' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -70,7 +70,7 @@ Movement.prototype.selectMtype4 = function(cb){
 }
 
 Movement.prototype.selectMtype5 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='工作烦恼';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='工作烦恼' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -82,7 +82,7 @@ Movement.prototype.selectMtype5 = function(cb){
 }
 
 Movement.prototype.selectMtype6 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='职场经验';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='职场经验' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -94,7 +94,7 @@ Movement.prototype.selectMtype6 = function(cb){
 }
 
 Movement.prototype.selectMtype7 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='亲情';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='亲情' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -106,7 +106,7 @@ Movement.prototype.selectMtype7 = function(cb){
 }
 
 Movement.prototype.selectMtype8 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='爱情';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='爱情' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -118,7 +118,7 @@ Movement.prototype.selectMtype8 = function(cb){
 }
 
 Movement.prototype.selectMtype9 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='友情';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='友情' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -130,7 +130,7 @@ Movement.prototype.selectMtype9 = function(cb){
 }
 
 Movement.prototype.selectMtype10 =function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='娱乐';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='娱乐' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -142,7 +142,7 @@ Movement.prototype.selectMtype10 =function(cb){
 }
 
 Movement.prototype.selectMtype11 =function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='健身';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='健身' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;
@@ -154,7 +154,7 @@ Movement.prototype.selectMtype11 =function(cb){
 }
 
 Movement.prototype.selectMtype12 = function(cb){
-  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='旅行';"
+  const sql = "select mid,mimg,mcontent,mdate,uname,uimg,movement.uid,users.uid from movement,users where mtype='旅行' and movement.uid=users.uid;"
   db.query(sql,(err,result)=>{
     if(err){
       throw err;

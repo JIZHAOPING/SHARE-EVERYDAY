@@ -34,7 +34,7 @@ export class WorkPage {
   getwork(){
     this.api.getwork1().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(var i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -44,7 +44,7 @@ export class WorkPage {
 
     this.api.getwork2().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(var i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -54,7 +54,7 @@ export class WorkPage {
 
       this.api.getwork3().then(data=>{
         console.dir(data);
-        for(var i=0;i<Array(data).length;i++)
+        for(var i=0;i<Object.keys(data).length;i++)
         {   
           var date = new Date(data[i].mdate);  
           data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());

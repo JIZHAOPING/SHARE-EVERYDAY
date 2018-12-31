@@ -33,7 +33,7 @@ export class XuexiPage {
   getxuexi(){
     this.api.getxuexi1().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(var i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -43,7 +43,7 @@ export class XuexiPage {
 
     this.api.getxuexi2().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(var i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -52,8 +52,8 @@ export class XuexiPage {
     })
 
     this.api.getxuexi3().then(data=>{
-      console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      console.dir(Object.keys(data).length);
+      for(var i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());

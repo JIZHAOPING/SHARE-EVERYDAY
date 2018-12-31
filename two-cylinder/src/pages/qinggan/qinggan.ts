@@ -35,7 +35,7 @@ export class QingganPage {
   getqinggan(){
     this.api.getqinggan1().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(let i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -45,7 +45,7 @@ export class QingganPage {
 
     this.api.getqinggan2().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(var i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -55,7 +55,7 @@ export class QingganPage {
 
     this.api.getqinggan3().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(var i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());

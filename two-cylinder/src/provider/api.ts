@@ -224,7 +224,7 @@ export class ApiProvider{
     //获取放松-娱乐动态
     public getyule1(){
       return new Promise((resolve, reject) => {
-        this.http.get(this.url+'/movement/yule3')
+        this.http.get(this.url+'/movement/yule1')
           .subscribe((res:Response)=>{
             resolve(res.json())
           },err=>{

@@ -3,7 +3,7 @@
     <ion-icon name="md-notifications" (click)="TongzhiClick()"></ion-icon><ion-icon name="md-settings" (click)="SettingClick()"></ion-icon>
     <div class="bg-white" style="background-image: url('../assets/imgs/mine-white.png');
       background-repeat: no-repeat; width: 100%;  background-size: 100%;" >
-      <img src="assets/imgs/touxiang.png" alt=""style="width:45%; padding-top:70px;padding-left:70px;" (click)="gerenxinxiClick()"> 
+      <img src="../../assets/imgs/{{list[0]?.uimg}}" alt=""style="width:45%; padding-top:70px;padding-left:70px;" (click)="gerenxinxiClick()"> 
       {{list[0]?.uname}}
       <ul>
         <li (click)="isClick(0)" [class.first]="isActive==0"><ion-icon name="md-aperture" style="color:blue"></ion-icon><br/>动态</li>
@@ -27,8 +27,9 @@
 
     <div [ngSwitch]="isActive">
       <div *ngSwitchCase="0">
-          <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()">        
+          <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()" style="font-size:20px;color:cornflowerblue;font-family:'Courier New', Courier, monospace;font-weight:bold">        
             {{item1.mcontent}}
+            <p></p><img src="../../assets/imgs/{{item1.mimg}}" alt="">
           </div>       
       </div>
       <div *ngSwitchCase="1">

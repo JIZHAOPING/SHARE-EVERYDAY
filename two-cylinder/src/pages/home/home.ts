@@ -48,7 +48,7 @@ export class HomePage {
     //获取list用于显示
     this.api.getLists().then(data=>{
       console.dir(data);
-      for(var i=0;i<Array(data).length;i++)
+      for(let i=0;i<Object.keys(data).length;i++)
       {   
         var date = new Date(data[i].mdate);  
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());

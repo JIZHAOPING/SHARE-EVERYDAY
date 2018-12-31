@@ -34,7 +34,7 @@ export class EntertainmentPage {
  getyule(){
   this.api.getyule1().then(data=>{
     console.dir(data);
-    for(var i=0;i<Array(data).length;i++)
+    for(var i=0;i<Object.keys(data).length;i++)
     {   
       var date = new Date(data[i].mdate);  
       data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -44,7 +44,7 @@ export class EntertainmentPage {
 
   this.api.getyule2().then(data=>{
     console.dir(data);
-    for(var i=0;i<Array(data).length;i++)
+    for(var i=0;i<Object.keys(data).length;i++)
     {   
       var date = new Date(data[i].mdate);  
       data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
@@ -53,8 +53,8 @@ export class EntertainmentPage {
   });
 
   this.api.getyule3().then(data=>{
-    console.dir(data);
-    for(var i=0;i<Array(data).length;i++)
+    console.dir(JSON.stringify(data));
+    for(var i=0;i<Object.keys(data).length;i++)
     {   
       var date = new Date(data[i].mdate);  
       data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
