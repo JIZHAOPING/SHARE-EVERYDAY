@@ -33,14 +33,14 @@
           <ion-row>
           <ion-item class="item_input">
               <ion-input type="number" [(ngModel)]="usertel" placeholder="手机号"></ion-input>
-              <button item-right ion-button round [disabled]="!verifyCode.disable" (click)="getCode()">{{verifyCode.verifyCodeTips}}</button>
+              <!-- <button item-right ion-button round [disabled]="!verifyCode.disable" (click)="getCode()">{{verifyCode.verifyCodeTips}}</button> -->
           </ion-item>
           </ion-row>
-          <ion-row>
+          <!-- <ion-row>
           <ion-item class="item_input">
               <ion-input type="number" [(ngModel)]="params.vcode" placeholder="验证码"></ion-input>
           </ion-item>
-          </ion-row>
+          </ion-row> -->
           <ion-row>
           <ion-item class="item_input">
               <ion-input type="password" [(ngModel)]="params.newpass" placeholder="密码"> </ion-input>

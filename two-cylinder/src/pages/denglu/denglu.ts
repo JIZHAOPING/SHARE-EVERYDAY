@@ -85,15 +85,10 @@ doReset() {
     return;
     }
 
-    if (this.params.vcode == "") {
-    console.debug("请输入验证码");
-    return;
-    }
-
     if (this.params.newpass == this.params.sure_pwd) {
 
     } else {
-    console.debug("两次密码输入不一致");
+    alert("两次密码输入不一致");
     }
     this.getList();
     this.navCtrl.push(DengluPage);
@@ -163,7 +158,6 @@ getDl(){
   zhuceClick(){
     var agree = document.getElementById("Agree")['checked'];
     if(agree){
-      alert("恭喜您！注册成功");
     }
     else{
     alert("请同意用户条款");

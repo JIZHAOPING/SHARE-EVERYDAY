@@ -1,46 +1,20 @@
   
-<ion-header style="background-image: url('../assets/imgs/mine-bg.png'); background-size: contain;background-repeat: no-repeat;height: 300px;">  
-    <ion-icon name="md-notifications" (click)="TongzhiClick()"></ion-icon><ion-icon name="md-settings" (click)="SettingClick()"></ion-icon>
+<ion-header style="background-image: url('../assets/imgs/mine-bg.png'); background-size: contain;background-repeat: no-repeat;height: 230px;">  
+    <!-- <ion-icon name="md-notifications" (click)="TongzhiClick()"></ion-icon> -->
+    <ion-icon name="md-settings" (click)="SettingClick()"></ion-icon>
     <div class="bg-white" style="background-image: url('../assets/imgs/mine-white.png');
-      background-repeat: no-repeat; width: 100%;  background-size: 100%;" >
-      <img src="../../assets/imgs/{{list[0]?.uimg}}" alt=""style="width:45%; padding-top:70px;padding-left:70px;" (click)="gerenxinxiClick()"> 
+     background-size: 100%; height:210px;font-weight: bolder;font-size: 18px" >
+      <img src="../../assets/imgs/images/头像/1.jpg" style="width:45%; padding-top:70px;padding-left:70px;" (click)="gerenxinxiClick()"> 
       {{list[0]?.uname}}
-      <ul>
-        <li (click)="isClick(0)" [class.first]="isActive==0"><ion-icon name="md-aperture" style="color:blue"></ion-icon><br/>动态</li>
-        <li (click)="isClick(1)" [class.first]="isActive==1"><ion-icon name="md-heart" style="color:red"></ion-icon><br/>收藏</li>
-        <li (click)="isClick(2)" [class.first]="isActive==2"><ion-icon name="md-eye" style="color:cadetblue"></ion-icon><br/>关注</li>
-      </ul>
-    <div [ngSwitch]="isActive">
-      <div *ngSwitchCase="0" style="margin-top:110px;">
-        <h4 style="color:blue;">我的动态</h4>
+      <p style="padding-top:-25px;padding-left:30px; color: deepskyblue;font-weight: lighter">我的动态</p>
       </div>
-      <div *ngSwitchCase="1" style="margin-top:110px">
-        <h4 style="color:red">我的收藏</h4>
-      </div>
-      <div *ngSwitchCase="2" style="margin-top:110px">
-        <h4 style="color:cadetblue">我的关注</h4>
-      </div>
-    </div>
-  </div>
 </ion-header>
 <ion-content style="background-color:#F3F4F9;">
-
-    <div [ngSwitch]="isActive">
-      <div *ngSwitchCase="0" (click)="xiangqingClick(item1.mid)">
+      <div (click)="xiangqingClick(item1.mid)">
           <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()" style="font-size:20px;color:cornflowerblue;font-family:'Courier New', Courier, monospace;font-weight:bold">        
             {{item1.mcontent}}
             <p></p><img src="../../assets/imgs/{{item1.mimg}}" alt="">
           </div>       
       </div>
-      <!-- <div *ngSwitchCase="1">
-        <div class="me" *ngFor="let item2 of items2" (press)="press2()">        
-            {{item2.mcontent}}<img src="{{item2.src}}" alt="">
-        </div>
-      </div>
-      <div *ngSwitchCase="2">
-        <div class="list" *ngFor="let item3 of items3 ;let id=index" style="margin-top:25px !important">
-            <div class="list"><img src="{{item3.src}}" alt="" style="width:15%"><span>{{item3.name}}</span><ion-icon name="md-heart" style="float:right; color: red;" (click)="change"></ion-icon></div>
-        </div>
-      </div> -->
-  </div>
+
 </ion-content>
