@@ -6,6 +6,7 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import { ApiProvider } from '../../provider/api';
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
+import { StorageProvider } from '../../provider/ls';
 /**
  * Generated class for the FabiaoPage page.
  *
@@ -20,8 +21,8 @@ import { AboutPage } from '../about/about';
 })
 export class FabiaoPage {
   text: any;
-  
-  
+  uid = this.storage.getItem('uid');
+  //获取相机
   opencamera(){
     const options: CameraOptions = {
       quality: 100,
@@ -38,6 +39,7 @@ export class FabiaoPage {
       console.log('相机获取失败');
      });
   }
+  //打开文件
   openfile(){
     const options: ImagePickerOptions = {
       maximumImagesCount: 6,
@@ -57,6 +59,7 @@ export class FabiaoPage {
     
     
   }
+  //点击发表
   fabiaoClick(){
     let alert = this.alertCtrl.create({
       title: '发表成功！！',
@@ -66,18 +69,19 @@ export class FabiaoPage {
     });
    
     alert.present();
-     this.getList();
     this.openModal();
   }
   img_li=[
     {src:'assets/imgs/加号.jpg'},
     
   ]
-  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,private camera: Camera,private imagePicker: ImagePicker) {
+  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,private storage:StorageProvider,private camera: Camera,private imagePicker: ImagePicker) {
   }
+
   getList(){
     let data=JSON.stringify({
-      acontent:this.text,
+      mcontent:this.text,
+      uid:this.uid
     });
     this.api.postArticle(data).then(data=>{
       console.dir(data);

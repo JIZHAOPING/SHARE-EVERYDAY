@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera,CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
+import { StorageProvider } from '../../provider/ls';
+import { ApiProvider } from '../../provider/api';
+
 /**
  * Generated class for the InformationPage page.
  *
@@ -9,6 +12,13 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
  * Ionic pages and navigation.
  */
 
+interface user{
+  uid:number;
+  uname:string;
+  uimage:string;
+  utel:string;
+  upwd:string;
+}
 @IonicPage()
 @Component({
   selector: 'page-information',
@@ -78,16 +88,24 @@ export class InformationPage {
     }, (err) => {
       console.log('获取图片失败');
     });
-    
-    
-  }
-  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private imagePicker: ImagePicker) {
   }
 
- 
+  items1: any[] = [];
 
+  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private imagePicker: ImagePicker,private storage:StorageProvider,private api:ApiProvider) {
+  }
+
+  id=this.storage.getItem('uid');
+  list:Array<user>=[];
+  getUser(){
+    this.api.getMy(this.id).then(data=>{
+      console.log(this.id);
+      this.list=<any>data;
+      console.log(this.list);
+    });
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad InformationPage');
+    this.getUser();
   }
-
 }

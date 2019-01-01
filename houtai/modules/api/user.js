@@ -10,9 +10,9 @@ db.connect();
 var User = function(){};
 
 //获取用户信息
-User.prototype.getAll=function(cb,result){
-  const sql="select * from users where uid = 1";
-  db.query(sql,function(err,result){
+User.prototype.getAll=function(obj,cb){
+  const sql="select * from users where uid = ?";
+  db.query(sql,[obj.uid],function(err,result){
     if(err){
       cb(true);
       return;
@@ -20,7 +20,18 @@ User.prototype.getAll=function(cb,result){
     cb(false,result);
   });
 }
-
+//获取用户
+User.prototype.getUser = function(obj,cb){
+  const sql = 'select * from users where utel = ? and upwd = ?';
+  db.query(sql,[obj.utel,obj.upwd],(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;
+    }
+    cb(false,result);
+  });
+}
 //插入用户
 User.prototype.insertItem=function(obj,cb){
   const sql="insert into users(utel,upwd) values(?,?)";
@@ -36,7 +47,7 @@ User.prototype.insertItem=function(obj,cb){
 
 //获取用户的动态
 User.prototype.getMovement=function(obj,cb){
-  const sql = 'select * from movement where uid = ?';
+  const sql = 'select mcontent,mimg from movement where uid = ?';
   db.query(sql,[obj.uid],(err,result)=>{
     if(err){
       cb(true);
@@ -48,9 +59,10 @@ User.prototype.getMovement=function(obj,cb){
 
 //获取用户的收藏
 User.prototype.getKeep = function(obj,cb){
-  const sql = 'select * from keep where uid = ?';
+  const sql = 'select mcontent from movement,keep where movement.mid = keep.mid';
   db.query(sql,[obj.uid],(err,result)=>{
     if(err){
+      throw err;
       cb(true);
       return;
     }
