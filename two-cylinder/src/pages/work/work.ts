@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ApiProvider } from '../../provider/api';
+import { XiangqingPage } from '../xiangqing/xiangqing';
+
 
 
 /**
@@ -25,6 +27,11 @@ export class WorkPage {
   }
   returnHome(){
     this.navCtrl.push(HomePage);
+  }
+  xiangqingClick(index){
+    this.navCtrl.push(XiangqingPage,{
+      id : index
+    });
   }
 
   work1_li:any[]=[];

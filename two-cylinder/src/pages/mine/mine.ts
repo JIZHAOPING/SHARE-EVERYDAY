@@ -6,7 +6,7 @@ import { InformationPage } from '../information/information';
 import { AlertController } from 'ionic-angular';
 import { ApiProvider } from '../../provider/api';
 import { StorageProvider } from '../../provider/ls';
-// import { StorageProvider } from '../../provider/ls';
+import { XiangqingPage } from '../xiangqing/xiangqing';
 /**
  * Generated class for the MinePage page.
  *
@@ -60,6 +60,11 @@ export class MinePage {
   }
   gerenxinxiClick(){
     this.navCtrl.push(InformationPage);
+  }
+  xiangqingClick(index){
+    this.navCtrl.push(XiangqingPage,{
+      id : index
+    });
   }
   press1(){
     let alert = this.alertCtrl.create({

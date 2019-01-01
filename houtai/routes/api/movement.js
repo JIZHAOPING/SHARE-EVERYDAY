@@ -20,6 +20,22 @@ router.get('/',(req,res,next)=>{
     });
   });
 
+  router.get('/xixi/:mid',(req,res,next)=>{
+    movement.getAll((err,result)=>{
+      if(err){
+        console.log(err);
+        res.statusCode = 500;
+      }
+      else{
+        //console.log(result);
+        var obj = JSON.parse(JSON.stringify(result));
+        //console.log(obj);
+        res.json(obj);
+        console.log(obj);
+      }
+    });
+  });
+
   router.get('/xuexi1',(req,res,next)=>{
     movement.selectMtype1((err,result)=>{
       if(err){

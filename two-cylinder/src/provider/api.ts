@@ -25,6 +25,18 @@ export class ApiProvider{
       });
     }
 
+    public getList_next(id){
+      return new Promise((resolve, reject) => {
+        console.log(id);
+        this.http.get(this.url+'/movement/xixi/'+id)
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
     //实例get 所有动态请求
     public getMovements(){
       return new Promise((resolve, reject) => {

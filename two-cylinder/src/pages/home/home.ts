@@ -28,8 +28,10 @@ export class HomePage {
   searchClick(){
     this.navCtrl.push(SearchPage);
   }
-  xiangqingClick(){
-    this.navCtrl.push(XiangqingPage);
+  xiangqingClick(index){
+    this.navCtrl.push(XiangqingPage,{
+      id : index
+    });
   }
   guanzhuChange(id){
     if(document.getElementById("guanzhu").innerHTML =="取消关注"){

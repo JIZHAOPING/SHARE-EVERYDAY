@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ApiProvider } from '../../provider/api';
+import { XiangqingPage } from '../xiangqing/xiangqing';
 
 /**
  * Generated class for the XuexiPage page.
@@ -27,6 +28,11 @@ export class XuexiPage {
     this.navCtrl.push(HomePage);
   }
 
+  xiangqingClick(index){
+    this.navCtrl.push(XiangqingPage,{
+      id : index
+    });
+  }
   xuexi1_li:any[]=[];
   xuexi2_li:any[]=[];
   xuexi3_li:any[]=[];

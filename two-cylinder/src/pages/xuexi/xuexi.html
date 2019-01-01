@@ -11,17 +11,17 @@
     <div *ngSwitchCase="0">
         <ul>
             <li *ngFor="let xuexi1 of xuexi1_li;let id = index">
-                <div style="overflow: hidden;" >
+                <div style="overflow: hidden;" (click)="xiangqingClick(xuexi1.mid)">
                     <div class="fabiao" style="width:20%">
                       <img src="../../assets/imgs/{{xuexi1.uimg}}" alt="">
                     </div>
                     <div class="fabiao"  style="width:55%">
                       <h6>{{xuexi1.uname}}&nbsp;&nbsp;<small style="color:grey;">{{xuexi1.mdate}}</small></h6>
                       <p>{{xuexi1.mcontent}}</p>
-                      <img src="../../assets/imgs/{{xuexi1.mimg}}" alt="">
+                      <img src="../../assets/imgs/{{xuexi1.mimg}}" style="width:100%;height:120px">
                     </div>
                     <div class="fabiao"  style="width:25%">
-                      <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button>                         
+                      <!-- <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button>                          -->
                     </div>
                   </div>
                   <hr/>
@@ -34,17 +34,17 @@
     <div *ngSwitchCase="1">
         <ul>
             <li *ngFor="let xuexi2 of xuexi2_li;let id = index">
-                <div style="overflow: hidden;" >
+                <div style="overflow: hidden;" (click)="xiangqingClick(xuexi2.mid)">
                     <div class="fabiao" style="width:20%">
                       <img src="../../assets/imgs/{{xuexi2.uimg}}" alt="">
                     </div>
                     <div class="fabiao"  style="width:55%">
                       <h6>{{xuexi2.uname}}&nbsp;&nbsp;<small id='only' style="color:grey;">{{xuexi2.mdate}}</small></h6>
                       <p>{{xuexi2.mcontent}}</p>
-                      <img src="../../assets/imgs/{{xuexi2.mimg}}" alt="">
+                      <img src="../../assets/imgs/{{xuexi2.mimg}}" style="width:100%;height:120px">
                     </div>
                     <div class="fabiao"  style="width:25%">
-                      <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button> 
+                      <!-- <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button>  -->
                     </div>
                   </div>
                   <hr/>
@@ -54,17 +54,17 @@
     <div *ngSwitchCase="2">
         <ul>
             <li *ngFor="let xuexi3 of xuexi3_li;let id = index">
-                <div style="overflow: hidden;" >
+                <div style="overflow: hidden;" (click)="xiangqingClick(xuexi3.mid)">
                     <div class="fabiao" style="width:20%">
                       <img src="../../assets/imgs/{{xuexi3.uimg}}" alt="">
                     </div>
                     <div class="fabiao"  style="width:55%">
                       <h6>{{xuexi3.uname}}&nbsp;&nbsp;<small style="color:grey;">{{xuexi3.mdate}}</small></h6>
                       <p>{{xuexi3.mcontent}}</p>
-                      <img src="../../assets/imgs/{{xuexi3.mimg}}" alt="">
+                      <img src="../../assets/imgs/{{xuexi3.mimg}}" style="width:100%;height:120px">
                     </div>
                     <div class="fabiao"  style="width:25%">
-                      <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button>                       
+                      <!-- <button ion-button type="button" id="guanzhu" (click)="guanzhuChange(id)" style="height:30px;background-color:lightcoral !important;">+关注</button>                        -->
                     </div>
                   </div>
                   <hr/>

@@ -26,13 +26,13 @@
 <ion-content style="background-color:#F3F4F9;">
 
     <div [ngSwitch]="isActive">
-      <div *ngSwitchCase="0">
+      <div *ngSwitchCase="0" (click)="xiangqingClick(item1.mid)">
           <div class="me" *ngFor="let item1 of items1;let id1 = index" (press)="press1()" style="font-size:20px;color:cornflowerblue;font-family:'Courier New', Courier, monospace;font-weight:bold">        
             {{item1.mcontent}}
             <p></p><img src="../../assets/imgs/{{item1.mimg}}" alt="">
           </div>       
       </div>
-      <div *ngSwitchCase="1">
+      <!-- <div *ngSwitchCase="1">
         <div class="me" *ngFor="let item2 of items2" (press)="press2()">        
             {{item2.mcontent}}<img src="{{item2.src}}" alt="">
         </div>
@@ -41,6 +41,6 @@
         <div class="list" *ngFor="let item3 of items3 ;let id=index" style="margin-top:25px !important">
             <div class="list"><img src="{{item3.src}}" alt="" style="width:15%"><span>{{item3.name}}</span><ion-icon name="md-heart" style="float:right; color: red;" (click)="change"></ion-icon></div>
         </div>
-      </div>
+      </div> -->
   </div>
 </ion-content>
