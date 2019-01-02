@@ -239,7 +239,7 @@ router.get('/',(req,res,next)=>{
       console.log(result);
       obj.mid = mid;
       obj.uid = req.body.uid;
-      // obj.mtype = req.body.mtype;
+      obj.mtype = req.body.mtype;
       obj.mcontent = req.body.mcontent;
       console.log(obj);
       movement.insertItem(obj,(err,result)=>{

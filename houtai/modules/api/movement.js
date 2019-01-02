@@ -188,8 +188,8 @@ db.query(sql,(err,result)=>{
 // });
 // }
 Movement.prototype.insertItem =function(obj,cb){
-const sql = 'insert into movement(mid,mcontent,uid) values(?,?,?)';
-db.query(sql,[obj.mid,obj.mcontent,obj.uid],(err,result)=>{
+const sql = 'insert into movement(mid,mcontent,uid,mtype) values(?,?,?,?)';
+db.query(sql,[obj.mid,obj.mcontent,obj.uid,obj.mtype],(err,result)=>{
   if(err){
     throw err;
     cb(true);
