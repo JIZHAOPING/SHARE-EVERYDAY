@@ -103,7 +103,7 @@ export class ApiProvider{
 
     public postname(data){
       return new Promise((resolve, reject) => {
-        this.http.post(this.url+'/user/name',data,{headers:this.headers})
+        this.http.post(this.url+'/user/m/name',data,{headers:this.headers})
           .subscribe((res:Response)=>{
             console.log(res);
           },err=>{

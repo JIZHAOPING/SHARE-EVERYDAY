@@ -60,7 +60,7 @@ router.post('/reg',(req,res,next)=>{
   });
 });
 
-router.post('/name',(req,res,next)=>{
+router.post('/m/name',(req,res,next)=>{
   var obj = req.body;
   user.update(obj,(err,result)=>{
     if(err){
