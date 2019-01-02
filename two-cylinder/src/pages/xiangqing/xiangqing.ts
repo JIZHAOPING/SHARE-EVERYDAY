@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../provider/api';
+import { StorageProvider } from '../../provider/ls';
 
 
 /**
@@ -31,10 +32,13 @@ interface Movement {
 
 export class XiangqingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,private storage:StorageProvider) {
     this.id=navParams.get('id');
+    this.upid = navParams.get('upid');
+    console.log(this.id,this.upid);
     console.log(this.id);
     this.getList();
+    this.getcomment();
   }
 
   ionViewDidLoad() {
@@ -48,7 +52,12 @@ export class XiangqingPage {
   d;
   e;
   f;
+  value="";
+  length = 0;
+  upid;
+  uid = this.storage.getItem('uid');
   list:Array<Movement>=[];
+  commont:any[]=[];
   getList(){
     this.api.getList_next(this.id).then(data=>{
       console.log(this.id);
@@ -64,4 +73,32 @@ export class XiangqingPage {
       this.f = this.list[this.id-1].mimg;
     });
   }
+  postList() {
+    let data = JSON.stringify({
+      ccontent: this.value,
+      mid: this.id,
+      uid: this.uid,
+    });
+    this.api.postPinglun(data).then(data => {
+      console.log(data);
+      console.log(this);
+      // this.getarticlecomment();
+    });
+  }
+  
+  getcomment(){
+    //获取list用于显示
+    this.api.getComment(this.id).then(data=>{
+      console.log(this.id);
+      console.dir(data);
+      this.commont=<any>data;
+    });
+  }
+  comment() {
+    this.postList();
+    this.value = "";
+    this.length = 0;
+    this.getcomment();
+  }
+  
 }

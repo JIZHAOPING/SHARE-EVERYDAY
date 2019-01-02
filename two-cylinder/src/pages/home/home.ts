@@ -30,8 +30,10 @@ export class HomePage {
   }
   xiangqingClick(index){
     this.navCtrl.push(XiangqingPage,{
-      id : index
+      id : index,
+      upid:this.home_li[index-1].uid,
     });
+    
   }
   guanzhuChange(id){
     if(document.getElementById("guanzhu").innerHTML =="取消关注"){

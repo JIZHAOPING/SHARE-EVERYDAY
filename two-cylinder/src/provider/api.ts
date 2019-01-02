@@ -63,10 +63,10 @@ export class ApiProvider{
         });
       });
     }
-    //关注用户
-    public postAtt(id,data){
+    //评论用户
+    public postPinglun(data){
       return new Promise((resolve, reject) => {
-        this.http.post(this.url+'/user/myattention'+id,data,{headers:this.headers})
+        this.http.post(this.url+'/comment',data,{headers:this.headers})
           .subscribe((res:Response)=>{
             console.log(res);
           },err=>{
@@ -75,6 +75,19 @@ export class ApiProvider{
           });
       });
     }
+    //获取评论
+    public getComment(id){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url+'/comment/'+id)
+          .subscribe((res:Response)=>{
+            resolve(res.json())
+          },err=>{
+            console.dir(err)
+            reject()
+        });
+      });
+    }
+
     //get用户登录
     public postLogin(data){
       return new Promise((resolve, reject) => {
