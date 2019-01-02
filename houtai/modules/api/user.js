@@ -56,11 +56,22 @@ User.prototype.getMovement=function(obj,cb){
     cb(false,result);
   });
 }
-
 //获取用户的收藏
 User.prototype.getKeep = function(obj,cb){
   const sql = 'select mcontent from movement,keep where movement.mid = keep.mid';
   db.query(sql,[obj.uid],(err,result)=>{
+    if(err){
+      throw err;
+      cb(true);
+      return;
+    }
+    cb(false,result);
+  });
+}
+
+User.prototype.update = function(obj,cb){
+  const sql = 'update users set uname=? where uid=?';
+  db.query(sql,[obj.name,obj.uid],(err,result)=>{
     if(err){
       throw err;
       cb(true);

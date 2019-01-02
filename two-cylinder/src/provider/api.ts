@@ -88,6 +88,17 @@ export class ApiProvider{
       });
     }
 
+    public postname(data){
+      return new Promise((resolve, reject) => {
+        this.http.post(this.url+'/user/name',data,{headers:this.headers})
+          .subscribe((res:Response)=>{
+            console.log(res);
+          },err=>{
+            console.dir(err)
+            reject()
+          });
+      });
+    }
     //实例POST注册
     public postZhuce(data){
       return new Promise((resolve, reject) => {

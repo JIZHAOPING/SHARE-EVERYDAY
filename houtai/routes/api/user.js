@@ -60,6 +60,18 @@ router.post('/reg',(req,res,next)=>{
   });
 });
 
+router.post('/name',(req,res,next)=>{
+  var obj = req.body;
+  user.update(obj,(err,result)=>{
+    if(err){
+      console.log(err);
+      res.statusCode = 500;
+    }
+    var json = JSON.parse(JSON.stringify(result));
+    res.json(json);
+  })
+});
+
 //登陆接口
 router.post('/login',(req,res,next)=>{
   var obj = req.body;

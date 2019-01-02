@@ -56,6 +56,7 @@ export class HomePage {
         data[i].mdate=date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +(date.getDate());
       }
       this.home_li=<any>data;
+      console.log(this.home_li);
       // console.log(this.home_li.mimg);
       //console.dir(this.list);
     });

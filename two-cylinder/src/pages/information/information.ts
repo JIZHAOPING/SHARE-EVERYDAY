@@ -4,6 +4,8 @@ import { Camera,CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import { StorageProvider } from '../../provider/ls';
 import { ApiProvider } from '../../provider/api';
+import { SearchPage } from '../search/search';
+
 
 /**
  * Generated class for the InformationPage page.
@@ -25,7 +27,9 @@ interface user{
   templateUrl: 'information.html',
 })
 export class InformationPage {
-  
+  xiugai(){
+    this.navCtrl.push(SearchPage);
+  }
   touxiangChange(){
     let alert = this.alertCtrl.create({
       title: '',
@@ -94,7 +98,7 @@ export class InformationPage {
 
   constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private imagePicker: ImagePicker,private storage:StorageProvider,private api:ApiProvider) {
   }
-
+  
   id=this.storage.getItem('uid');
   list:Array<user>=[];
   getUser(){

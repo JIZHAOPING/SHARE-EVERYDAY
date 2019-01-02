@@ -13,14 +13,14 @@
 </ion-header> -->
 
 
-<ion-content padding style="background-color: #f3f4f9;">
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let item of items" style="border-radius:40px;">
-      {{ item }}
-    </ion-item>
-  </ion-list>
+<ion-header>
+  <ion-navbar>
+    <h4 style="float: left;">更改名字</h4>
+    <button ion-button style="float:right" (click)="save()">保存</button>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <br>
+    <ion-input type="text" placeholder="{{list[0]?.uname}}" [(ngModel)]="params.sure_name" id="only"></ion-input>
+    <hr>
 </ion-content>
-<ion-footer style="text-align:center;" (click)="closeClick()">
-    <ion-icon name="md-close-circle" ></ion-icon>
-</ion-footer>
