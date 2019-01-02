@@ -25,6 +25,7 @@ var login = require('./routes/login');
 //引入api路由
 var apiuser=require('./routes/api/user');
 var apimovement=require('./routes/api/movement');
+var apicomment=require('./routes/api/comment');
 
 
 var app = express();
@@ -78,6 +79,7 @@ app.use('/modify',modify);
 //api接口
 app.use('/api/user',apiuser);
 app.use('/api/movement',apimovement);
+app.use('/api/comment',apicomment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res,next) {

@@ -23,9 +23,29 @@
         <img src="../../assets/imgs/{{f}}" style="width:80%;height:130px">
       </div>
   <br>
+  <div class="bottom">
+    <div class="pl"><ion-icon name="md-chatboxes"></ion-icon>所有评论</div>
+      <ul class="tiezi">
+          <li *ngFor='let item1 of commont;let idx=index' class="one">
+            <div>
+                <ul class="pinlun">
+                  <li class="img"><img  src="{{'http://192.168.80.144:8080/user/'+item1?.uimage}}"></li>
+                  <li class="name">{{item1?.uname}}</li>
+                  {{item1?.ccontent}}
+            </ul>
+            </div>
+          </li>
+      </ul>
+  </div>
+  <div class="comment">
+    <h6 class="p1" style="color:green;"><ion-icon name="md-chatboxes"></ion-icon>添加评论</h6>
+    <textarea  maxlength="20" placeholder="说点什么吧" [(ngModel)]="value"> </textarea>
+    <span class="len"> {{length}}<span>/20</span></span>
+    <button (click)="comment()">发送</button>
+  </div>
   <ul>
     <!-- <li style="color:purple;"><ion-icon name="md-text" ></ion-icon> 私聊</li> -->
-    <li style="color:green;"><ion-icon name="md-chatboxes"></ion-icon> 评论</li>
+    <!-- <li  (click)="pinglun()"><ion-icon name="md-chatboxes"></ion-icon> 评论</li> -->
     <!-- <li style="color:red;"><ion-icon name="md-rose"></ion-icon> 喜欢</li> -->
   </ul>
   <!-- <ion-fab top right >
