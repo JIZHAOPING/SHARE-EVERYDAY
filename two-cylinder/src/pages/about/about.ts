@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,ViewChild} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FabiaoPage } from '../fabiao/fabiao';
 
@@ -7,15 +7,16 @@ import { FabiaoPage } from '../fabiao/fabiao';
   templateUrl: 'about.html'
 })
 export class AboutPage {
-
+  @ViewChild('myMap') myMap ;
 fabiao(){
-  this.navCtrl.push(FabiaoPage);
+  this.navCtrl.push(FabiaoPage,{
+    text:this.myMap.nativeElement.innerHTML,
+  });
 }
 close(){
   this.navCtrl.pop();
 }
   constructor(public navCtrl: NavController) {
-
   }
 
 }

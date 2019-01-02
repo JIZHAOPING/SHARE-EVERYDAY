@@ -76,12 +76,14 @@ export class FabiaoPage {
     
   ]
   constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,private storage:StorageProvider,private camera: Camera,private imagePicker: ImagePicker) {
+    this.tx=navParams.get('text');
   }
-
+  tx;
   getList(){
     let data=JSON.stringify({
       mcontent:this.text,
-      uid:this.uid
+      uid:this.uid,
+      mtype:this.tx
     });
     this.api.postArticle(data).then(data=>{
       console.dir(data);
