@@ -4,7 +4,6 @@ import { Camera,CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 
 import { ApiProvider } from '../../provider/api';
-import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { StorageProvider } from '../../provider/ls';
 /**
